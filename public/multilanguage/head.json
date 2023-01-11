@@ -1,0 +1,19 @@
+{
+    "head": [
+        {
+            "locale": "de-CH",
+            "title": "Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+    ]
+}

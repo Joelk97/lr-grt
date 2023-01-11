@@ -1,0 +1,28 @@
+{
+    "headerComponents": [
+        {
+            "locale": "de-CH",
+            "assotiation": "VEREIN",
+            "media": "MEDIEN",
+            "information": "INFORMATIONEN",
+            "contact": "KONTAKT",
+            "events": "EVENTS"
+        },
+        {
+            "locale": "it-CH",
+            "assotiation": "ASSOCIAZIONE",
+            "media": "MEDIA",
+            "information": "INFORMAZIONI",
+            "contact": "CONTATTO",
+            "events": "EVENTI"
+        },
+        {
+            "locale": "fr-CH",
+            "assotiation": "ASSOCIATION",
+            "media": "MÉDIAS",
+            "information": "INFORMATIONS",
+            "contact": "CONTACT",
+            "events": "ÉVÉNEMENTS"
+        }
+    ]
+}
