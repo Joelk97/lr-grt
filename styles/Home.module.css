@@ -13,3 +13,14 @@
   top: 100px;
   z-index: -10;
 }
+
+@media screen and (max-width: 910px) {
+  .backGroundImgIntro {
+    aspect-ratio: 1280/1000;
+  }
+}
+@media screen and (max-width: 615px) {
+  .backGroundImgIntro {
+    aspect-ratio: 1280/1200;
+  }
+}

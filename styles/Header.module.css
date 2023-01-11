@@ -40,6 +40,7 @@
 }
 .primaryNav li:hover {
   cursor: pointer;
+  color: #87bb3f;
 }
 .secondaryNav {
   padding: 0;
@@ -68,6 +69,9 @@
 }
 .languages li {
   margin-right: 1rem;
+}
+.languages li:hover {
+  color: #87bb3f;
 }
 .selectedLang {
   color: #87bb3f;

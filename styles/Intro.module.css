@@ -62,3 +62,42 @@
 .button:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 910px) {
+  .title {
+    font-size: 34px;
+    line-height: 46px;
+  }
+  .slogans {
+    font-size: 18px;
+  }
+  .button {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .container {
+    aspect-ratio: 1280/1000;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .title {
+    font-size: 28px;
+    line-height: 42px;
+  }
+  .slogans {
+    font-size: 16px;
+  }
+  .button {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .container {
+    aspect-ratio: 1280/1200;
+    grid-template-columns: 1fr 9fr 1fr;
+  }
+  .contentIntro {
+    margin-left: 0;
+    grid-column: 2/3;
+  }
+}
