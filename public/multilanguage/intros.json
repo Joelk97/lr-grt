@@ -1,0 +1,25 @@
+{
+    "introHome": [
+        {
+            "locale": "de-CH",
+            "title": "Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren (VSLvGRT)",
+            "slogan1": "Wir setzen uns ein zum Schut von Wohn- und Lebensraum vor Grossraubtiere Wolf, Bär und Luchs.",
+            "slogan2": "Werde Teil des Geschehens!",
+            "button": "Mache mit!"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Associazione svizzera per la protezione del territorio dai grandi predatori (APTdaiGP)",
+            "slogan1": "Ci impegniamo per la protezione dello spazio vitale e l'habitat dai grandi predatori come lupi, orsi e linci.",
+            "slogan2": "Diventa parte dell'azione",
+            "button": "Partecipa!"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Association Suisse pour la protection des territoires contre les grands prédateurs (ASPTcontreGP)",
+            "slogan1": "Nous nous engageons pour un habitat et un espace de vie sans grands prédateurs tels que le loup, l'ours et le lynx.",
+            "slogan2": "Participe à l'action",
+            "button": "Participe!"
+        }
+    ]
+}
