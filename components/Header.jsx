@@ -14,12 +14,12 @@ const Header = () => {
           return (
             <div key={i} className={styles.container}>
               <Image src={logoWhite} />
-              <ul className={styles.primaryNav}>
+              <ul className={`${styles.primaryNav} ${styles.navElements}`}>
                 <li>{component.assotiation}</li>
                 <li>{component.media}</li>
                 <li>{component.information}</li>
               </ul>
-              <ul className={styles.secondaryNav}>
+              <ul className={`${styles.secondaryNav} ${styles.navElements}`}>
                 <li>{component.contact}</li>
                 <li>{component.events}</li>
               </ul>
