@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
@@ -122,7 +122,39 @@ export default function Home() {
             layout="fill"
             objectFit="cover"
           />
-          <div className={`${styles.takePartContent}`}>Ciao</div>
+
+          {homePage.titles
+            .filter((l) => l.locale === locale)
+            .map((e, i) => {
+              return (
+                <div key={i} className={`${styles.takePartContent}`}>
+                  <div
+                    className={`${styles.cardsTakePart} ${styles.mitgliedWerden}`}
+                  >
+                    <h1>{e.becomeAss}</h1>
+                    <p>
+                      Irure tempor sunt culpa laboris. Aliqua ullamco excepteur
+                      nisi aliqua minim sint non ipsum Lorem ex occaecat. Id
+                      nostrud ea veniam in nostrud ullamco tempor pariatur sunt
+                      exercitation commodo eu aliquip. ijqej iregj rgiwjreg
+                      qergjqöoierjg erguj qrogh
+                    </p>
+                    <h2
+                      className={`${styles.greenButton} ${styles.cantSectButton}`}
+                    >
+                      {e.cantSections}
+                    </h2>
+                  </div>
+                  <div
+                    className={`${styles.cardsTakePart} ${styles.Kontaktformular}`}
+                  >
+                    <h1>{e.contactForm}</h1>
+                    <p>Text zum Kontaktformular</p>
+                    <div className={styles.contactForm}></div>
+                  </div>
+                </div>
+              );
+            })}
         </section>
       </main>
     </>

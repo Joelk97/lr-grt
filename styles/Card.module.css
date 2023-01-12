@@ -1,6 +1,7 @@
 .card {
   width: 300px;
   height: 320px;
+  z-index: -1;
 }
 .text {
   background-color: rgba(255, 253, 250, 0.8);

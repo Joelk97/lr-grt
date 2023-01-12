@@ -3,17 +3,26 @@
         {
             "locale": "de-CH",
             "actuality": "Aktualität",
-            "media": "Medienmitteilungen"
+            "media": "Medienmitteilungen",
+            "becomeAss": "Mitglied werden",
+            "contactForm": "Kontaktformular",
+            "cantSections": "Kantonale Sektionen"
         },
         {
             "locale": "fr-CH",
             "actuality": "Actualité",
-            "media": "Communiqués de presse"
+            "media": "Communiqués de presse",
+            "becomeAss": "Devenir membre",
+            "contactForm": "Formulaire de contact",
+            "cantSections": "Sections cantonales"
         },
         {
             "locale": "it-CH",
             "actuality": "Attualità",
-            "media": "Comunicati stampa"
+            "media": "Comunicati stampa",
+            "becomeAss": "Diventa membro",
+            "contactForm": "Formulario di contatto",
+            "cantSections": "Sezioni cantonali"
         }
     ],
     "buttons": [

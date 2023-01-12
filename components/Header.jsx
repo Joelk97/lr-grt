@@ -2,7 +2,7 @@ import styles from "../styles/Header.module.css";
 import headerComp from "../public/multilanguage/header.json";
 import { useRouter } from "next/router";
 import logoWhite from "../public/img/logoGreen.svg";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 
 const Header = () => {

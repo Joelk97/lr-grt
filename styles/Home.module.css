@@ -64,17 +64,49 @@
 }
 .containerTakePart {
   position: relative;
-  z-index: -10;
+
   width: 100%;
   height: 100%;
 }
 .takePartBkgImg {
-  z-index: -10;
+  z-index: -2;
 }
 .takePartContent {
   width: 100%;
   height: 100%;
-  z-index: +1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10vw;
+}
+.cardsTakePart {
+  width: 300px;
+  height: fit-content;
+  min-height: 100px;
+  background-color: rgba(255, 253, 250, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: -1;
+}
+.cardsTakePart h1 {
+  font-weight: 5600;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+.cardsTakePart p {
+  width: 80%;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 18px;
+}
+.contactForm {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 @media screen and (max-width: 1600px) {
   .cards {

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "../styles/Card.module.css";
 
 const Card = (props) => {
@@ -7,13 +7,7 @@ const Card = (props) => {
   return (
     <div className={styles.card}>
       <div className={styles.image}>
-        <Image
-          alt={props.alt}
-          src={props.source}
-          width={300}
-          height={200}
-          objectFit="contain"
-        />
+        <Image alt={props.alt} src={props.source} width={300} height={200} />
       </div>
       <div className={styles.text}>
         <h1>{props.title}</h1>
