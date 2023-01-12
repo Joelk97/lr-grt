@@ -20,8 +20,8 @@ const Header = () => {
                 </Link>
               </div>
               <ul className={`${styles.primaryNav} ${styles.navElements}`}>
-                <li>{component.assotiation}</li>
                 <li>{component.media}</li>
+                <li>{component.assotiation}</li>
                 <li>{component.information}</li>
               </ul>
               <ul className={`${styles.secondaryNav} ${styles.navElements}`}>

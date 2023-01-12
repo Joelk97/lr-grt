@@ -13,14 +13,93 @@
   top: 100px;
   z-index: -10;
 }
+.sectionActuality {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sectionMedienMitteilungen {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.cards {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 8vw;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+.titlesSections {
+  margin: 4rem 0;
+  font-size: 36px;
+  text-decoration: underline;
+}
+.greenButton {
+  width: fit-content;
+  margin: 0;
+  padding: 5px 15px;
+  background-color: #87bb3f;
+  border-radius: 2rem;
+  color: #fffdfa;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+.greenButton:hover {
+  cursor: pointer;
+}
+
+.sectionTakePart {
+  position: relative;
+  width: 100%;
+  height: undefined;
+  aspect-ratio: 1280/760;
+}
+.containerTakePart {
+  position: relative;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+}
+.takePartBkgImg {
+  z-index: -10;
+}
+.takePartContent {
+  width: 100%;
+  height: 100%;
+  z-index: +1;
+}
+@media screen and (max-width: 1600px) {
+  .cards {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+  }
+}
 
 @media screen and (max-width: 910px) {
   .backGroundImgIntro {
     aspect-ratio: 1280/1000;
   }
+  .cards {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 615px) {
   .backGroundImgIntro {
     aspect-ratio: 1280/1200;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
   }
 }

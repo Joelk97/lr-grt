@@ -1,0 +1,33 @@
+{
+    "titles": [
+        {
+            "locale": "de-CH",
+            "actuality": "Aktualität",
+            "media": "Medienmitteilungen"
+        },
+        {
+            "locale": "fr-CH",
+            "actuality": "Actualité",
+            "media": "Communiqués de presse"
+        },
+        {
+            "locale": "it-CH",
+            "actuality": "Attualità",
+            "media": "Comunicati stampa"
+        }
+    ],
+    "buttons": [
+        {
+            "locale": "de-CH",
+            "moreMedia": "Weitere Medienmitteilungen"
+        },
+        {
+            "locale": "fr-CH",
+            "moreMedia": "Autres communiqueés de presse"
+        },
+        {
+            "locale": "it-CH",
+            "moreMedia": "Altri comunicati stampa"
+        }
+    ]
+}

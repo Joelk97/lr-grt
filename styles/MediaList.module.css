@@ -1,0 +1,40 @@
+.container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: ceneter;
+}
+.mediaArticle {
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
+}
+.articleText {
+  display: flex;
+  flex-direction: column;
+}
+.articleText h2 {
+  margin: 0;
+}
+.articleText h2:hover {
+  cursor: pointer;
+}
+.data {
+  margin: 0;
+}
+
+@media screen and (max-width: 1600px) {
+  .container {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 910px) {
+  .container {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 615px) {
+  .container {
+    width: 80%;
+  }
+}
