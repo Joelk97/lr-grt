@@ -12,7 +12,7 @@ const Intro = (props) => {
         <h2 className={`${styles.slogans} ${styles.slogan2}`}>
           {props.slogan2}
         </h2>
-        <h3 className={styles.button}>{props.button}</h3>
+        <h3 className={props.button ? styles.button : ""}>{props.button}</h3>
       </div>
     </div>
   );

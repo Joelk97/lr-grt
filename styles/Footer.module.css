@@ -15,4 +15,37 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-left: 2rem;
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-right: 2rem;
+  gap: 5vw;
+}
+.navList {
+  color: #000000;
+  list-style: none;
+}
+.navList li h2 {
+  font-size: 18px;
+  font-weight: 400;
+}
+.navList li h3 {
+  font-size: 12px;
+  font-weight: 400;
+}
+@media screen and (max-width: 840px) {
+  .navigation {
+    gap: 3vw;
+  }
+  .copyright p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 615px) {
+  .navigation {
+    gap: 1vw;
+  }
 }

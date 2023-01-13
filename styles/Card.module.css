@@ -2,6 +2,7 @@
   width: 300px;
   height: 320px;
   z-index: -1;
+  background-color: #fffdfa;
 }
 .text {
   background-color: rgba(255, 253, 250, 0.8);

@@ -1,0 +1,10 @@
+.otherMedia {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fffdfa;
+  z-index: -1000;
+  padding: 4rem 0;
+}

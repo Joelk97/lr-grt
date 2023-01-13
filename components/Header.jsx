@@ -4,9 +4,10 @@ import { useRouter } from "next/router";
 import logoWhite from "../public/img/logoGreen.svg";
 import Image from "next/legacy/image";
 import Link from "next/link";
-
-const Header = () => {
+var greenColor = "#87BB3F";
+const Header = (props) => {
   const { locale, locales, asPath } = useRouter();
+  const selectedClass = props.media ? styles.selected : "";
   return (
     <header className={styles.header}>
       {headerComp.headerComponents
@@ -20,7 +21,11 @@ const Header = () => {
                 </Link>
               </div>
               <ul className={`${styles.primaryNav} ${styles.navElements}`}>
-                <li>{component.media}</li>
+                <li className={`${styles.provaGreen} ${selectedClass}`}>
+                  <Link className={selectedClass} href="/medien">
+                    {component.media}
+                  </Link>
+                </li>
                 <li>{component.assotiation}</li>
                 <li>{component.information}</li>
               </ul>

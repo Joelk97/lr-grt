@@ -1,0 +1,61 @@
+{
+    "nav": [
+        {
+            "locale": "de-CH",
+            "association": "Verein",
+            "assoWhatWeDo": "Was wir machen",
+            "assoManag": "Vorstand",
+            "assoBusiness": "Geschäftsstelle",
+            "assoSections": "Kantonale Sektionen",
+            "media": "Medien",
+            "mediaPress": "Medienmitteilungen",
+            "mediaNews": "News",
+            "mediaStudies": "Studien",
+            "info": "Informationen",
+            "infoPolitics": "Politik",
+            "infoActivities": "Aktivitäten",
+            "infoSitWolf": "Situation Wolf",
+            "intern": "Itern",
+            "internSanity": "CMS Sanity",
+            "internDownload": "Download Bereich"
+        },
+        {
+            "locale": "fr-CH",
+            "association": "Association",
+            "assoWhatWeDo": "Ce que nous faisons",
+            "assoManag": "Conseil d'administration",
+            "assoBusiness": "Bureau",
+            "assoSections": "Sections cantonales",
+            "media": "Media",
+            "mediaPress": "Communiqués de presse",
+            "mediaNews": "News",
+            "mediaStudies": "Études",
+            "info": "Informations",
+            "infoPolitics": "Politique",
+            "infoActivities": "Activités",
+            "infoSitWolf": "Situation loup",
+            "intern": "Interne",
+            "internSanity": "CMS Sanity",
+            "internDownload": "Download"
+        },
+        {
+            "locale": "it-CH",
+            "association": "Associazione",
+            "assoWhatWeDo": "Cosa facciamo",
+            "assoManag": "Consiglio d'amministrazione",
+            "assoBusiness": "Ufficio",
+            "assoSections": "Sezioni cantonali",
+            "media": "Media",
+            "mediaPress": "Comunicati stampa",
+            "mediaNews": "News",
+            "mediaStudies": "Studi",
+            "info": "Informazioni",
+            "infoPolitics": "Politica",
+            "infoActivities": "Attività",
+            "infoSitWolf": "Situazione lupo",
+            "intern": "Interno",
+            "internSanity": "CMS Sanity",
+            "internDownload": "Download"
+        }
+    ]
+}
