@@ -1,0 +1,22 @@
+{
+    "INFOSIntro": [
+        {
+            "locale": "de-CH",
+            "title": "Informationen",
+            "text": "Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
+        
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Informations",
+            "text": "Hier steht ein Einführungstext über die INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
+        
+        },
+        {
+            "locale": "it-CH",
+            "title": "Informazioni",
+            "text": "Hier steht ein Einführungstext über die INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
+        
+        }
+    ]
+}

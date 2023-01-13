@@ -11,7 +11,7 @@
   width: 100%;
   background-color: #fffdfa;
   display: grid;
-  grid-template-columns: fit-content(200px) auto auto;
+  grid-template-columns: 180px auto auto;
   grid-template-rows: 1fr 1fr;
 }
 
@@ -22,6 +22,7 @@
 .navElements li {
   margin-right: 1.5rem;
   list-style: none;
+  font-size: 18px;
 }
 .logoImage {
   width: fit-content;
@@ -80,6 +81,30 @@
 .selectedLang {
   color: #87bb3f;
 }
-.selected {
+.selectedMedia {
   color: #87bb3f;
+}
+.selectedVerein {
+  color: #87bb3f;
+}
+.selectedInformationen {
+  color: #87bb3f;
+}
+
+@media screen and (max-width: 890px) {
+  .navElements li {
+    font-size: 16px;
+  }
+  .container {
+    grid-template-columns: 150px auto auto;
+  }
+}
+@media screen and (max-width: 760px) {
+  .secondaryNav {
+    grid-column: 2/4;
+    margin-right: 1rem;
+  }
+  .languages {
+    margin-right: 2.5rem;
+  }
 }

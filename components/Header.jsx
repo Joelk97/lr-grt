@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 import logoWhite from "../public/img/logoGreen.svg";
 import Image from "next/legacy/image";
 import Link from "next/link";
-var greenColor = "#87BB3F";
+
 const Header = (props) => {
   const { locale, locales, asPath } = useRouter();
-  const selectedClass = props.media ? styles.selected : "";
+
   return (
     <header className={styles.header}>
       {headerComp.headerComponents
@@ -21,13 +21,32 @@ const Header = (props) => {
                 </Link>
               </div>
               <ul className={`${styles.primaryNav} ${styles.navElements}`}>
-                <li className={`${styles.provaGreen} ${selectedClass}`}>
-                  <Link className={selectedClass} href="/medien">
+                <li>
+                  <Link
+                    className={props.media ? styles.selectedMedia : ""}
+                    href="/medien"
+                  >
                     {component.media}
                   </Link>
                 </li>
-                <li>{component.assotiation}</li>
-                <li>{component.information}</li>
+                <li>
+                  <Link
+                    href="/verein"
+                    className={props.verein ? styles.selectedVerein : ""}
+                  >
+                    {component.assotiation}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/informationen"
+                    className={
+                      props.informationen ? styles.selectedInformationen : ""
+                    }
+                  >
+                    {component.information}
+                  </Link>
+                </li>
               </ul>
               <ul className={`${styles.secondaryNav} ${styles.navElements}`}>
                 <li>{component.contact}</li>

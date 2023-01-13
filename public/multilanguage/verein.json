@@ -1,0 +1,56 @@
+{
+    "vereinIntro": [
+        {
+            "locale": "de-CH",
+            "title": "Verein",
+            "text": "Hier steht ein Einführungstext über den VEREIN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+        
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Association",
+            "text": "Hier steht ein Einführungstext über die VEREIN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+        
+        },
+        {
+            "locale": "it-CH",
+            "title": "Associazione",
+            "text": "Hier steht ein Einführungstext über die VEREIN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+        
+        }
+    ],
+    "assoCat": [
+        {
+            "locale": "de-CH",
+            "assoWhatWeDo": "Was wir machen/ Leitbild",
+            "assoWhatWeDoText": "text",
+            "assoManag": "Vorstand",
+            "assoManagText": "Text",
+            "assoBusiness": "Geschäftsstelle",
+            "assoBusinessText": "Text",
+            "assoSections": "Kantonale Sektionen",
+            "assoSectionsText": "Text"
+        }, 
+        
+        {"locale": "fr-CH",
+        "assoWhatWeDo": "Ce que nous faisons",
+        "assoWhatWeDoText": "text",
+        "assoManag": "Conseil d'administration",
+        "assoManagText": "Text",
+        "assoBusiness": "Bureau",
+        "assoBusinessText": "Text",
+        "assoSections": "Sections cantonales",
+        "assoSectionsText": "Text"
+    },
+    {"locale": "it-CH",
+
+    "assoWhatWeDo": "Cosa facciamo",
+    "assoWhatWeDoText": "text",
+    "assoManag": "Consiglio d'amministrazione",
+    "assoManagText": "Text",
+    "assoBusiness": "Ufficio",
+    "assoBusinessText": "Text",
+    "assoSections": "Sezioni cantonali",
+    "assoSectionsText": "Text"}
+    ]
+}
