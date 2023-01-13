@@ -11,6 +11,7 @@
   top: -120px;
   left: 10%;
   text-align: center;
+  border-radius: 2rem;
 }
 .text p {
   font-size: 18px;

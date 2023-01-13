@@ -19,6 +19,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fffdfa;
+  z-index: -1000;
 }
 .sectionMedienMitteilungen {
   width: 100%;
@@ -27,6 +29,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  background-color: #fffdfa;
 }
 .cards {
   width: 80%;
@@ -54,22 +57,18 @@
 }
 .greenButton:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .sectionTakePart {
   position: relative;
   width: 100%;
   height: undefined;
-  aspect-ratio: 1280/760;
+  aspect-ratio: 1280/500;
 }
-.containerTakePart {
-  position: relative;
 
-  width: 100%;
-  height: 100%;
-}
 .takePartBkgImg {
-  z-index: -2;
+  z-index: -1000;
 }
 .takePartContent {
   width: 100%;
@@ -79,36 +78,118 @@
   align-items: center;
   justify-content: center;
   gap: 10vw;
+  z-index: 9;
 }
-.cardsTakePart {
+.cardsTitTexBut {
   width: 300px;
-  height: fit-content;
+  height: 450px;
+  border-radius: 2rem;
   min-height: 100px;
   background-color: rgba(255, 253, 250, 0.8);
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  z-index: -1;
+  z-index: 10;
 }
-.cardsTakePart h1 {
+.cardsTitTexBut h1 {
   font-weight: 5600;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  font-size: 28px;
 }
-.cardsTakePart p {
+.cardsTitTexBut p {
   width: 80%;
   text-align: center;
   margin-top: 0;
   margin-bottom: 2rem;
   font-size: 18px;
+  z-index: 10;
 }
 .contactForm {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  margin-bottom: 4rem;
+  gap: 5px;
+}
+.inputs {
+  width: 80%;
+  height: 30px;
+  margin: 2px;
+  text-align: center;
+  background-color: #87bb3f;
+  border: none;
+}
+.inputText {
+  height: 60px;
+}
+.buttonSubmit {
+  width: fit-content;
+  height: 40px;
+  padding: 0 15px;
+  margin-top: 15px;
+  font-size: 22px;
+  border-radius: 2rem;
+  color: #fffdfa;
+  text-align: center;
+}
+.buttonSubmit:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.sectionSlogan {
+  position: relative;
+  width: 100%;
+  height: undefined;
+  aspect-ratio: 1230/600;
+  background-color: #fffdfa;
+}
+.sectionInfo {
+  position: relative;
+  width: 100%;
+  height: undefined;
+  aspect-ratio: 1280/790;
+}
+.contentSlogan {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.contentSlogan p {
+  font-size: 34px;
+  text-align: center;
+  width: 80%;
+  margin-bottom: 4rem;
+}
+.cardInfo {
+  z-index: 10;
+}
+.contentInfo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10vw;
+  z-index: 9;
+}
+.imageIndo {
+  z-index: -100;
 }
 @media screen and (max-width: 1600px) {
+  .sectionTakePart {
+    aspect-ratio: 1280/760;
+  }
   .cards {
     width: 80%;
     display: flex;
@@ -126,6 +207,25 @@
     width: 100%;
   }
 }
+@media screen and (max-width: 840px) {
+  .sectionTakePart {
+    aspect-ratio: 1280/950;
+  }
+  .takePartContent {
+    gap: 4vw;
+  }
+  .cardsTitTexBut h1 {
+    font-size: 22px;
+  }
+  .cardsTitTexBut p {
+    font-size: 14px;
+  }
+  .cardsTitTexBut {
+    width: 280px;
+    height: 400px;
+  }
+}
+
 @media screen and (max-width: 615px) {
   .backGroundImgIntro {
     aspect-ratio: 1280/1200;
@@ -133,5 +233,13 @@
   .cards {
     flex-direction: column;
     align-items: center;
+  }
+  .sectionTakePart {
+    aspect-ratio: 800/1200;
+  }
+  .takePartContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 }

@@ -1,42 +1,65 @@
 {
-    "titles": [
-        {
-            "locale": "de-CH",
-            "actuality": "Aktualität",
-            "media": "Medienmitteilungen",
-            "becomeAss": "Mitglied werden",
-            "contactForm": "Kontaktformular",
-            "cantSections": "Kantonale Sektionen"
-        },
-        {
-            "locale": "fr-CH",
-            "actuality": "Actualité",
-            "media": "Communiqués de presse",
-            "becomeAss": "Devenir membre",
-            "contactForm": "Formulaire de contact",
-            "cantSections": "Sections cantonales"
-        },
-        {
-            "locale": "it-CH",
-            "actuality": "Attualità",
-            "media": "Comunicati stampa",
-            "becomeAss": "Diventa membro",
-            "contactForm": "Formulario di contatto",
-            "cantSections": "Sezioni cantonali"
-        }
-    ],
-    "buttons": [
-        {
-            "locale": "de-CH",
-            "moreMedia": "Weitere Medienmitteilungen"
-        },
-        {
-            "locale": "fr-CH",
-            "moreMedia": "Autres communiqueés de presse"
-        },
-        {
-            "locale": "it-CH",
-            "moreMedia": "Altri comunicati stampa"
-        }
-    ]
+  "titles": [
+    {
+      "locale": "de-CH",
+      "actuality": "Aktualität",
+      "media": "Medienmitteilungen",
+      "becomeAss": "Mitglied werden",
+      "contactForm": "Kontaktformular",
+      "cantSections": "Kantonale Sektionen",
+      "textContactForm": "Gerne können Sie uns kontaktieren"
+    },
+    {
+      "locale": "fr-CH",
+      "actuality": "Actualité",
+      "media": "Communiqués de presse",
+      "becomeAss": "Devenir membre",
+      "contactForm": "Formulaire de contact",
+      "cantSections": "Sections cantonales",
+      "textContactForm": "Contactez nous!"
+    },
+    {
+      "locale": "it-CH",
+      "actuality": "Attualità",
+      "media": "Comunicati stampa",
+      "becomeAss": "Diventa membro",
+      "contactForm": "Formulario di contatto",
+      "cantSections": "Sezioni cantonali",
+      "textContactForm": "Contattateci"
+    }
+  ],
+  "buttons": [
+    {
+      "locale": "de-CH",
+      "moreMedia": "Weitere Medienmitteilungen"
+    },
+    {
+      "locale": "fr-CH",
+      "moreMedia": "Autres communiqueés de presse"
+    },
+    {
+      "locale": "it-CH",
+      "moreMedia": "Altri comunicati stampa"
+    }
+  ],
+  "whatWeWant": [
+    {
+      "locale": "de-CH",
+      "title": "Was wir wollen",
+      "slogan": "Wir setzen uns ein zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+      "button": "Weiter lesen"
+    },
+    {
+      "locale": "fr-CH",
+      "title": "Ce que nous voulons",
+      "slogan": "Nous nous engageons à protéger les habitats ruraux des grands prédateurs",
+      "button": "Lire la suite"
+    },
+    {
+      "locale": "it-CH",
+      "title": "Cosa vogliamo",
+      "slogan": "Ci impegniamo a proteggere gli habitat rurali dai grandi predatori",
+      "button": "Leggi di più"
+    }
+  ]
 }

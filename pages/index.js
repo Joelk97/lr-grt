@@ -13,6 +13,7 @@ import intros from "../public/multilanguage/intros.json";
 import Card from "../components/Card";
 import ListMedia from "../components/listMedia";
 import xavier from "../public/img/xavier.jpg";
+import Footer from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -129,15 +130,13 @@ export default function Home() {
               return (
                 <div key={i} className={`${styles.takePartContent}`}>
                   <div
-                    className={`${styles.cardsTakePart} ${styles.mitgliedWerden}`}
+                    className={`${styles.cardsTitTexBut} ${styles.mitgliedWerden}`}
                   >
                     <h1>{e.becomeAss}</h1>
                     <p>
                       Irure tempor sunt culpa laboris. Aliqua ullamco excepteur
                       nisi aliqua minim sint non ipsum Lorem ex occaecat. Id
-                      nostrud ea veniam in nostrud ullamco tempor pariatur sunt
-                      exercitation commodo eu aliquip. ijqej iregj rgiwjreg
-                      qergjqöoierjg erguj qrogh
+                      nostrud ea veniam in.
                     </p>
                     <h2
                       className={`${styles.greenButton} ${styles.cantSectButton}`}
@@ -146,17 +145,75 @@ export default function Home() {
                     </h2>
                   </div>
                   <div
-                    className={`${styles.cardsTakePart} ${styles.Kontaktformular}`}
+                    className={`${styles.cardsTitTexBut} ${styles.Kontaktformular}`}
                   >
                     <h1>{e.contactForm}</h1>
-                    <p>Text zum Kontaktformular</p>
-                    <div className={styles.contactForm}></div>
+                    <p>{e.textContactForm}</p>
+                    <div className={styles.contactForm}>
+                      <input
+                        className={`${styles.inputs} ${styles.inputName}`}
+                        placeholder="Name"
+                      ></input>
+                      <input
+                        className={`${styles.inputs} ${styles.inputEmail}`}
+                        placeholder="Email"
+                      ></input>
+                      <input
+                        className={`${styles.inputs} ${styles.inputText}`}
+                        placeholder="Text"
+                      ></input>
+                      <button
+                        className={`${styles.inputs} ${styles.buttonSubmit}`}
+                        type="submit"
+                      >
+                        Senden
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
             })}
         </section>
+        <section className={styles.sectionSlogan}>
+          <Image
+            layout="fill"
+            objectFit="contain"
+            alt="Logo"
+            src="/img/logoGreenBkgW.svg"
+          />
+          {homePage.whatWeWant
+            .filter((l) => l.locale === locale)
+            .map((e, i) => {
+              return (
+                <div key={i} className={styles.contentSlogan}>
+                  <h1 className={`${styles.titlesSections}`}>{e.title}</h1>
+                  <p>{e.slogan}</p>
+                  <h2 className={styles.greenButton}>{e.button}</h2>
+                </div>
+              );
+            })}
+        </section>
+        <section className={styles.sectionInfo}>
+          <Image
+            className={styles.imageInfo}
+            alt="Cows"
+            src="/img/marlene.jpg"
+            layout="fill"
+            object-fit="cover"
+          />
+          <div className={`${styles.contentInfo}`}>
+            <div className={`${styles.cardInfo} ${styles.cardsTitTexBut}`}>
+              <h1>Ciao</h1>
+              <h2 className={styles.greenButton}>cosa?</h2>
+            </div>
+            <div className={`${styles.cardInfo} ${styles.cardsTitTexBut}`}>
+              <h1>Ciao</h1>
+              <h2 className={styles.greenButton}>cosa?</h2>
+            </div>
+          </div>
+        </section>
       </main>
+      <Footer />
     </>
   );
 }
