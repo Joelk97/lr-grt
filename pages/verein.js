@@ -5,7 +5,7 @@ import Footer from "../components/Footer.jsx";
 import styleHome from "../styles/Home.module.css";
 import styles from "../styles/Verein.module.css";
 import sheeps1 from "../public/img/sheeps1.jpg";
-import Image from "next/image.js";
+import Image from "next/legacy/image";
 import vereinElements from "../public/multilanguage/verein.json";
 import Intro from "../components/Intro.jsx";
 import Card from "../components/Card.jsx";

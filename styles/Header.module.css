@@ -90,6 +90,9 @@
 .selectedInformationen {
   color: #87bb3f;
 }
+.selectedKontakt {
+  color: #000000;
+}
 
 @media screen and (max-width: 890px) {
   .navElements li {

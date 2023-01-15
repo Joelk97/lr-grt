@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import styleHome from "../styles/Home.module.css";
 import styles from "../styles/Medien.module.css";
 import cow1 from "../public/img/cow1.jpg";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Intro from "../components/Intro";
 import medien from "../public/multilanguage/medien.json";
 import { useRouter } from "next/router";

@@ -5,7 +5,7 @@ import Footer from "../components/Footer.jsx";
 import styleHome from "../styles/Home.module.css";
 import styles from "../styles/Informationen.module.css";
 import sheeps1 from "../public/img/sheeps1.jpg";
-import Image from "next/image.js";
+import Image from "next/legacy/image";
 import infromationenElements from "../public/multilanguage/informationen.json";
 import Intro from "../components/Intro.jsx";
 import Card from "../components/Card.jsx";
@@ -38,6 +38,7 @@ export default function UeberUns() {
             return (
               <section className={styles.sectionInformations} key={i}>
                 <h1 className={styleHome.titlesSections}>{e.infos}</h1>
+                <p className={styles.introText2}>Einführungstext nummer 2</p>
                 <div className={styleHome.cards}>
                   <Card
                     source="/img/wolf1.jpg"

@@ -1,0 +1,19 @@
+{
+  "kontaktIntro": [
+    {
+      "locale": "de-CH",
+      "title": "Kontakt",
+      "text": "Hier steht ein Einführungstext über den Kontakt. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+    },
+    {
+      "locale": "fr-CH",
+      "title": "Contact",
+      "text": "Hier steht ein Einführungstext über den Kontakt. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+    },
+    {
+      "locale": "it-CH",
+      "title": "Contatto",
+      "text": "Hier steht ein Einführungstext über den Kontakt. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+    }
+  ]
+}

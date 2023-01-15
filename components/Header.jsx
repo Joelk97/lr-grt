@@ -49,7 +49,7 @@ const Header = (props) => {
                 </li>
               </ul>
               <ul className={`${styles.secondaryNav} ${styles.navElements}`}>
-                <li>{component.contact}</li>
+                <li><Link href="/kontakt" className={props.kontakt?styles.selectedKontakt:""}>{component.contact}</Link></li>
                 <li>{component.events}</li>
               </ul>
               <ul className={`${styles.languages} ${styles.navElements}`}>
