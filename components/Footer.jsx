@@ -11,7 +11,7 @@ const Footer = (props) => {
   return (
     <footer className={styles.container}>
       <div className={styles.copyright}>
-        <Image src="/img/logoWhite.svg" width={180} height={70} />
+        <Image alt="logo" src="/img/logoWhite.svg" width={180} height={70} />
         <p>{`© Copyright - ${year} VSLvGRT`}</p>
       </div>
 
