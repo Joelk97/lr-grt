@@ -54,6 +54,7 @@
   font-size: 22px;
   font-weight: 400;
   margin-bottom: 4rem;
+  z-index: 100;
 }
 .greenButton:hover {
   cursor: pointer;

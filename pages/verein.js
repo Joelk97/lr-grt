@@ -32,9 +32,7 @@ export default function UeberUns() {
             return <Intro key={i} titolo={e.title} slogan1={e.text} />;
           })}
         <div className={styles.intro2}>
-          <h1 className={styleHome.titlesSections}>
-            WER WIR SIND/ WAS WIR MACHEN
-          </h1>
+          <h1 className={styleHome.titlesSections}>Wer wir sind</h1>
           <p className={styles.introText2}>
             Hier steht ein weiterer Einführungstext über den Verein. Hier steht
             ein weiterer Einführungstext über den Verein. Hier steht ein

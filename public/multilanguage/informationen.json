@@ -1,22 +1,48 @@
 {
-    "INFOSIntro": [
-        {
-            "locale": "de-CH",
-            "title": "Informationen",
-            "text": "Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
-        
-        },
-        {
-            "locale": "fr-CH",
-            "title": "Informations",
-            "text": "Hier steht ein Einführungstext über die INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
-        
-        },
-        {
-            "locale": "it-CH",
-            "title": "Informazioni",
-            "text": "Hier steht ein Einführungstext über die INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
-        
-        }
-    ]
+  "INFOSIntro": [
+    {
+      "locale": "de-CH",
+      "title": "Informationen",
+      "text": "Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
+    },
+    {
+      "locale": "fr-CH",
+      "title": "Informations",
+      "text": "Hier steht ein Einführungstext über die INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
+    },
+    {
+      "locale": "it-CH",
+      "title": "Informazioni",
+      "text": "Hier steht ein Einführungstext über die INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS. Hier steht ein Einführungstext über den INFOS."
+    }
+  ],
+  "content": [
+    {
+      "locale": "de-CH",
+      "infos": "Informationen",
+      "sitWolfTitle": "Situation Wolf",
+      "politicsTitle": "Politik",
+      "sitWolfText": "Hier steht ein Introtext über die Situation Wolf. In der Schweiz oder auch International.",
+      "politicsText": "Hier steht ein Text Über ein aktuelles Thema. Maximal sollte dieser 70 Charakter enthalten.",
+      "activitiesTitle": "Aktivitäten"
+    },
+    {
+      "locale": "fr-CH",
+      "infos": "Informations",
+      "sitWolfTitle": "Situation loup",
+      "politicsTitle": "Politique",
+      "sitWolfText": "Hier steht ein Introtext über die Situation Wolf. In der Schweiz oder auch International.",
+      "politicsText": "Hier steht ein Text Über ein aktuelles Thema. Maximal sollte dieser 70 Charakter enthalten.",
+      "activitiesTitle": "Activités"
+    },
+    {
+      "locale": "it-CH",
+      "infos": "Inforamzioni",
+      "sitWolfTitle": "Situazione lupo",
+      "politicsTitle": "Politica",
+      "sitWolfText": "Hier steht ein Introtext über die Situation Wolf. In der Schweiz oder auch International.",
+      "politicsText": "Hier steht ein Text Über ein aktuelles Thema. Maximal sollte dieser 70 Charakter enthalten.",
+      "activitiesTitle": "Attività"
+    }
+  ]
 }
