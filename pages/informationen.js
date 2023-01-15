@@ -9,7 +9,7 @@ import Image from "next/legacy/image";
 import infromationenElements from "../public/multilanguage/informationen.json";
 import Intro from "../components/Intro.jsx";
 import Card from "../components/Card.jsx";
-import ListMedia from "../components/listMedia.jsx";
+import ListMedia from "../components/ListMedia.jsx";
 
 export default function UeberUns() {
   const { locale, loales, asPath } = useRouter();

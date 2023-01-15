@@ -9,7 +9,7 @@ import Intro from "../components/Intro";
 import medien from "../public/multilanguage/medien.json";
 import { useRouter } from "next/router";
 import homePage from "../public/multilanguage/homePage.json";
-import ListMedia from "../components/listMedia";
+import ListMedia from "../components/ListMedia";
 import Card from "../components/Card";
 
 export default function Medien() {

@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { Inter } from "@next/font/google";
@@ -10,7 +9,7 @@ import Intro from "../components/Intro.jsx";
 import nolanImg from "../public/img/nolan.jpg";
 import intros from "../public/multilanguage/intros.json";
 import Card from "../components/Card.jsx";
-import ListMedia from "../components/listMedia.jsx";
+import ListMedia from "../components/ListMedia.jsx";
 import Footer from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
