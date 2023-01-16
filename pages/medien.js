@@ -11,9 +11,14 @@ import { useRouter } from "next/router";
 import homePage from "../public/multilanguage/homePage.json";
 import ListMedia from "../components/ListMedia";
 import Card from "../components/Card";
+import client from "../components/sanityCli";
 
-export default function Medien() {
+const queryMediaPage =
+  "*[_type=='mediaPage']|order(_createdAt asc)[0]{title, intro, 'imageBkg': bkgImageIntro.asset -> url}";
+
+export default function Medien({ mediaPage }) {
   const { locale, locales, asPath } = useRouter();
+  const newLocale = locale.substring(0, 2) + "_CH";
   return (
     <>
       <MyHead />
@@ -22,16 +27,17 @@ export default function Medien() {
         <div className={styleHome.backGroundImgIntro}>
           <Image
             alt="Background Image"
-            src={cow1}
+            src={mediaPage.imageBkg}
             layout="fill"
             objectFit="cover"
           />
         </div>
-        {medien.medienIntro
-          .filter((l) => l.locale === locale)
-          .map((e, i) => {
-            return <Intro key={i} titolo={e.title} slogan1={e.text} />;
-          })}
+
+        <Intro
+          titolo={mediaPage.title?.[newLocale]}
+          slogan1={mediaPage.intro?.[newLocale]}
+        />
+
         <section className={styleHome.sectionMedienMitteilungen}>
           {homePage.titles
             .filter((l) => l.locale === locale)
@@ -123,4 +129,13 @@ export default function Medien() {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const mediaPage = await client.fetch(queryMediaPage);
+  return {
+    props: {
+      mediaPage,
+    },
+  };
 }

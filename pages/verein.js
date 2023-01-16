@@ -9,9 +9,14 @@ import Image from "next/legacy/image";
 import vereinElements from "../public/multilanguage/verein.json";
 import Intro from "../components/Intro.jsx";
 import Card from "../components/Card.jsx";
+import client from "../components/sanityCli.js";
 
-export default function UeberUns() {
+const queryVereinPage =
+  "*[_type=='vereinPage']|order(_createdAt asc)[0]{title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
+
+export default function UeberUns({ vereinPage }) {
   const { locale, loales, asPath } = useRouter();
+  const newLocale = locale.substring(0, 2) + "_CH";
 
   return (
     <>
@@ -21,24 +26,22 @@ export default function UeberUns() {
         <div className={styleHome.backGroundImgIntro}>
           <Image
             alt="Background Image"
-            src={sheeps1}
+            src={vereinPage.imageBkg}
             layout="fill"
             objectFit="cover"
           />
         </div>
-        {vereinElements.vereinIntro
-          .filter((l) => l.locale === locale)
-          .map((e, i) => {
-            return <Intro key={i} titolo={e.title} slogan1={e.text} />;
-          })}
+
+        <Intro
+          titolo={vereinPage.title?.[newLocale]}
+          slogan1={vereinPage.intro?.[newLocale]}
+        />
+
         <div className={styles.intro2}>
-          <h1 className={styleHome.titlesSections}>Wer wir sind</h1>
-          <p className={styles.introText2}>
-            Hier steht ein weiterer Einführungstext über den Verein. Hier steht
-            ein weiterer Einführungstext über den Verein. Hier steht ein
-            weiterer Einführungstext über den Verein. Hier steht ein weiterer
-            Einführungstext über den Verein.
-          </p>
+          <h1 className={styleHome.titlesSections}>
+            {vereinPage.title2?.[newLocale]}
+          </h1>
+          <p className={styles.introText2}>{vereinPage.intro2?.[newLocale]}</p>
         </div>
         {vereinElements.assoCat
           .filter((l) => l.locale === locale)
@@ -76,4 +79,13 @@ export default function UeberUns() {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const vereinPage = await client.fetch(queryVereinPage);
+  return {
+    props: {
+      vereinPage,
+    },
+  };
 }

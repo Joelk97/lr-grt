@@ -11,11 +11,14 @@ import intros from "../public/multilanguage/intros.json";
 import Card from "../components/Card.jsx";
 import ListMedia from "../components/ListMedia.jsx";
 import Footer from "../components/Footer";
+import client from "../components/sanityCli";
 
-const inter = Inter({ subsets: ["latin"] });
+const queryHomePage =
+  "*[_type=='homePage']|order(_createdAt asc)[0]{title, slogan1, slogan2, button, 'imageBkg': bkgImageIntro.asset -> url,}";
 
-export default function Home() {
+export default function Home({ homeElements }) {
   const { locale, locales, asPath } = useRouter();
+  const newLocale = locale.substring(0, 2) + "_CH";
   return (
     <>
       <MyHead />
@@ -24,24 +27,19 @@ export default function Home() {
         <div className={styles.backGroundImgIntro}>
           <Image
             alt="Background Image"
-            src={nolanImg}
+            src={homeElements.imageBkg}
             layout="fill"
             objectFit="cover"
           />
         </div>
-        {intros.introHome
-          .filter((l) => l.locale === locale)
-          .map((element, i) => {
-            return (
-              <Intro
-                key={i}
-                titolo={element.title}
-                slogan1={element.slogan1}
-                slogan2={element.slogan2}
-                button={element.button}
-              />
-            );
-          })}
+
+        <Intro
+          titolo={homeElements.title?.[newLocale]}
+          slogan1={homeElements.slogan1?.[newLocale]}
+          slogan2={homeElements.slogan2?.[newLocale]}
+          button={homeElements.button?.[newLocale]}
+        />
+
         <section className={styles.sectionActuality}>
           {homePage.titles
             .filter((l) => l.locale === locale)
@@ -213,4 +211,13 @@ export default function Home() {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const homeElements = await client.fetch(queryHomePage);
+  return {
+    props: {
+      homeElements,
+    },
+  };
 }

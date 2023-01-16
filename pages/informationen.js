@@ -4,15 +4,20 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import styleHome from "../styles/Home.module.css";
 import styles from "../styles/Informationen.module.css";
-import sheeps1 from "../public/img/sheeps1.jpg";
+
 import Image from "next/legacy/image";
 import infromationenElements from "../public/multilanguage/informationen.json";
 import Intro from "../components/Intro.jsx";
 import Card from "../components/Card.jsx";
 import ListMedia from "../components/ListMedia.jsx";
+import client from "../components/sanityCli.js";
 
-export default function UeberUns() {
+const queryInfoPage =
+  "*[_type=='infoPage']|order(_createdAt asc)[0]{title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
+
+export default function UeberUns({ infoPage }) {
   const { locale, loales, asPath } = useRouter();
+  const newLocale = locale.substring(0, 2) + "_CH";
   return (
     <>
       <MyHead />
@@ -21,24 +26,28 @@ export default function UeberUns() {
         <div className={styleHome.backGroundImgIntro}>
           <Image
             alt="Background Image"
-            src={sheeps1}
+            src={infoPage.imageBkg}
             layout="fill"
             objectFit="cover"
           />
         </div>
-        {infromationenElements.INFOSIntro.filter(
-          (l) => l.locale === locale
-        ).map((e, i) => {
-          return <Intro key={i} titolo={e.title} slogan1={e.text} />;
-        })}
+
+        <Intro
+          titolo={infoPage.title?.[newLocale]}
+          slogan1={infoPage.intro?.[newLocale]}
+        />
 
         {infromationenElements.content
           .filter((l) => l.locale === locale)
           .map((e, i) => {
             return (
               <section className={styles.sectionInformations} key={i}>
-                <h1 className={styleHome.titlesSections}>{e.infos}</h1>
-                <p className={styles.introText2}>Einführungstext nummer 2</p>
+                <h1 className={styleHome.titlesSections}>
+                  {infoPage.title2?.[newLocale]}
+                </h1>
+                <p className={styles.introText2}>
+                  {infoPage.intro2?.[newLocale]}
+                </p>
                 <div className={styleHome.cards}>
                   <Card
                     source="/img/wolf1.jpg"
@@ -88,4 +97,13 @@ export default function UeberUns() {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const infoPage = await client.fetch(queryInfoPage);
+  return {
+    props: {
+      infoPage,
+    },
+  };
 }
