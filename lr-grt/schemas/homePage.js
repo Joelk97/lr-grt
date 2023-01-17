@@ -32,6 +32,31 @@ export default defineType({
       description: 'maximal 1MB, am besten 1280x600 als format',
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'becomeAsso',
+      title: 'Text Mitglied werden',
+      type: 'localeText',
+    }),
+    defineField({
+      name: 'contactForm',
+      title: 'Text Kontaktformular',
+      type: 'localeText',
+    }),
+    defineField({
+      name: 'sloganTitle',
+      title: 'Slogan Titel',
+      type: 'localeString',
+    }),
+    defineField({
+      name: 'sloganText',
+      title: 'Slogan Text',
+      type: 'localeText',
+    }),
+    defineField({
+      name: 'sloganButton',
+      title: 'Slogan Button',
+      type: 'localeString',
+    }),
   ],
   preview: {
     select: {

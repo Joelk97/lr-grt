@@ -10,9 +10,10 @@ import ListMedia from "../components/ListMedia.jsx";
 import Footer from "../components/Footer";
 import client from "../components/sanityCli";
 import transformDate from "../components/transformDate";
+import Link from "next/link";
 
 const queryHomePage =
-  "*[_type=='homePage']|order(_createdAt asc)[0]{title, slogan1, slogan2, button, 'imageBkg': bkgImageIntro.asset -> url,}";
+  "*[_type=='homePage']|order(_createdAt asc)[0]{sloganTitle, sloganText, sloganButton, contactForm, title, slogan1, slogan2, button, 'imageBkg': bkgImageIntro.asset -> url, becomeAsso}";
 const queryMedienMitteilungen =
   "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
 export default function Home({ homeElements, medienMitt }) {
@@ -89,7 +90,9 @@ export default function Home({ homeElements, medienMitt }) {
               newLocale
             ].substring(0, 250)}
             articleTitle={medienMitt?.[newLocale]?.[0]?.title?.[newLocale]}
+            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[0]?.slug?.[newLocale]?.current}`}
           />
+
           <ListMedia
             articleData={transformDate(
               medienMitt?.[newLocale]?.[1]?.dateTime.substring(0, 10)
@@ -98,6 +101,7 @@ export default function Home({ homeElements, medienMitt }) {
               newLocale
             ].substring(0, 250)}
             articleTitle={medienMitt?.[newLocale]?.[1]?.title?.[newLocale]}
+            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[1]?.slug?.[newLocale]?.current}`}
           />
           <ListMedia
             articleData={transformDate(
@@ -107,6 +111,7 @@ export default function Home({ homeElements, medienMitt }) {
               newLocale
             ].substring(0, 250)}
             articleTitle={medienMitt?.[newLocale]?.[2]?.title?.[newLocale]}
+            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[2]?.slug?.[newLocale]?.current}`}
           />
           {homePage.buttons
             .filter((l) => l.locale === locale)
@@ -139,11 +144,7 @@ export default function Home({ homeElements, medienMitt }) {
                     className={`${styles.cardsTitTexBut} ${styles.mitgliedWerden}`}
                   >
                     <h1>{e.becomeAss}</h1>
-                    <p>
-                      Irure tempor sunt culpa laboris. Aliqua ullamco excepteur
-                      nisi aliqua minim sint non ipsum Lorem ex occaecat. Id
-                      nostrud ea veniam in.
-                    </p>
+                    <p>{homeElements?.becomeAsso?.[newLocale]}</p>
                     <h2
                       className={`${styles.greenButton} ${styles.cantSectButton}`}
                     >
@@ -154,7 +155,7 @@ export default function Home({ homeElements, medienMitt }) {
                     className={`${styles.cardsTitTexBut} ${styles.Kontaktformular}`}
                   >
                     <h1>{e.contactForm}</h1>
-                    <p>{e.textContactForm}</p>
+                    <p>{homeElements.contactForm?.[newLocale]}</p>
                     <div className={styles.contactForm}>
                       <input
                         className={`${styles.inputs} ${styles.inputName}`}
@@ -192,9 +193,13 @@ export default function Home({ homeElements, medienMitt }) {
             .map((e, i) => {
               return (
                 <div key={i} className={styles.contentSlogan}>
-                  <h1 className={`${styles.titlesSections}`}>{e.title}</h1>
-                  <p>{e.slogan}</p>
-                  <h2 className={styles.greenButton}>{e.button}</h2>
+                  <h1 className={`${styles.titlesSections}`}>
+                    {homeElements.sloganTitle?.[newLocale]}
+                  </h1>
+                  <p>{homeElements.sloganText?.[newLocale]}</p>
+                  <h2 className={styles.greenButton}>
+                    {homeElements.sloganButton?.[newLocale]}
+                  </h2>
                 </div>
               );
             })}

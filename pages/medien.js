@@ -15,7 +15,7 @@ import client from "../components/sanityCli";
 import transformDate from "../components/transformDate";
 
 const queryMediaPage =
-  "*[_type=='mediaPage']|order(_createdAt asc)[0]{title, intro, 'imageBkg': bkgImageIntro.asset -> url}";
+  "*[_type=='mediaPage']|order(_createdAt asc)[0]{slug,title, intro, 'imageBkg': bkgImageIntro.asset -> url}";
 const queryMedienMitteilungen =
   "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
 
@@ -62,6 +62,7 @@ export default function Medien({ mediaPage, medienMitt }) {
               newLocale
             ].substring(0, 250)}
             articleTitle={medienMitt?.[newLocale]?.[0]?.title?.[newLocale]}
+            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[0]?.slug?.[newLocale]?.current}`}
           />
           <ListMedia
             articleData={transformDate(
@@ -71,6 +72,7 @@ export default function Medien({ mediaPage, medienMitt }) {
               newLocale
             ].substring(0, 250)}
             articleTitle={medienMitt?.[newLocale]?.[1]?.title?.[newLocale]}
+            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[1]?.slug?.[newLocale]?.current}`}
           />
           <ListMedia
             articleData={transformDate(
@@ -80,6 +82,7 @@ export default function Medien({ mediaPage, medienMitt }) {
               newLocale
             ].substring(0, 250)}
             articleTitle={medienMitt?.[newLocale]?.[2]?.title?.[newLocale]}
+            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[2]?.slug?.[newLocale]?.current}`}
           />
           {homePage.buttons
             .filter((l) => l.locale === locale)
