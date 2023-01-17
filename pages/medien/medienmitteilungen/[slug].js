@@ -10,6 +10,7 @@ import transformDate from "../../../components/transformDate";
 import mitt from "next/dist/shared/lib/mitt";
 import { useRouter } from "next/router";
 import { FaFileDownload } from "react-icons/fa";
+import { AiOutlineLink } from "react-icons/ai";
 import Link from "next/link";
 
 const pathQuery = `{'de':*[_type == "medienMitteilungen" && defined(slug.de_CH.current)].slug.de_CH.current, 
@@ -21,7 +22,8 @@ const queryMitteilung = `*[_type == "medienMitteilungen" && (slug.it_CH.current 
   abstract,
   BlockContent,
   files,
-  "filesUrl": files[].asset -> url
+  "filesUrl": files[].asset -> url,
+  someLinks
 }`;
 const iconStyle = { color: "#87BB3F", marginRight: "10" };
 export default function Mitteilung({ mitteilung }) {
@@ -37,6 +39,7 @@ export default function Mitteilung({ mitteilung }) {
   }
   return (
     <>
+      {/* TODO: DELETE IMAGES AND MAP OVER ARRAY */}
       <MyHead />
       <Header media="true" />
       <main className={styles.main}>
@@ -76,8 +79,17 @@ export default function Mitteilung({ mitteilung }) {
           </ul>
           <ul>
             <h2>Links</h2>
-            <li>Link 1</li>
-            <li>Link 2</li>
+            {mitteilung.someLinks != null &&
+              mitteilung.someLinks.map((link, i) => {
+                return (
+                  <li key={i}>
+                    <a rel="noreferrer" target="_blank" href={link?.link}>
+                      <AiOutlineLink style={iconStyle} />
+                      {link?.name?.[newLocale]}
+                    </a>
+                  </li>
+                );
+              })}
           </ul>
         </div>
         <div className={styles.images}>

@@ -83,6 +83,17 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'someLinks',
+      title: 'Nützliche Links',
+      type: 'array',
+      of: [
+        {
+          type: 'urlAndName',
+          title: 'Link',
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
