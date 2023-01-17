@@ -12,11 +12,13 @@ import Card from "../components/Card.jsx";
 import ListMedia from "../components/ListMedia.jsx";
 import Footer from "../components/Footer";
 import client from "../components/sanityCli";
+import transformDate from "../components/transformDate";
 
 const queryHomePage =
   "*[_type=='homePage']|order(_createdAt asc)[0]{title, slogan1, slogan2, button, 'imageBkg': bkgImageIntro.asset -> url,}";
-
-export default function Home({ homeElements }) {
+const queryMedienMitteilungen =
+  "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
+export default function Home({ homeElements, medienMitt }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
   return (
@@ -83,19 +85,31 @@ export default function Home({ homeElements }) {
               );
             })}
           <ListMedia
-            articleData="24.10.2022"
-            articleText="Aliquip ea ipsum ex veniam laborum cupidatat ad ut sint laborum voluptate ea aliquip. Reprehenderit dolore sint id elit minim non consectetur. Labore esse sit labore in tempor duis voluptate. Consectetur pariatur mollit mollit est laborum irure. Excepteur anim reprehenderit esse magna ullamco adipisicing velit voluptate."
-            articleTitle="Deserunt culpa qui qui nulla in laboris id ex."
+            articleData={transformDate(
+              medienMitt?.[newLocale]?.[0]?.dateTime.substring(0, 10)
+            )}
+            articleText={medienMitt?.[newLocale]?.[0]?.abstract?.[
+              newLocale
+            ].substring(0, 250)}
+            articleTitle={medienMitt?.[newLocale]?.[0]?.title?.[newLocale]}
           />
           <ListMedia
-            articleData="20.10.2022"
-            articleText="Aliquip ea ipsum ex veniam laborum cupidatat ad ut sint laborum voluptate ea aliquip. Reprehenderit dolore sint id elit minim non consectetur. Labore esse sit labore in tempor duis voluptate. Consectetur pariatur mollit mollit est laborum irure. Excepteur anim reprehenderit esse magna ullamco adipisicing velit voluptate."
-            articleTitle="Deserunt culpa qui qui nulla in laboris id ex."
+            articleData={transformDate(
+              medienMitt?.[newLocale]?.[1]?.dateTime.substring(0, 10)
+            )}
+            articleText={medienMitt?.[newLocale]?.[1]?.abstract?.[
+              newLocale
+            ].substring(0, 250)}
+            articleTitle={medienMitt?.[newLocale]?.[1]?.title?.[newLocale]}
           />
           <ListMedia
-            articleData="12.01.2023"
-            articleText="Aliquip ea ipsum ex veniam laborum cupidatat ad ut sint laborum voluptate ea aliquip. Reprehenderit dolore sint id elit minim non consectetur. Labore esse sit labore in tempor duis voluptate. Consectetur pariatur mollit mollit est laborum irure. Excepteur anim reprehenderit esse magna ullamco adipisicing velit voluptate."
-            articleTitle="Deserunt culpa qui qui nulla in laboris id ex."
+            articleData={transformDate(
+              medienMitt?.[newLocale]?.[2]?.dateTime.substring(0, 10)
+            )}
+            articleText={medienMitt?.[newLocale]?.[2]?.abstract?.[
+              newLocale
+            ].substring(0, 250)}
+            articleTitle={medienMitt?.[newLocale]?.[2]?.title?.[newLocale]}
           />
           {homePage.buttons
             .filter((l) => l.locale === locale)
@@ -215,9 +229,11 @@ export default function Home({ homeElements }) {
 
 export async function getStaticProps() {
   const homeElements = await client.fetch(queryHomePage);
+  const medienMitt = await client.fetch(queryMedienMitteilungen);
   return {
     props: {
       homeElements,
+      medienMitt,
     },
   };
 }
