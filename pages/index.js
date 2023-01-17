@@ -1,13 +1,10 @@
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
-import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import homePage from "../public/multilanguage/homePage.json";
 import MyHead from "../components/MyHead.jsx";
 import Header from "../components/Header.jsx";
 import Intro from "../components/Intro.jsx";
-import nolanImg from "../public/img/nolan.jpg";
-import intros from "../public/multilanguage/intros.json";
 import Card from "../components/Card.jsx";
 import ListMedia from "../components/ListMedia.jsx";
 import Footer from "../components/Footer";
