@@ -13,7 +13,7 @@ import client from "../components/sanityCli.js";
 import NavigatorPages from "../components/navigatorPages.jsx";
 
 const queryVereinPage =
-  "*[_type=='vereinPage']|order(_createdAt asc)[0]{title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
+  "*[_type=='vereinPage']|order(_createdAt asc)[0]{cardWhatWeDoText,cardWhatWeDoTitle, title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
 
 export default function UeberUns({ vereinPage }) {
   const { locale, loales, asPath } = useRouter();
@@ -51,9 +51,9 @@ export default function UeberUns({ vereinPage }) {
               <section key={i} className={styles.containerCards}>
                 <div className={styleHome.cards}>
                   <Card
-                    title={e.assoWhatWeDo}
+                    title={vereinPage?.cardWhatWeDoTitle?.[newLocale]}
                     source="/img/logoGreenBkgG.svg"
-                    text={e.assoWhatWeDoText}
+                    text={vereinPage?.cardWhatWeDoText?.[newLocale]}
                   />
                   <Card
                     title={e.assoManag}

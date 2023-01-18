@@ -10,16 +10,15 @@ const NavigatorPages = () => {
    const langPages = navigatorPagesElements.pages.filter((l) => l.locale === locale)
     return (
         <div className={styles.container}>
-            {console.log(langPages[0][pages[0]])}
-            {console.log(pages)}
-            <h3><Link href="/">{`Home `}</Link></h3>
+            <div className={styles.list}>
+            <h3><Link className={styles.links} href="/">{`Home `}</Link></h3>
 
             {pages.map((e, i) => {
                 return (<Link key={i} className={styles.links} href={`/${e}`}>{`>`}<h3>{`${langPages[0][e] != undefined ? langPages[0][e] : slugToTitle(e)}`}</h3></Link>
                     
                 )
             })}
-            
+            </div>
         </div>
     )
 }

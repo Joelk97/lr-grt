@@ -43,7 +43,9 @@ export default function Medien({ mediaPage, medienMitt }) {
           slogan1={mediaPage.intro?.[newLocale]}
         />
         <NavigatorPages />
-        <section className={styleHome.sectionMedienMitteilungen}>
+        <section
+          className={`${styleHome.sectionMedienMitteilungen} ${styles.sectionMedienMitteilungen}`}
+        >
           {homePage.titles
             .filter((l) => l.locale === locale)
             .map((e, i) => {
@@ -133,7 +135,11 @@ export default function Medien({ mediaPage, medienMitt }) {
             .map((e, i) => {
               return (
                 <div key={i} className={styleHome.contentSlogan}>
-                  <h1 className={`${styleHome.titlesSections}`}>{e.title}</h1>
+                  <h1
+                    className={`${styleHome.titlesSections} ${styles.titleSlogan}`}
+                  >
+                    {e.title}
+                  </h1>
                   <Image
                     width={300}
                     height={200}

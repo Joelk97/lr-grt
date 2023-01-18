@@ -32,6 +32,16 @@ export default defineType({
       title: 'Einführungstext 2',
       type: 'localeString',
     }),
+    defineField({
+      name: 'cardWhatWeDoTitle',
+      title: 'Titel Leitbild',
+      type: 'localeString',
+    }),
+    defineField({
+      name: 'cardWhatWeDoText',
+      title: 'Leitbild Text',
+      type: 'localeText',
+    }),
   ],
   preview: {
     select: {

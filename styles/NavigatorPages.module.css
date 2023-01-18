@@ -5,7 +5,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 0 0 3rem;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 2rem;
 }
 .links {
   display: flex;

@@ -6,5 +6,11 @@
   align-items: center;
   background-color: #fffdfa;
   z-index: -1000;
-  padding: 4rem 0;
+  padding: 4rem 0 0 0;
+}
+.sectionMedienMitteilungen {
+  padding-bottom: 2rem;
+}
+.titleSlogan {
+  margin: 2rem 0;
 }
