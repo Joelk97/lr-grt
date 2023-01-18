@@ -8,13 +8,14 @@ const NavigatorPages = () => {
    const {locale, locales, asPath} = useRouter();
    const pages = asPath.split("/").slice(1);
    const langPages = navigatorPagesElements.pages.filter((l) => l.locale === locale)
-    return (
+   const links = navigatorPagesElements.links.filter((l) => l.locale === locale)
+   return (
         <div className={styles.container}>
             <div className={styles.list}>
             <h3><Link className={styles.links} href="/">{`Home `}</Link></h3>
 
             {pages.map((e, i) => {
-                return (<Link key={i} className={styles.links} href={`/${e}`}>{`>`}<h3>{`${langPages[0][e] != undefined ? langPages[0][e] : slugToTitle(e)}`}</h3></Link>
+                return (<Link key={i} className={styles.links} href={`${links[0][e] != undefined ? links[0][e] : links[0].medienmitteilungen+e}`}>{`>`}<h3>{`${langPages[0][e] != undefined ? langPages[0][e] : slugToTitle(e)}`}</h3></Link>
                     
                 )
             })}

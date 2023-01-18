@@ -14,6 +14,7 @@ import Card from "../components/Card";
 import client from "../components/sanityCli";
 import transformDate from "../components/transformDate";
 import NavigatorPages from "../components/navigatorPages";
+import Link from "next/link";
 
 const queryMediaPage =
   "*[_type=='mediaPage']|order(_createdAt asc)[0]{slug,title, intro, 'imageBkg': bkgImageIntro.asset -> url}";
@@ -50,12 +51,14 @@ export default function Medien({ mediaPage, medienMitt }) {
             .filter((l) => l.locale === locale)
             .map((e, i) => {
               return (
-                <h1
-                  className={`${styleHome.titleMedia} ${styleHome.titlesSections}`}
-                  key={i}
-                >
-                  {e.media}
-                </h1>
+                <Link href="/medien/medienmitteilungen">
+                  <h1
+                    className={`${styleHome.titleMedia} ${styleHome.titlesSections}`}
+                    key={i}
+                  >
+                    {e.media}
+                  </h1>
+                </Link>
               );
             })}
           <ListMedia
@@ -92,12 +95,14 @@ export default function Medien({ mediaPage, medienMitt }) {
             .filter((l) => l.locale === locale)
             .map((e, i) => {
               return (
-                <h2
-                  key={i}
-                  className={`${styleHome.greenButton} ${styleHome.buttonMoreMedia}`}
-                >
-                  {e.moreMedia}
-                </h2>
+                <Link href="/medien/medienmitteilungen">
+                  <h2
+                    key={i}
+                    className={`${styleHome.greenButton} ${styleHome.buttonMoreMedia}`}
+                  >
+                    {e.moreMedia}
+                  </h2>
+                </Link>
               );
             })}
         </section>

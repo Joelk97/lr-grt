@@ -74,12 +74,14 @@ export default function Home({ homeElements, medienMitt }) {
             .filter((l) => l.locale === locale)
             .map((e, i) => {
               return (
-                <h1
-                  className={`${styles.titleMedia} ${styles.titlesSections}`}
-                  key={i}
-                >
-                  {e.media}
-                </h1>
+                <Link href="/medien/medienmitteilungen">
+                  <h1
+                    className={`${styles.titleMedia} ${styles.titlesSections}`}
+                    key={i}
+                  >
+                    {e.media}
+                  </h1>
+                </Link>
               );
             })}
           <ListMedia
@@ -117,12 +119,14 @@ export default function Home({ homeElements, medienMitt }) {
             .filter((l) => l.locale === locale)
             .map((e, i) => {
               return (
-                <h2
-                  key={i}
-                  className={`${styles.greenButton} ${styles.buttonMoreMedia}`}
-                >
-                  {e.moreMedia}
-                </h2>
+                <Link href="/medien/medienmitteilungen">
+                  <h2
+                    key={i}
+                    className={`${styles.greenButton} ${styles.buttonMoreMedia}`}
+                  >
+                    {e.moreMedia}
+                  </h2>
+                </Link>
               );
             })}
         </section>

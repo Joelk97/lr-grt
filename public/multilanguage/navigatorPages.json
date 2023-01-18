@@ -21,5 +21,28 @@
       "informationen": "Informazioni",
       "medienmitteilungen": "Comunicati stampa"
     }
+  ],
+  "links": [
+    {
+      "locale": "de-CH",
+      "medien": "/medien",
+      "verein": "/verein",
+      "informationen": "/informationen",
+      "medienmitteilungen": "/medien/medienmitteilungen/"
+    },
+    {
+      "locale": "fr-CH",
+      "medien": "/medien",
+      "verein": "/verein",
+      "informationen": "/informationen",
+      "medienmitteilungen": "/medien/medienmitteilungen/"
+    },
+    {
+      "locale": "it-CH",
+      "medien": "/medien",
+      "verein": "/verein",
+      "informationen": "/informationen",
+      "medienmitteilungen": "/medien/medienmitteilungen/"
+    }
   ]
 }

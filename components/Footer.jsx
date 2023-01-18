@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Footer.module.css";
 import Image from "next/legacy/image";
 import navElements from "../public/multilanguage/nav.json";
+import Link from "next/link";
 
 const Footer = (props) => {
   const { locale, locales, asPath } = useRouter();
@@ -22,7 +23,7 @@ const Footer = (props) => {
             <div key={i} className={`${styles.navigation}`}>
               <ul className={`${styles.navList} ${styles.navListAsso}`}>
                 <li>
-                  <h2>{e.association}</h2>
+                <Link href="/verein"><h2>{e.association}</h2></Link>
                 </li>
                 <li>
                   <h3>{e.assoWhatWeDo}</h3>
@@ -39,10 +40,10 @@ const Footer = (props) => {
               </ul>
               <ul className={`${styles.navList} ${styles.navListAsso}`}>
                 <li>
-                  <h2>{e.media}</h2>
+                  <Link href="/medien"><h2>{e.media}</h2></Link>
                 </li>
                 <li>
-                  <h3>{e.mediaPress}</h3>
+                <Link href="/medien/medienmitteilungen"><h3>{e.mediaPress}</h3></Link>
                 </li>
                 <li>
                   <h3>{e.mediaNews}</h3>
@@ -53,7 +54,7 @@ const Footer = (props) => {
               </ul>
               <ul className={`${styles.navList} ${styles.navListAsso}`}>
                 <li>
-                  <h2>{e.info}</h2>
+                <Link href="/informationen"><h2>{e.info}</h2></Link>
                 </li>
                 <li>
                   <h3>{e.infoPolitics}</h3>
