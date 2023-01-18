@@ -51,10 +51,9 @@ export default function Medien({ mediaPage, medienMitt }) {
             .filter((l) => l.locale === locale)
             .map((e, i) => {
               return (
-                <Link href="/medien/medienmitteilungen">
+                <Link key={i} href="/medien/medienmitteilungen">
                   <h1
                     className={`${styleHome.titleMedia} ${styleHome.titlesSections}`}
-                    key={i}
                   >
                     {e.media}
                   </h1>
@@ -95,9 +94,8 @@ export default function Medien({ mediaPage, medienMitt }) {
             .filter((l) => l.locale === locale)
             .map((e, i) => {
               return (
-                <Link href="/medien/medienmitteilungen">
+                <Link key={i} href="/medien/medienmitteilungen">
                   <h2
-                    key={i}
                     className={`${styleHome.greenButton} ${styleHome.buttonMoreMedia}`}
                   >
                     {e.moreMedia}
