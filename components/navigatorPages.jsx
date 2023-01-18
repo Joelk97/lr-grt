@@ -3,8 +3,9 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import navigatorPagesElements from "../public/multilanguage/navigatorPages.json"
 import slugToTitle from "./slugToTitle"
+import { getStaticProps } from "../pages"
 
-const NavigatorPages = () => {
+const NavigatorPages = (props) => {
    const {locale, locales, asPath} = useRouter();
    const pages = asPath.split("/").slice(1);
    const langPages = navigatorPagesElements.pages.filter((l) => l.locale === locale)
@@ -15,7 +16,7 @@ const NavigatorPages = () => {
             <h3><Link className={styles.links} href="/">{`Home `}</Link></h3>
 
             {pages.map((e, i) => {
-                return (<Link key={i} className={styles.links} href={`${links[0][e] != undefined ? links[0][e] : links[0].medienmitteilungen+e}`}>{`>`}<h3>{`${langPages[0][e] != undefined ? langPages[0][e] : slugToTitle(e)}`}</h3></Link>
+                return (<Link key={i} className={styles.links} href={`${links[0][e] != undefined ? links[0][e] : "/"}`}>{`>`}<h3>{`${langPages[0][e] != undefined ? langPages[0][e] : props.slug != undefined ? props.slug.substring(0,30)+'...': ""}`}</h3></Link>
                     
                 )
             })}

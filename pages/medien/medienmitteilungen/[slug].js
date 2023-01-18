@@ -25,7 +25,8 @@ const queryMitteilung = `*[_type == "medienMitteilungen" && (slug.it_CH.current 
   BlockContent,
   files,
   "filesUrl": files[].asset -> url,
-  someLinks
+  someLinks,
+  slug
 }`;
 const iconStyle = { color: "#87BB3F", marginRight: "10" };
 export default function Mitteilung({ mitteilung }) {
@@ -44,7 +45,7 @@ export default function Mitteilung({ mitteilung }) {
       {/* TODO: DELETE IMAGES AND MAP OVER ARRAY */}
       <MyHead />
       <Header media="true" />
-      <NavigatorPages />
+      <NavigatorPages slug={mitteilung?.slug?.[newLocale]?.current} />
       <main className={styles.main}>
         {medienElements.mitteilung
           .filter((l) => l.locale === locale)
