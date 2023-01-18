@@ -1,0 +1,25 @@
+{
+  "pages": [
+    {
+      "locale": "de-CH",
+      "medien": "Medien",
+      "verein": "Verein",
+      "informationen": "Informationen",
+      "medienmitteilungen": "Medienmitteilungen"
+    },
+    {
+      "locale": "fr-CH",
+      "medien": "Médias",
+      "verein": "Association",
+      "informationen": "Informations",
+      "medienmitteilungen": "Communiqué de presse"
+    },
+    {
+      "locale": "it-CH",
+      "medien": "Media",
+      "verein": "Associazione",
+      "informationen": "Informazioni",
+      "medienmitteilungen": "Comunicati stampa"
+    }
+  ]
+}

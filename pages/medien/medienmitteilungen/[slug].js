@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 import { FaFileDownload } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
 import Link from "next/link";
+import medienElements from "../../../public/multilanguage/medien.json";
+import NavigatorPages from "../../../components/navigatorPages";
 
 const pathQuery = `{'de':*[_type == "medienMitteilungen" && defined(slug.de_CH.current)].slug.de_CH.current, 
 'it':*[_type == "medienMitteilungen" && defined(slug.it_CH.current)].slug.it_CH.current,
@@ -42,10 +44,18 @@ export default function Mitteilung({ mitteilung }) {
       {/* TODO: DELETE IMAGES AND MAP OVER ARRAY */}
       <MyHead />
       <Header media="true" />
+      <NavigatorPages />
       <main className={styles.main}>
-        <span className={styles.date}>
-          Medienmitteilung - {transformDate(mitteilung.dateTime)}
-        </span>
+        {medienElements.mitteilung
+          .filter((l) => l.locale === locale)
+          .map((e, i) => {
+            return (
+              <span key={i} className={styles.date}>
+                {e.article} - {transformDate(mitteilung.dateTime)}
+              </span>
+            );
+          })}
+
         <div className={styles.articleContent}>
           <h1 className={styles.title}>{mitteilung?.title?.[newLocale]}</h1>
           <p className={styles.abstract}>{mitteilung?.abstract?.[newLocale]}</p>

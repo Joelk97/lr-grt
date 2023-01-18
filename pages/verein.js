@@ -10,6 +10,7 @@ import vereinElements from "../public/multilanguage/verein.json";
 import Intro from "../components/Intro.jsx";
 import Card from "../components/Card.jsx";
 import client from "../components/sanityCli.js";
+import NavigatorPages from "../components/navigatorPages.jsx";
 
 const queryVereinPage =
   "*[_type=='vereinPage']|order(_createdAt asc)[0]{title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
@@ -36,7 +37,7 @@ export default function UeberUns({ vereinPage }) {
           titolo={vereinPage.title?.[newLocale]}
           slogan1={vereinPage.intro?.[newLocale]}
         />
-
+        <NavigatorPages />
         <div className={styles.intro2}>
           <h1 className={styleHome.titlesSections}>
             {vereinPage.title2?.[newLocale]}

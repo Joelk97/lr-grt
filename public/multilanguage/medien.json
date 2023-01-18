@@ -1,56 +1,71 @@
 {
-    "medienIntro": [
-        {
-            "locale": "de-CH",
-            "title": "Medien",
-            "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
-        },
-        {
-            "locale": "fr-CH",
-            "title": "Media",
-            "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
-        },
-        {
-            "locale": "it-CH",
-            "title": "Media",
-            "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
-        }
-    ],
-    "medienCards": [
-        {
-            "locale": "de-CH",
-            "newsTitle": "News",
-            "newsText": "Text zu den News Text zu den News Text zu den News Text zu den News",
-            "studiesTitle": "Studien",
-            "studiesText": "Text zu den Studien Text zu den Studien Text zu den Studien Text zu den News"
-        },
-        {
-            "locale": "fr-CH",
-            "newsTitle": "News",
-            "newsText": "Text zu den News Text zu den News Text zu den News Text zu den News",
-            "studiesTitle": "Ètudes",
-            "studiesText": "Text zu den Studien Text zu den Studien Text zu den Studien Text zu den News"
-        },
-        {
-            "locale": "it-CH",
-            "newsTitle": "News",
-            "newsText": "Text zu den News Text zu den News Text zu den News Text zu den News",
-            "studiesTitle": "Studi",
-            "studiesText": "Text zu den Studien Text zu den Studien Text zu den Studien Text zu den News"
-        }
-    ],
-    "medienFollow": [
-        {
-            "locale": "de-CH",
-            "title": "Folge uns"
-        },
-        {
-            "locale": "fr-CH",
-            "title": "Suivez-nous"
-        },
-        {
-            "locale": "it-CH",
-            "title": "Seguici"
-        }
-    ]
+  "medienIntro": [
+    {
+      "locale": "de-CH",
+      "title": "Medien",
+      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+    },
+    {
+      "locale": "fr-CH",
+      "title": "Media",
+      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+    },
+    {
+      "locale": "it-CH",
+      "title": "Media",
+      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+    }
+  ],
+  "medienCards": [
+    {
+      "locale": "de-CH",
+      "newsTitle": "News",
+      "newsText": "Text zu den News Text zu den News Text zu den News Text zu den News",
+      "studiesTitle": "Studien",
+      "studiesText": "Text zu den Studien Text zu den Studien Text zu den Studien Text zu den News"
+    },
+    {
+      "locale": "fr-CH",
+      "newsTitle": "News",
+      "newsText": "Text zu den News Text zu den News Text zu den News Text zu den News",
+      "studiesTitle": "Ètudes",
+      "studiesText": "Text zu den Studien Text zu den Studien Text zu den Studien Text zu den News"
+    },
+    {
+      "locale": "it-CH",
+      "newsTitle": "News",
+      "newsText": "Text zu den News Text zu den News Text zu den News Text zu den News",
+      "studiesTitle": "Studi",
+      "studiesText": "Text zu den Studien Text zu den Studien Text zu den Studien Text zu den News"
+    }
+  ],
+  "medienFollow": [
+    {
+      "locale": "de-CH",
+      "title": "Folge uns"
+    },
+    {
+      "locale": "fr-CH",
+      "title": "Suivez-nous"
+    },
+    {
+      "locale": "it-CH",
+      "title": "Seguici"
+    }
+  ],
+
+  "mitteilung": [
+    {
+      "locale": "de-CH",
+      "article": "Medienmitteilung"
+    },
+    {
+      "locale": "fr-CH",
+      "article": "Communiqué de presse"
+    },
+    {
+      "locale": "de-CH",
+      "article": "Comunicato stampa"
+    }
+  ]
 }

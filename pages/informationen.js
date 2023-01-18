@@ -4,7 +4,7 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import styleHome from "../styles/Home.module.css";
 import styles from "../styles/Informationen.module.css";
-
+import NavigatorPages from "../components/navigatorPages.jsx";
 import Image from "next/legacy/image";
 import infromationenElements from "../public/multilanguage/informationen.json";
 import Intro from "../components/Intro.jsx";
@@ -36,7 +36,7 @@ export default function UeberUns({ infoPage }) {
           titolo={infoPage.title?.[newLocale]}
           slogan1={infoPage.intro?.[newLocale]}
         />
-
+        <NavigatorPages />
         {infromationenElements.content
           .filter((l) => l.locale === locale)
           .map((e, i) => {

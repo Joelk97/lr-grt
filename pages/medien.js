@@ -13,6 +13,7 @@ import ListMedia from "../components/ListMedia";
 import Card from "../components/Card";
 import client from "../components/sanityCli";
 import transformDate from "../components/transformDate";
+import NavigatorPages from "../components/navigatorPages";
 
 const queryMediaPage =
   "*[_type=='mediaPage']|order(_createdAt asc)[0]{slug,title, intro, 'imageBkg': bkgImageIntro.asset -> url}";
@@ -22,6 +23,7 @@ const queryMedienMitteilungen =
 export default function Medien({ mediaPage, medienMitt }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
+
   return (
     <>
       <MyHead />
@@ -40,7 +42,7 @@ export default function Medien({ mediaPage, medienMitt }) {
           titolo={mediaPage.title?.[newLocale]}
           slogan1={mediaPage.intro?.[newLocale]}
         />
-
+        <NavigatorPages />
         <section className={styleHome.sectionMedienMitteilungen}>
           {homePage.titles
             .filter((l) => l.locale === locale)
