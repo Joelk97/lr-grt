@@ -10,7 +10,7 @@ import transformDate from "../../components/transformDate";
 
 const queryMedienMitteilungen =
   "*[_type == 'medienMitteilungen'][]{dateTime,abstract,slug,title}";
-export default function medienmitteilungen({ medienMitt }) {
+const Medienmitteilungen = ({ medienMitt }) => {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
 
@@ -37,7 +37,8 @@ export default function medienmitteilungen({ medienMitt }) {
       <Footer />
     </>
   );
-}
+};
+export default Medienmitteilungen;
 export async function getStaticProps() {
   const medienMitt = await client.fetch(queryMedienMitteilungen);
   return {
