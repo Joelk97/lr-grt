@@ -1,0 +1,10 @@
+.sectionMedienMitteilungen {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: #fffdfa;
+  padding: 4rem 0;
+}

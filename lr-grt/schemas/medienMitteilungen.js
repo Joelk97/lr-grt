@@ -103,11 +103,12 @@ export default defineType({
       slugDe: 'slug.de_CH.current',
       slugFr: 'slug.fr_CH.current',
       slugIt: 'slug.it_CH.current',
+      subtitle: 'dateTime',
     },
-    prepare({titleDe, titleFr, titleIt, slugIt, slugDe, slugFr}) {
+    prepare({subtitle, titleDe, titleFr, titleIt, slugIt, slugDe, slugFr}) {
       return {
         title: titleDe != undefined ? titleDe : titleIt != undefined ? titleIt : titleFr,
-        subtitle: slugDe != undefined ? slugDe : slugIt != undefined ? slugIt : slugFr,
+        subtitle: subtitle,
       }
     },
   },

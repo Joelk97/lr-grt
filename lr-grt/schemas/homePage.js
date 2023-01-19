@@ -33,6 +33,17 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'acutality',
+      title: 'Aktualität',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'medienMitteilungen'}],
+        },
+      ],
+    }),
+    defineField({
       name: 'becomeAsso',
       title: 'Text Mitglied werden',
       type: 'localeText',

@@ -1,4 +1,5 @@
 import { PortableText } from "@portabletext/react";
+import { useState } from "react";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
 import MyHead from "../../../components/MyHead";
@@ -12,6 +13,7 @@ import { useRouter } from "next/router";
 import { FaFileDownload } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
 import Link from "next/link";
+
 import medienElements from "../../../public/multilanguage/medien.json";
 import NavigatorPages from "../../../components/navigatorPages";
 
@@ -26,13 +28,15 @@ const queryMitteilung = `*[_type == "medienMitteilungen" && (slug.it_CH.current 
   files,
   "filesUrl": files[].asset -> url,
   someLinks,
-  slug
+  slug,
+  "imagesUrl": images[].asset -> url
 }`;
 const iconStyle = { color: "#87BB3F", marginRight: "10" };
 export default function Mitteilung({ mitteilung }) {
   const { locale, locales, asPath } = useRouter();
   const router = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
+
   if (router.isFallback) {
     return (
       <section>
@@ -105,22 +109,18 @@ export default function Mitteilung({ mitteilung }) {
         </div>
         <div className={styles.images}>
           <ul>
-            <li>
-              <Image
-                alt="Img"
-                layout="fill"
-                objectFit="cover"
-                src="https://picsum.photos/300/200"
-              />
-            </li>
-            <li>
-              <Image
-                layout="fill"
-                objectFit="cover"
-                alt="Img"
-                src="https://picsum.photos/300/200"
-              />
-            </li>
+            {mitteilung?.imagesUrl?.map((image, i) => {
+              return (
+                <li key={i}>
+                  <Image
+                    alt={`Image ${i}`}
+                    layout="fill"
+                    objectFit="cover"
+                    src={image}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
       </main>
