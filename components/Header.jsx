@@ -4,22 +4,38 @@ import { useRouter } from "next/router";
 import logoWhite from "../public/img/logoGreen.svg";
 import Image from "next/legacy/image";
 import Link from "next/link";
+import burgerMenuClosed from "../public/icons/burgerMenuClosed.svg";
+import { useState } from "react";
+import BurgerIcon from "../components/BurgerIcon";
 
 const Header = (props) => {
   const { locale, locales, asPath } = useRouter();
-
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className={styles.header}>
+      <div className={styles.logoImage}>
+        <Link href={`/`}>
+          <Image alt="Logo" src={logoWhite} />
+        </Link>
+      </div>
+      <div
+        onClick={() => setMenuOpen(!menuOpen)}
+        className={styles.burgerMenuClosed}
+      >
+        <BurgerIcon />
+      </div>
       {headerComp.headerComponents
         .filter((l) => l.locale === locale)
         .map((component, i) => {
           return (
-            <div key={i} className={styles.container}>
-              <div className={styles.logoImage}>
-                <Link href={`/`}>
-                  <Image alt="Logo" src={logoWhite} />
-                </Link>
-              </div>
+            <div
+              key={i}
+              className={
+                menuOpen
+                  ? [styles.container, styles.active].join(" ")
+                  : [styles.container]
+              }
+            >
               <ul className={`${styles.primaryNav} ${styles.navElements}`}>
                 <li>
                   <Link
@@ -49,7 +65,14 @@ const Header = (props) => {
                 </li>
               </ul>
               <ul className={`${styles.secondaryNav} ${styles.navElements}`}>
-                <li><Link href="/kontakt" className={props.kontakt?styles.selectedKontakt:""}>{component.contact}</Link></li>
+                <li>
+                  <Link
+                    href="/kontakt"
+                    className={props.kontakt ? styles.selectedKontakt : ""}
+                  >
+                    {component.contact}
+                  </Link>
+                </li>
                 <li>{component.events}</li>
               </ul>
               <ul className={`${styles.languages} ${styles.navElements}`}>

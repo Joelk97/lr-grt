@@ -1,0 +1,27 @@
+.icon .firstBar {
+  transform-origin: 10% 50%;
+  transition: transform 0.8s;
+}
+.firstBar {
+  transition: all 0.8s;
+}
+.thirdBar {
+  transition: all 0.8s;
+}
+.icon .firstBar {
+  transform: rotate(45deg);
+}
+.icon .thirdBar {
+  transform-origin: 10% 50%;
+  transition: transform 0.8s;
+}
+.icon .thirdBar {
+  transform: rotate(-45deg);
+}
+.secondBar {
+  opacity: 1;
+  transition: opacity 0.8s;
+}
+.icon .secondBar {
+  opacity: 0;
+}
