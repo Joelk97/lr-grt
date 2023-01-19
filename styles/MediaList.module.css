@@ -37,4 +37,10 @@
   .container {
     width: 80%;
   }
+  .articleText h2 {
+    font-size: 18px;
+  }
+  .articleText p {
+    font-size: 14px;
+  }
 }

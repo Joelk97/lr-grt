@@ -80,7 +80,7 @@
   }
 }
 
-@media screen and (max-width: 615px) {
+@media screen and (max-width: 635px) {
   .title {
     font-size: 28px;
     line-height: 42px;
@@ -93,11 +93,25 @@
     font-weight: 600;
   }
   .container {
-    aspect-ratio: 1280/1200;
+    width: 100%;
+    height: fit-content;
+    padding: 2rem 0;
     grid-template-columns: 1fr 9fr 1fr;
   }
   .contentIntro {
     margin-left: 0;
     grid-column: 2/3;
+  }
+}
+@media screen and (max-width: 470px) {
+  .contentIntro {
+    background-color: rgba(135, 187, 63, 1);
+  }
+  .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .slogans {
+    width: 90%;
   }
 }

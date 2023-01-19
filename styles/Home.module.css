@@ -37,7 +37,7 @@
   flex-direction: row;
   gap: 8vw;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .titlesSections {
   margin: 4rem 0;
@@ -184,7 +184,7 @@
   gap: 10vw;
   z-index: 9;
 }
-.imageIndo {
+.imageInfo {
   z-index: -100;
 }
 @media screen and (max-width: 1600px) {
@@ -196,7 +196,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-bottom: 3rem;
   }
 }
 
@@ -206,6 +205,9 @@
   }
   .cards {
     width: 100%;
+  }
+  .titlesSections {
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 840px) {
@@ -238,9 +240,39 @@
   .sectionTakePart {
     aspect-ratio: 800/1200;
   }
+
   .takePartContent {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+  }
+  .titlesSections {
+    font-size: 28px;
+  }
+  .sectionTakePart {
+    padding: 0.5rem 0;
+  }
+  .contentInfo {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 470px) {
+  .backGroundImgIntro {
+    height: 200px;
+    width: 100%;
+  }
+  .cardsTitTexBut h1 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cardsTitTexBut p {
+    margin-bottom: 1rem;
+  }
+  .greenButton {
+    margin-bottom: 2rem;
+  }
+  .cardsTitTexBut {
+    width: 250px;
+    min-height: 350px;
   }
 }

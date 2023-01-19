@@ -208,11 +208,10 @@ export default function Home({ homeElements, medienMitt }) {
         </section>
         <section className={styles.sectionInfo}>
           <Image
-            className={styles.imageInfo}
             alt="Cows"
             src="/img/marlene.jpg"
             layout="fill"
-            object-fit="cover"
+            object-fit="contain"
           />
           <div className={`${styles.contentInfo}`}>
             <div className={`${styles.cardInfo} ${styles.cardsTitTexBut}`}>
