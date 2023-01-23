@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import transformDate from "../../components/transformDate";
 
 const queryMedienMitteilungen =
-  "*[_type == 'medienMitteilungen'][]{dateTime,abstract,slug,title}";
+  "*[_type == 'medienMitteilungen'] | order(dateTime desc) []{dateTime,abstract,slug,title}";
 const Medienmitteilungen = ({ medienMitt }) => {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
