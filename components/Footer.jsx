@@ -46,10 +46,10 @@ const Footer = (props) => {
                 <Link href="/medien/medienmitteilungen"><h3>{e.mediaPress}</h3></Link>
                 </li>
                 <li>
-                  <h3>{e.mediaNews}</h3>
+                <Link href="/medien/news"><h3>{e.mediaNews}</h3></Link>
                 </li>
                 <li>
-                  <h3>{e.mediaStudies}</h3>
+                  <Link href="/medien/studien"><h3>{e.mediaStudies}</h3></Link>
                 </li>
               </ul>
               <ul className={`${styles.navList} ${styles.navListAsso}`}>

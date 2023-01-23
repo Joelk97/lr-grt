@@ -10,6 +10,7 @@ import infoPage from './infoPage'
 import medienMitteilungen from './medienMitteilungen'
 import author from './author'
 import urlAndName from './urlAndName'
+import news from './news'
 export const schemaTypes = [
   blockContent,
   Slug,
@@ -19,6 +20,7 @@ export const schemaTypes = [
   infoPage,
   vereinPage,
   author,
+  news,
   medienMitteilungen,
   mediaPage,
   homePage,

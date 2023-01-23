@@ -5,21 +5,27 @@
       "medien": "Medien",
       "verein": "Verein",
       "informationen": "Informationen",
-      "medienmitteilungen": "Medienmitteilungen"
+      "medienmitteilungen": "Medienmitteilungen",
+      "studien": "Studien",
+      "news": "News"
     },
     {
       "locale": "fr-CH",
       "medien": "Médias",
       "verein": "Association",
       "informationen": "Informations",
-      "medienmitteilungen": "Communiqués de presse"
+      "medienmitteilungen": "Communiqués de presse",
+      "studien": "Études",
+      "news": "News"
     },
     {
       "locale": "it-CH",
       "medien": "Media",
       "verein": "Associazione",
       "informationen": "Informazioni",
-      "medienmitteilungen": "Comunicati stampa"
+      "medienmitteilungen": "Comunicati stampa",
+      "studien": "Studi",
+      "news": "News"
     }
   ],
   "links": [
@@ -28,21 +34,27 @@
       "medien": "/medien",
       "verein": "/verein",
       "informationen": "/informationen",
-      "medienmitteilungen": "/medien/medienmitteilungen/"
+      "medienmitteilungen": "/medien/medienmitteilungen/",
+      "studien": "/medien/studien/",
+      "news": "/medien/news/"
     },
     {
       "locale": "fr-CH",
       "medien": "/medien",
       "verein": "/verein",
       "informationen": "/informationen",
-      "medienmitteilungen": "/medien/medienmitteilungen/"
+      "medienmitteilungen": "/medien/medienmitteilungen/",
+      "studien": "/medien/studien/",
+      "news": "/medien/news/"
     },
     {
       "locale": "it-CH",
       "medien": "/medien",
       "verein": "/verein",
       "informationen": "/informationen",
-      "medienmitteilungen": "/medien/medienmitteilungen/"
+      "medienmitteilungen": "/medien/medienmitteilungen/",
+      "studien": "/medien/studien/",
+      "news": "/medien/news/"
     }
   ]
 }

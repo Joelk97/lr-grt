@@ -115,12 +115,15 @@ export default function Medien({ mediaPage, medienMitt }) {
                     alt="Placeholding picture"
                     title={e.newsTitle}
                     text={e.newsText}
+                    link="/medien/news"
                   />
+
                   <Card
                     source="/img/nolan.jpg"
                     alt="Placeholding picture"
                     title={e.studiesTitle}
                     text={e.studiesText}
+                    link="/medien/studien"
                   />
                 </div>
               );

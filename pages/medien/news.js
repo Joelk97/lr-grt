@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import MyHead from "../../components/MyHead";
 import NavigatorPages from "../../components/navigatorPages";
 
-export default function Studien() {
+export default function News() {
   return (
     <>
       <MyHead />
