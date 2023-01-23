@@ -7,7 +7,8 @@
       "informationen": "Informationen",
       "medienmitteilungen": "Medienmitteilungen",
       "studien": "Studien",
-      "news": "News"
+      "news": "News",
+      "situation-wolf": "Situation Wolf"
     },
     {
       "locale": "fr-CH",
@@ -16,7 +17,8 @@
       "informationen": "Informations",
       "medienmitteilungen": "Communiqués de presse",
       "studien": "Études",
-      "news": "News"
+      "news": "News",
+      "situation-wolf": "Situation Loup"
     },
     {
       "locale": "it-CH",
@@ -25,7 +27,8 @@
       "informationen": "Informazioni",
       "medienmitteilungen": "Comunicati stampa",
       "studien": "Studi",
-      "news": "News"
+      "news": "News",
+      "situation-wolf": "Situazione lupo"
     }
   ],
   "links": [

@@ -16,6 +16,7 @@ import Link from "next/link";
 
 import medienElements from "../../../public/multilanguage/medien.json";
 import NavigatorPages from "../../../components/navigatorPages";
+import refToLink from "../../../components/refToLink";
 
 const pathQuery = `{'de':*[_type == "news" && defined(slug.de_CH.current)].slug.de_CH.current, 
 'it':*[_type == "news" && defined(slug.it_CH.current)].slug.it_CH.current,
@@ -30,13 +31,18 @@ const queryNews = `*[_type == "news" && (slug.it_CH.current == $slug || slug.de_
   someLinks,
   slug,
   "imagesUrl": images[].asset -> url
+  
 }`;
 const iconStyle = { color: "#87BB3F", marginRight: "10" };
 export default function News({ news }) {
   const { locale, locales, asPath } = useRouter();
   const router = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
-
+  /*news?.BlockContent?.[0]?.fr_CH?
+    .filter((e) => e._type == "image")
+    .map((image, i) => {
+      return console.log(refToLink(image.asset._ref));
+    });*/
   if (router.isFallback) {
     return (
       <section>
@@ -111,14 +117,16 @@ export default function News({ news }) {
           <ul>
             {news?.imagesUrl?.map((image, i) => {
               return (
-                <li key={i}>
-                  <Image
-                    alt={`Image ${i}`}
-                    layout="fill"
-                    objectFit="cover"
-                    src={image}
-                  />
-                </li>
+                <Link key={i} href={image}>
+                  <li key={i}>
+                    <Image
+                      alt={`Image ${i}`}
+                      layout="fill"
+                      objectFit="cover"
+                      src={image}
+                    />
+                  </li>
+                </Link>
               );
             })}
           </ul>

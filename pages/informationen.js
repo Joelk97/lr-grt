@@ -54,6 +54,7 @@ export default function UeberUns({ infoPage }) {
                     alt="Abbildung Wolf"
                     title={e.sitWolfTitle}
                     text={e.sitWolfText}
+                    link="/informationen/situation-wolf"
                   />
                   <Card
                     source="/img/politics1.jpg"

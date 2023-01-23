@@ -50,6 +50,7 @@ export default function Mitteilung({ mitteilung }) {
       <MyHead />
       <Header media="true" />
       <NavigatorPages slug={mitteilung?.slug?.[newLocale]?.current} />
+
       <main className={styles.main}>
         {medienElements.mitteilung
           .filter((l) => l.locale === locale)
@@ -111,14 +112,16 @@ export default function Mitteilung({ mitteilung }) {
           <ul>
             {mitteilung?.imagesUrl?.map((image, i) => {
               return (
-                <li key={i}>
-                  <Image
-                    alt={`Image ${i}`}
-                    layout="fill"
-                    objectFit="cover"
-                    src={image}
-                  />
-                </li>
+                <Link key={i} href={image}>
+                  <li key={i}>
+                    <Image
+                      alt={`Image ${i}`}
+                      layout="fill"
+                      objectFit="cover"
+                      src={image}
+                    />
+                  </li>
+                </Link>
               );
             })}
           </ul>
