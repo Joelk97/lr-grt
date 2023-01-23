@@ -67,5 +67,20 @@
       "locale": "it-CH",
       "article": "Comunicato stampa"
     }
+  ],
+
+  "news": [
+    {
+      "locale": "de-CH",
+      "article": "News"
+    },
+    {
+      "locale": "fr-CH",
+      "article": "News"
+    },
+    {
+      "locale": "it-CH",
+      "article": "News"
+    }
   ]
 }

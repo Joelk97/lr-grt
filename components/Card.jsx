@@ -6,7 +6,10 @@ import Link from "next/link";
 const Card = (props) => {
   const { locale, locales, asPath } = useRouter();
   return (
-    <Link key={props.key ? props.key : ""} href={props.link ? props.link : "#"}>
+    <Link
+      key={props.keyY ? props.keyY : ""}
+      href={props.link ? props.link : "#"}
+    >
       <div className={styles.card}>
         <div className={styles.image}>
           <Image alt={props.alt} src={props.source} width={300} height={200} />

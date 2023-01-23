@@ -1,12 +1,13 @@
 .container {
   padding: 4rem 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: 60vh;
   background-color: #fffdfa;
   display: grid;
   grid-template-columns: auto auto;
   align-items: baseline;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 12vw;
 }
 .containerol {
   display: grid;
@@ -16,6 +17,11 @@
   grid-row-gap: 200px;
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width: 730px) {
+  .container {
+    gap: 10px;
+  }
 }
 @media screen and (max-width: 650px) {
   .container {

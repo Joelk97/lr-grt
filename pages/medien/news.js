@@ -34,7 +34,7 @@ export default function News({ news }) {
                 text={`${transformDate(n.dateTime)} - ${n.abstract?.[
                   newLocale
                 ]?.substring(0, 150)}...`}
-                link={`/media/news/${n.slug?.[newLocale]?.current}`}
+                link={`/medien/news/${n.slug?.[newLocale]?.current}`}
               />
             );
           })}

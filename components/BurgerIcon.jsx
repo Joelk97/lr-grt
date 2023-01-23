@@ -13,7 +13,6 @@ const BurgerIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {console.log(clicked)}
       <g className={clicked ? styles.icon : ""}>
         <rect width="100" height="100" fill="#FFFDFA" />
         <rect
