@@ -124,6 +124,8 @@ export default function News({ news }) {
                       layout="fill"
                       objectFit="cover"
                       src={image}
+                      placeholder="blur"
+                      blurDataURL="/img/logoGreenBkgG.svg"
                     />
                   </li>
                 </Link>

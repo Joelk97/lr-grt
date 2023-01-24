@@ -36,6 +36,8 @@ export default function Medien({ mediaPage, medienMitt }) {
             src={mediaPage.imageBkg}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgG.svg"
           />
         </div>
 
@@ -135,6 +137,8 @@ export default function Medien({ mediaPage, medienMitt }) {
             objectFit="contain"
             alt="Logo"
             src="/img/logoGreenBkgW.svg"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgG.svg"
           />
           {medien.medienFollow
             .filter((l) => l.locale === locale)
@@ -151,6 +155,8 @@ export default function Medien({ mediaPage, medienMitt }) {
                     height={200}
                     alt="FB Post"
                     src="/img/exampleFB.jpg"
+                    placeholder="blur"
+                    blurDataURL="/img/logoGreenBkgG.svg"
                   />
                   <br />
                 </div>

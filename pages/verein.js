@@ -30,6 +30,8 @@ export default function UeberUns({ vereinPage }) {
             src={vereinPage.imageBkg}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgG.svg"
           />
         </div>
 

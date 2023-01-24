@@ -119,6 +119,8 @@ export default function Mitteilung({ mitteilung }) {
                       layout="fill"
                       objectFit="cover"
                       src={image}
+                      placeholder="blur"
+                      blurDataURL="/img/logoGreenBkgG.svg"
                     />
                   </li>
                 </Link>

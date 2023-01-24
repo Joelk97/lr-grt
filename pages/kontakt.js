@@ -21,6 +21,8 @@ export default function Kontakt() {
             src={mountain1}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgG.svg"
           />
         </div>
         {kontaktelements.kontaktIntro

@@ -29,6 +29,8 @@ export default function Informationen({ infoPage }) {
             src={infoPage.imageBkg}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgG.svg"
           />
         </div>
 

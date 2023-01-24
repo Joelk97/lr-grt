@@ -117,6 +117,8 @@ export default function SitWolfArt({ artSitWolf }) {
                       layout="fill"
                       objectFit="cover"
                       src={image}
+                      placeholder="blur"
+                      blurDataURL="/img/logoGreenBkgG.svg"
                     />
                   </li>
                 </Link>
