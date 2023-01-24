@@ -27,7 +27,9 @@ const queryPolitik = `*[_type == "politik" && (slug.it_CH.current == $slug || sl
   "filesUrl": files[].asset -> url,
   someLinks,
   slug,
-  "imagesUrl": images[].asset -> url
+  "imagesUrl": images[].asset -> url,
+  category,
+  "kategorie": *[_type == "catPolitics" && _id == ^.category._ref]
 }`;
 const iconStyle = { color: "#87BB3F", marginRight: "10" };
 export default function PolitikArt({ artPolitik }) {
@@ -50,15 +52,10 @@ export default function PolitikArt({ artPolitik }) {
       <NavigatorPages slug={artPolitik?.slug?.[newLocale]?.current} />
 
       <main className={styles.main}>
-        {medienElements.mitteilung
-          .filter((l) => l.locale === locale)
-          .map((e, i) => {
-            return (
-              <span key={i} className={styles.date}>
-                {e.article} - {transformDate(artPolitik.dateTime)}
-              </span>
-            );
-          })}
+        <span className={styles.date}>
+          {artPolitik?.kategorie?.[0]?.category?.[newLocale]} -
+          {transformDate(artPolitik.dateTime)}
+        </span>
 
         <div className={styles.articleContent}>
           <h1 className={styles.title}>{artPolitik?.title?.[newLocale]}</h1>
