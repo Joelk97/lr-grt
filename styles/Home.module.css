@@ -191,6 +191,12 @@
   .sectionTakePart {
     aspect-ratio: 1280/760;
   }
+  .sectionSlogan {
+    aspect-ratio: 1100/500;
+  }
+  .sectionInfo {
+    aspect-ratio: 1100/790;
+  }
   .cards {
     width: 80%;
     display: flex;
@@ -203,6 +209,12 @@
   .backGroundImgIntro {
     aspect-ratio: 1280/1000;
   }
+  .sectionInfo {
+    aspect-ratio: 1000/790;
+  }
+  .sectionSlogan {
+    aspect-ratio: 1000/500;
+  }
   .cards {
     width: 100%;
   }
@@ -213,6 +225,12 @@
 @media screen and (max-width: 840px) {
   .sectionTakePart {
     aspect-ratio: 1280/950;
+  }
+  .sectionInfo {
+    aspect-ratio: 700/790;
+  }
+  .sectionSlogan {
+    aspect-ratio: 700/500;
   }
   .takePartContent {
     gap: 4vw;
@@ -233,12 +251,21 @@
   .backGroundImgIntro {
     aspect-ratio: 1280/1200;
   }
+  .sectionInfo {
+    aspect-ratio: 400/900;
+  }
+  .sectionInfo {
+    aspect-ratio: 600/790;
+  }
   .cards {
     flex-direction: column;
     align-items: center;
   }
   .sectionTakePart {
-    aspect-ratio: 800/1200;
+    aspect-ratio: 600/1200;
+  }
+  .sectionSlogan {
+    aspect-ratio: 500/500;
   }
 
   .takePartContent {
@@ -260,6 +287,15 @@
   .backGroundImgIntro {
     height: 200px;
     width: 100%;
+  }
+  .sectionInfo {
+    aspect-ratio: 400/790;
+  }
+  .sectionSlogan {
+    aspect-ratio: 300/500;
+  }
+  .sectionTakePart {
+    aspect-ratio: 500/1200;
   }
   .cardsTitTexBut h1 {
     margin-top: 1.5rem;

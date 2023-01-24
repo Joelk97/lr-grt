@@ -30,6 +30,8 @@ export default function Home({ homeElements, medienMitt }) {
             src={homeElements.imageBkg}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgW.svg"
           />
         </div>
 
@@ -135,6 +137,8 @@ export default function Home({ homeElements, medienMitt }) {
             alt="Cows"
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgW.svg"
           />
 
           {homePage.titles
@@ -189,6 +193,8 @@ export default function Home({ homeElements, medienMitt }) {
             objectFit="contain"
             alt="Logo"
             src="/img/logoGreenBkgW.svg"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgW.svg"
           />
           {homePage.whatWeWant
             .filter((l) => l.locale === locale)
@@ -211,7 +217,9 @@ export default function Home({ homeElements, medienMitt }) {
             alt="Cows"
             src="/img/marlene.jpg"
             layout="fill"
-            object-fit="contain"
+            objectFit="cover"
+            placeholder="blur"
+            blurDataURL="/img/logoGreenBkgW.svg"
           />
           <div className={`${styles.contentInfo}`}>
             <div className={`${styles.cardInfo} ${styles.cardsTitTexBut}`}>
