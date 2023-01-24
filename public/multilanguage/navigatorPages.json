@@ -8,7 +8,8 @@
       "medienmitteilungen": "Medienmitteilungen",
       "studien": "Studien",
       "news": "News",
-      "situation-wolf": "Situation Wolf"
+      "situation-wolf": "Situation Wolf",
+      "politik": "Politik"
     },
     {
       "locale": "fr-CH",
@@ -18,7 +19,8 @@
       "medienmitteilungen": "Communiqués de presse",
       "studien": "Études",
       "news": "News",
-      "situation-wolf": "Situation Loup"
+      "situation-wolf": "Situation Loup",
+      "politik": "Politique"
     },
     {
       "locale": "it-CH",
@@ -28,7 +30,8 @@
       "medienmitteilungen": "Comunicati stampa",
       "studien": "Studi",
       "news": "News",
-      "situation-wolf": "Situazione lupo"
+      "situation-wolf": "Situazione lupo",
+      "politik": "Politica"
     }
   ],
   "links": [
@@ -39,7 +42,9 @@
       "informationen": "/informationen",
       "medienmitteilungen": "/medien/medienmitteilungen/",
       "studien": "/medien/studien/",
-      "news": "/medien/news/"
+      "news": "/medien/news/",
+      "situation-wolf": "/informationen/situation-wolf",
+      "politik": "/informationen/politik"
     },
     {
       "locale": "fr-CH",
@@ -48,7 +53,9 @@
       "informationen": "/informationen",
       "medienmitteilungen": "/medien/medienmitteilungen/",
       "studien": "/medien/studien/",
-      "news": "/medien/news/"
+      "news": "/medien/news/",
+      "situation-wolf": "/informationen/situation-wolf",
+      "politik": "/informationen/politik"
     },
     {
       "locale": "it-CH",
@@ -57,7 +64,9 @@
       "informationen": "/informationen",
       "medienmitteilungen": "/medien/medienmitteilungen/",
       "studien": "/medien/studien/",
-      "news": "/medien/news/"
+      "news": "/medien/news/",
+      "situation-wolf": "/informationen/situation-wolf",
+      "politik": "/informationen/politik"
     }
   ]
 }

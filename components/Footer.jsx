@@ -72,12 +72,12 @@ const Footer = (props) => {
                   <h3>{e.infoPolitics}</h3>
                 </li>
                 <li>
-                  <h3>{e.infoActivities}</h3>
-                </li>
-                <li>
                   <Link href={`/informationen/situation-wolf`}>
                     <h3>{e.infoSitWolf}</h3>
                   </Link>
+                </li>
+                <li>
+                  <h3>{e.infoActivities}</h3>
                 </li>
               </ul>
               <ul className={`${styles.navList} ${styles.navListAsso}`}>

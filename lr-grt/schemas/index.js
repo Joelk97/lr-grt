@@ -11,8 +11,14 @@ import medienMitteilungen from './medienMitteilungen'
 import author from './author'
 import urlAndName from './urlAndName'
 import news from './news'
+import situationWolfArt from './situationWolfArt'
+import politik from './politik'
+import kategoriePolitik from './kategoriePolitik'
 export const schemaTypes = [
   blockContent,
+  kategoriePolitik,
+  politik,
+  situationWolfArt,
   Slug,
   String,
   Text,

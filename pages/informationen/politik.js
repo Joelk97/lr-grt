@@ -8,9 +8,9 @@ import Card from "../../components/Card";
 import transformDate from "../../components/transformDate";
 import styles from "../../styles/News.module.css";
 
-const querySituationWolf =
-  "*[_type == 'situationWolf'] | order(dateTime desc) []{dateTime,abstract,slug,title, 'imagesUrl': images[].asset -> url}";
-export default function SituationWolf({ situWolfArt }) {
+const queryPolitik =
+  "*[_type == 'politik'] | order(dateTime desc) []{dateTime,abstract,slug,title, 'imagesUrl': images[].asset -> url}";
+export default function Politik({ politik }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
   return (
@@ -19,7 +19,7 @@ export default function SituationWolf({ situWolfArt }) {
       <Header informationen="true" />
       <NavigatorPages />
       <section className={styles.container}>
-        {situWolfArt
+        {politik
           .filter((n) => n.slug?.[newLocale]?.current != null)
           .map((n, i) => {
             return (
@@ -32,7 +32,7 @@ export default function SituationWolf({ situWolfArt }) {
                 keyY={i}
                 title={n.title?.[newLocale]}
                 text={`${n.abstract?.[newLocale]?.substring(0, 150)}...`}
-                link={`/informationen/situation-wolf/${n.slug?.[newLocale]?.current}`}
+                link={`/informationen/politik/${n.slug?.[newLocale]?.current}`}
               />
             );
           })}
@@ -43,10 +43,10 @@ export default function SituationWolf({ situWolfArt }) {
 }
 
 export async function getStaticProps() {
-  const situWolfArt = await client.fetch(querySituationWolf);
+  const politik = await client.fetch(queryPolitik);
   return {
     props: {
-      situWolfArt,
+      politik,
     },
   };
 }

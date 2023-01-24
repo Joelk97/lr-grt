@@ -15,7 +15,7 @@ import client from "../components/sanityCli.js";
 const queryInfoPage =
   "*[_type=='infoPage']|order(_createdAt asc)[0]{title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
 
-export default function UeberUns({ infoPage }) {
+export default function Informationen({ infoPage }) {
   const { locale, loales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
   return (
@@ -61,6 +61,7 @@ export default function UeberUns({ infoPage }) {
                     alt="Abbildung Politik"
                     title={e.politicsTitle}
                     text={e.politicsText}
+                    link="/informationen/politik"
                   />
                 </div>
               </section>
