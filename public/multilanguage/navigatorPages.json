@@ -9,7 +9,8 @@
       "studien": "Studien",
       "news": "News",
       "situation-wolf": "Situation Wolf",
-      "politik": "Politik"
+      "politik": "Politik",
+      "statuten": "Statuten"
     },
     {
       "locale": "fr-CH",
@@ -20,7 +21,8 @@
       "studien": "Études",
       "news": "News",
       "situation-wolf": "Situation Loup",
-      "politik": "Politique"
+      "politik": "Politique",
+      "statuten": "Statuts"
     },
     {
       "locale": "it-CH",
@@ -31,7 +33,8 @@
       "studien": "Studi",
       "news": "News",
       "situation-wolf": "Situazione lupo",
-      "politik": "Politica"
+      "politik": "Politica",
+      "statuten": "Statuti"
     }
   ],
   "links": [
@@ -44,7 +47,8 @@
       "studien": "/medien/studien/",
       "news": "/medien/news/",
       "situation-wolf": "/informationen/situation-wolf",
-      "politik": "/informationen/politik"
+      "politik": "/informationen/politik",
+      "statuten": "/verein/statuten"
     },
     {
       "locale": "fr-CH",
@@ -55,7 +59,8 @@
       "studien": "/medien/studien/",
       "news": "/medien/news/",
       "situation-wolf": "/informationen/situation-wolf",
-      "politik": "/informationen/politik"
+      "politik": "/informationen/politik",
+      "statuten": "/verein/statuten"
     },
     {
       "locale": "it-CH",
@@ -66,7 +71,8 @@
       "studien": "/medien/studien/",
       "news": "/medien/news/",
       "situation-wolf": "/informationen/situation-wolf",
-      "politik": "/informationen/politik"
+      "politik": "/informationen/politik",
+      "statuten": "/verein/statuten"
     }
   ]
 }

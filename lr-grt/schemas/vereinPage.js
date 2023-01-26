@@ -38,9 +38,44 @@ export default defineType({
       type: 'localeString',
     }),
     defineField({
+      name: 'cardWhatWeDoSlug',
+      title: 'Leitbild Slug',
+      type: 'localeSlug',
+    }),
+    defineField({
       name: 'cardWhatWeDoText',
       title: 'Leitbild Text',
       type: 'localeText',
+    }),
+    defineField({
+      name: 'statutesDate',
+      title: 'Datum Aktualisierung der Statuten',
+      type: 'datetime',
+    }),
+    defineField({
+      name: 'statutesTitle',
+      title: 'Titel Statuten',
+      type: 'localeString',
+    }),
+    defineField({
+      name: 'statutesSlug',
+      title: 'Statuten Slug',
+      type: 'localeSlug',
+    }),
+    defineField({
+      name: 'statutesIntro',
+      title: 'Intro Statuten',
+      type: 'localeText',
+    }),
+    defineField({
+      name: 'statutesContent',
+      title: 'Statuten',
+      type: 'localeBlockContent',
+    }),
+    defineField({
+      name: 'statutesFile',
+      title: 'PDF Statuten',
+      type: 'file',
     }),
   ],
   preview: {
