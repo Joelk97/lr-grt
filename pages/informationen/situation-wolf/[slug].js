@@ -14,6 +14,8 @@ import { AiOutlineLink } from "react-icons/ai";
 import Link from "next/link";
 import medienElements from "../../../public/multilanguage/medien.json";
 import NavigatorPages from "../../../components/navigatorPages";
+import headComponents from "../../../public/multilanguage/head.json";
+import Head from "next/head";
 
 const pathQuery = `{'de':*[_type == "situationWolf" && defined(slug.de_CH.current)].slug.de_CH.current, 
 'it':*[_type == "situationWolf" && defined(slug.it_CH.current)].slug.it_CH.current,
@@ -45,7 +47,16 @@ export default function SitWolfArt({ artSitWolf }) {
   return (
     <>
       {/* TODO: DELETE IMAGES AND MAP OVER ARRAY */}
-      <MyHead />
+      {headComponents.situaWolf
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header informationen="true" />
       <NavigatorPages slug={artSitWolf?.slug?.[newLocale]?.current} />
 

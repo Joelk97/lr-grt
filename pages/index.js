@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 import client from "../components/sanityCli";
 import transformDate from "../components/transformDate";
 import Link from "next/link";
+import Head from "next/head";
+import headComponents from "../public/multilanguage/head.json";
 
 const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
 [0]
@@ -44,7 +46,16 @@ export default function Home({ homeElements, medienMitt }) {
   };
   return (
     <>
-      <MyHead />
+      {headComponents.head
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`Home - ${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header />
       <main className={styles.main}>
         <div className={styles.backGroundImgIntro}>

@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import Card from "../../../components/Card";
 import transformDate from "../../../components/transformDate";
 import styles from "../../../styles/News.module.css";
+import headComponents from "../../../public/multilanguage/head.json";
+import Head from "next/head";
 
 const queryNews =
   "*[_type == 'news'] | order(dateTime desc) []{dateTime,abstract,slug,title, 'imagesUrl': images[].asset -> url}";
@@ -15,7 +17,16 @@ export default function News({ news }) {
   const newLocale = locale.substring(0, 2) + "_CH";
   return (
     <>
-      <MyHead />
+      {headComponents.news
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header media="true" />
       <NavigatorPages />
       <section className={styles.container}>

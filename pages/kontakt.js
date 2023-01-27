@@ -7,12 +7,23 @@ import Image from "next/legacy/image";
 import Intro from "../components/Intro.jsx";
 import mountain1 from "../public/img/mountain1.jpg";
 import kontaktelements from "../public/multilanguage/kontakt.json";
+import headComponents from "../public/multilanguage/head.json";
+import Head from "next/head";
 
 export default function Kontakt() {
   const { locale, locales, asPath } = useRouter();
   return (
     <>
-      <MyHead />
+      {headComponents.kontakt
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header kontakt="true" />
       <main className={styleHome.main}>
         <div className={styleHome.backGroundImgIntro}>

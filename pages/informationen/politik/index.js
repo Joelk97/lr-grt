@@ -6,6 +6,8 @@ import client from "../../../components/sanityCli";
 import { useRouter } from "next/router";
 import Card from "../../../components/Card";
 import styles from "../../../styles/News.module.css";
+import headComponents from "../../../public/multilanguage/head.json";
+import Head from "next/head";
 
 const queryPolitik =
   "*[_type == 'politik'] | order(dateTime desc) []{dateTime,abstract,slug,title, 'imagesUrl': images[].asset -> url}";
@@ -14,7 +16,16 @@ export default function Politik({ politik }) {
   const newLocale = locale.substring(0, 2) + "_CH";
   return (
     <>
-      <MyHead />
+      {headComponents.politik
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header informationen="true" />
       <NavigatorPages />
       <section className={styles.container}>

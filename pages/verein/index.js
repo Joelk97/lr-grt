@@ -11,6 +11,8 @@ import Intro from "../../components/Intro.jsx";
 import Card from "../../components/Card.jsx";
 import client from "../../components/sanityCli.js";
 import NavigatorPages from "../../components/navigatorPages.jsx";
+import headComponents from "../../public/multilanguage/head.json";
+import Head from "next/head";
 
 const queryVereinPage =
   "*[_type=='vereinPage']|order(_createdAt asc)[0]{statutesIntro, statutesSlug, statutesTitle, statutesDate, cardWhatWeDoText,cardWhatWeDoTitle, title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
@@ -21,7 +23,16 @@ export default function UeberUns({ vereinPage }) {
 
   return (
     <>
-      <MyHead />
+      {headComponents.verein
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header verein="true" />
       <main className={styleHome.main}>
         <div className={styleHome.backGroundImgIntro}>

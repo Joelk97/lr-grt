@@ -1,20 +1,21 @@
-import MyHead from "../components/MyHead";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import styleHome from "../styles/Home.module.css";
-import styles from "../styles/Medien.module.css";
-import cow1 from "../public/img/cow1.jpg";
+import MyHead from "../../components/MyHead";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import styleHome from "../../styles/Home.module.css";
+import styles from "../../styles/Medien.module.css";
 import Image from "next/legacy/image";
-import Intro from "../components/Intro";
-import medien from "../public/multilanguage/medien.json";
+import Intro from "../../components/Intro";
+import medien from "../../public/multilanguage/medien.json";
 import { useRouter } from "next/router";
-import homePage from "../public/multilanguage/homePage.json";
-import ListMedia from "../components/ListMedia";
-import Card from "../components/Card";
-import client from "../components/sanityCli";
-import transformDate from "../components/transformDate";
-import NavigatorPages from "../components/navigatorPages";
+import homePage from "../../public/multilanguage/homePage.json";
+import ListMedia from "../../components/ListMedia";
+import Card from "../../components/Card";
+import client from "../../components/sanityCli";
+import transformDate from "../../components/transformDate";
+import NavigatorPages from "../../components/navigatorPages";
 import Link from "next/link";
+import headComponents from "../../public/multilanguage/head.json";
+import Head from "next/head";
 
 const queryMediaPage =
   "*[_type=='mediaPage']|order(_createdAt asc)[0]{slug,title, intro, 'imageBkg': bkgImageIntro.asset -> url}";
@@ -27,7 +28,16 @@ export default function Medien({ mediaPage, medienMitt }) {
 
   return (
     <>
-      <MyHead />
+      {headComponents.media
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header media="true" />
       <main className={styleHome.main}>
         <div className={styleHome.backGroundImgIntro}>

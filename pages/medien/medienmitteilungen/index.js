@@ -7,6 +7,8 @@ import ListMedia from "../../../components/ListMedia";
 import client from "../../../components/sanityCli";
 import { useRouter } from "next/router";
 import transformDate from "../../../components/transformDate";
+import headComponents from "../../../public/multilanguage/head.json";
+import Head from "next/head";
 
 const queryMedienMitteilungen =
   "*[_type == 'medienMitteilungen'] | order(dateTime desc) []{dateTime,abstract,slug,title}";
@@ -16,7 +18,16 @@ const Medienmitteilungen = ({ medienMitt }) => {
 
   return (
     <>
-      <MyHead />
+      {headComponents.medienmitt
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header media="true" />
       <NavigatorPages />
       <section className={styles.sectionMedienMitteilungen}>

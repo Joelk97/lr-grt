@@ -13,7 +13,8 @@ import { useRouter } from "next/router";
 import { FaFileDownload } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
 import Link from "next/link";
-
+import headComponents from "../../../public/multilanguage/head.json";
+import Head from "next/head";
 import medienElements from "../../../public/multilanguage/medien.json";
 import NavigatorPages from "../../../components/navigatorPages";
 import refToLink from "../../../components/refToLink";
@@ -53,7 +54,16 @@ export default function News({ news }) {
   return (
     <>
       {/* TODO: DELETE IMAGES AND MAP OVER ARRAY */}
-      <MyHead />
+      {headComponents.news
+        .filter((l) => l.locale === locale)
+        .map((element, i) => {
+          return (
+            <Head key={i}>
+              <title>{`${element.title}`}</title>
+              <meta name="description" content={element.description} />
+            </Head>
+          );
+        })}
       <Header media="true" />
       <NavigatorPages slug={news?.slug?.[newLocale]?.current} />
       <main className={styles.main}>

@@ -15,5 +15,179 @@
             "title": "Association Suisse pour la protection des territoires contre les grands prédateurs",
             "description": "Nous nous engageons pour la protection de l'habitat rural"
         }
-    ]
+    ],
+     "media": [
+        {
+            "locale": "de-CH",
+            "title": "Medien - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Media - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Media - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     "verein": [
+        {
+            "locale": "de-CH",
+            "title": "Verein - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Associazione - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Association - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     "informationen": [
+        {
+            "locale": "de-CH",
+            "title": "Informationen - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Informazioni - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Informations - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     "politik": [
+        {
+            "locale": "de-CH",
+            "title": "Politik - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Politica - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Politique - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     "situaWolf": [
+        {
+            "locale": "de-CH",
+            "title": "Situation Wolf - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Situazione lupo - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Situation loup - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     "medienmitt": [
+        {
+            "locale": "de-CH",
+            "title": "Medienmitteilungen - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Comunicati stampa - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Communiqués de presse - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     "news": [
+        {
+            "locale": "de-CH",
+            "title": "News - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "News - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "News - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     
+     "studien": [
+        {
+            "locale": "de-CH",
+            "title": "Studien - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Studi - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Ètudes - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     
+     "statuten": [
+        {
+            "locale": "de-CH",
+            "title": "Statuten - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Statuti - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Status - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ],
+     
+     "kontakt": [
+        {
+            "locale": "de-CH",
+            "title": "Kontakt - Verein Schweiz zum Schutz der ländlichen Lebensräume vor Grossraubtieren",
+            "description": "Wir setzen uns ein, für den Schutz der ländlichen Lebensräume"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Contatto - Associazione svizzera per la protezione del territorio dai grandi predatori",
+            "description": "Siamo impegnati nella protezione degli habitat rurali"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Contact - Association Suisse pour la protection des territoires contre les grands prédateurs",
+            "description": "Nous nous engageons pour la protection de l'habitat rural"
+        }
+     ]
+
 }
