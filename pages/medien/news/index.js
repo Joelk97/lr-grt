@@ -1,12 +1,12 @@
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import MyHead from "../../components/MyHead";
-import NavigatorPages from "../../components/navigatorPages";
-import client from "../../components/sanityCli";
+import Footer from "../../../components/Footer";
+import Header from "../../../components/Header";
+import MyHead from "../../../components/MyHead";
+import NavigatorPages from "../../../components/navigatorPages";
+import client from "../../../components/sanityCli";
 import { useRouter } from "next/router";
-import Card from "../../components/Card";
-import transformDate from "../../components/transformDate";
-import styles from "../../styles/News.module.css";
+import Card from "../../../components/Card";
+import transformDate from "../../../components/transformDate";
+import styles from "../../../styles/News.module.css";
 
 const queryNews =
   "*[_type == 'news'] | order(dateTime desc) []{dateTime,abstract,slug,title, 'imagesUrl': images[].asset -> url}";

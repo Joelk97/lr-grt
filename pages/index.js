@@ -12,13 +12,36 @@ import client from "../components/sanityCli";
 import transformDate from "../components/transformDate";
 import Link from "next/link";
 
-const queryHomePage =
-  "*[_type=='homePage']|order(_createdAt asc)[0]{sloganTitle, sloganText, sloganButton, contactForm, title, slogan1, slogan2, button, 'imageBkg': bkgImageIntro.asset -> url, becomeAsso}";
+const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
+[0]
+{sloganTitle, 
+  sloganText, 
+  sloganButton, 
+  contactForm, 
+  title, 
+  slogan1, 
+  slogan2, 
+  button, 
+  'imageBkg': bkgImageIntro.asset -> url,
+  becomeAsso,
+  "de_CH":acutalityDe[]->{_type, title, abstract, slug},
+  "fr_CH":acutalityFr[]->{_type,title, abstract, slug},
+  "it_CH":acutalityIt[]->{_type,title, abstract, slug},
+}`;
 const queryMedienMitteilungen =
   "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
 export default function Home({ homeElements, medienMitt }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
+  const giveLink = (type) => {
+    if (type == "news" || type == "medienMitteilungen") {
+      return `/medien/${type?.toLowerCase()}/`;
+    } else if (type == "situationWolf") {
+      return `/informationen/situation-wolf/`;
+    } else {
+      return `/informationen/${type?.toLowerCase()}/`;
+    }
+  };
   return (
     <>
       <MyHead />
@@ -58,16 +81,24 @@ export default function Home({ homeElements, medienMitt }) {
 
           <div className={styles.cards}>
             <Card
-              source="/img/nolan.jpg"
               alt="Placeholding picture"
-              title="Titel"
-              text="Hier steht ein text der in etwa so lang ist, wie dieser hier. Vielleicht auch ein bisschen länger."
+              title={`${homeElements?.[newLocale]?.[0]?.title?.[newLocale]}`}
+              text={`${homeElements?.[newLocale]?.[0]?.abstract?.[
+                newLocale
+              ].substring(0, 160)}...`}
+              link={`${giveLink(homeElements?.[newLocale]?.[0]?._type)}${
+                homeElements?.[newLocale]?.[0]?.slug?.[newLocale]?.current
+              }`}
             />
             <Card
-              source="https://picsum.photos/300/200"
               alt="Placeholding picture"
-              title="Titel"
-              text="Hier steht ein text der in etwa so lang ist, wie dieser hier. Vielleicht auch ein bisschen länger."
+              title={`${homeElements?.[newLocale]?.[1]?.title?.[newLocale]}`}
+              text={`${homeElements?.[newLocale]?.[1]?.abstract?.[
+                newLocale
+              ].substring(0, 160)}...`}
+              link={`${giveLink(homeElements?.[newLocale]?.[1]?._type)}${
+                homeElements?.[newLocale]?.[1]?.slug?.[newLocale]?.current
+              }`}
             />
           </div>
         </section>

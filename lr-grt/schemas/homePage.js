@@ -33,15 +33,64 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'acutality',
-      title: 'Aktualität',
+      name: 'acutalityDe',
+      title: 'Aktualität DE',
       type: 'array',
       of: [
         {
           type: 'reference',
-          to: [{type: 'medienMitteilungen'}],
+          to: [
+            {type: 'medienMitteilungen'},
+            {type: 'news'},
+            {type: 'politik'},
+            {type: 'situationWolf'},
+          ],
+          options: {
+            filter: 'defined(slug.de_CH.current)',
+          },
         },
       ],
+      validation: (Rule) => Rule.max(2).required(),
+    }),
+    defineField({
+      name: 'acutalityFr',
+      title: 'Aktualität FR',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'medienMitteilungen'},
+            {type: 'news'},
+            {type: 'politik'},
+            {type: 'situationWolf'},
+          ],
+          options: {
+            filter: 'defined(slug.fr_CH.current)',
+          },
+        },
+      ],
+      validation: (Rule) => Rule.max(2).required(),
+    }),
+    defineField({
+      name: 'acutalityIt',
+      title: 'Aktualität IT',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'medienMitteilungen'},
+            {type: 'news'},
+            {type: 'politik'},
+            {type: 'situationWolf'},
+          ],
+          options: {
+            filter: 'defined(slug.it_CH.current)',
+          },
+        },
+      ],
+      validation: (Rule) => Rule.max(2).required(),
     }),
     defineField({
       name: 'becomeAsso',

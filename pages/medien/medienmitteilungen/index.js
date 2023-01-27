@@ -1,12 +1,12 @@
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import MyHead from "../../components/MyHead";
-import NavigatorPages from "../../components/navigatorPages";
-import styles from "../../styles/Medienmitteilungen.module.css";
-import ListMedia from "../../components/ListMedia";
-import client from "../../components/sanityCli";
+import Footer from "../../../components/Footer";
+import Header from "../../../components/Header";
+import MyHead from "../../../components/MyHead";
+import NavigatorPages from "../../../components/navigatorPages";
+import styles from "../../../styles/Medienmitteilungen.module.css";
+import ListMedia from "../../../components/ListMedia";
+import client from "../../../components/sanityCli";
 import { useRouter } from "next/router";
-import transformDate from "../../components/transformDate";
+import transformDate from "../../../components/transformDate";
 
 const queryMedienMitteilungen =
   "*[_type == 'medienMitteilungen'] | order(dateTime desc) []{dateTime,abstract,slug,title}";
