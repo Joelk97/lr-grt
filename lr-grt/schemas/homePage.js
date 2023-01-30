@@ -39,12 +39,7 @@ export default defineType({
       of: [
         {
           type: 'reference',
-          to: [
-            {type: 'medienMitteilungen'},
-            {type: 'news'},
-            {type: 'politik'},
-            {type: 'situationWolf'},
-          ],
+          to: [{type: 'medienMitteilungen'}, {type: 'news'}],
           options: {
             filter: 'defined(slug.de_CH.current)',
           },
@@ -59,12 +54,7 @@ export default defineType({
       of: [
         {
           type: 'reference',
-          to: [
-            {type: 'medienMitteilungen'},
-            {type: 'news'},
-            {type: 'politik'},
-            {type: 'situationWolf'},
-          ],
+          to: [{type: 'medienMitteilungen'}, {type: 'news'}],
           options: {
             filter: 'defined(slug.fr_CH.current)',
           },
@@ -79,12 +69,7 @@ export default defineType({
       of: [
         {
           type: 'reference',
-          to: [
-            {type: 'medienMitteilungen'},
-            {type: 'news'},
-            {type: 'politik'},
-            {type: 'situationWolf'},
-          ],
+          to: [{type: 'medienMitteilungen'}, {type: 'news'}],
           options: {
             filter: 'defined(slug.it_CH.current)',
           },
@@ -116,6 +101,51 @@ export default defineType({
       name: 'sloganButton',
       title: 'Slogan Button',
       type: 'localeString',
+    }),
+    defineField({
+      name: 'infoDe',
+      title: 'Informationen DE',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'politik'}, {type: 'situationWolf'}],
+          options: {
+            filter: 'defined(slug.de_CH.current)',
+          },
+        },
+      ],
+      validation: (Rule) => Rule.max(2).required(),
+    }),
+    defineField({
+      name: 'infoFr',
+      title: 'Informationen FR',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'politik'}, {type: 'situationWolf'}],
+          options: {
+            filter: 'defined(slug.fr_CH.current)',
+          },
+        },
+      ],
+      validation: (Rule) => Rule.max(2).required(),
+    }),
+    defineField({
+      name: 'infoIt',
+      title: 'Informationen IT',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'politik'}, {type: 'situationWolf'}],
+          options: {
+            filter: 'defined(slug.it_CH.current)',
+          },
+        },
+      ],
+      validation: (Rule) => Rule.max(2).required(),
     }),
   ],
   preview: {

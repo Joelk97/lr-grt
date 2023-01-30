@@ -29,6 +29,9 @@ const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
   "de_CH":acutalityDe[]->{_type, title, abstract, slug},
   "fr_CH":acutalityFr[]->{_type,title, abstract, slug},
   "it_CH":acutalityIt[]->{_type,title, abstract, slug},
+  "de":infoDe[]->{_type, title, abstract, slug},
+  "fr":infoFr[]->{_type,title, abstract, slug},
+  "it":infoIt[]->{_type,title, abstract, slug},
 }`;
 const queryMedienMitteilungen =
   "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
@@ -43,6 +46,14 @@ export default function Home({ homeElements, medienMitt }) {
     } else {
       return `/informationen/${type?.toLowerCase()}/`;
     }
+  };
+  const getShorter = (phrase) => {
+    let newPhrase = [];
+    phrase = phrase.split(" ");
+    for (let i = 0; i < 5; i++) {
+      newPhrase.push(phrase[i]);
+    }
+    return newPhrase.join(" ");
   };
   return (
     <>
@@ -263,14 +274,73 @@ export default function Home({ homeElements, medienMitt }) {
             placeholder="blur"
             blurDataURL="/img/logoGreenBkgG.svg"
           />
+
           <div className={`${styles.contentInfo}`}>
             <div className={`${styles.cardInfo} ${styles.cardsTitTexBut}`}>
-              <h1>Ciao</h1>
-              <h2 className={styles.greenButton}>cosa?</h2>
+              <h1>
+                {`${getShorter(
+                  homeElements?.[locale.substring(0, 2)]?.[0]?.title?.[
+                    newLocale
+                  ]
+                )}...`}
+              </h1>
+              <p>
+                {`${homeElements?.[locale.substring(0, 2)]?.[0]?.abstract?.[
+                  newLocale
+                ].substring(0, 200)}...`}
+              </p>
+              {homePage.whatWeWant
+                .filter((l) => l.locale === locale)
+                .map((e, i) => {
+                  return (
+                    <h2 key={i} className={styles.greenButton}>
+                      <Link
+                        href={`${giveLink(
+                          homeElements?.[locale.substring(0, 2)]?.[0]?._type
+                        )}${
+                          homeElements?.[locale.substring(0, 2)]?.[0]?.slug?.[
+                            newLocale
+                          ]?.current
+                        }`}
+                      >
+                        {e.button}
+                      </Link>
+                    </h2>
+                  );
+                })}
             </div>
             <div className={`${styles.cardInfo} ${styles.cardsTitTexBut}`}>
-              <h1>Ciao</h1>
-              <h2 className={styles.greenButton}>cosa?</h2>
+              <h1>
+                {`${getShorter(
+                  homeElements?.[locale.substring(0, 2)]?.[1]?.title?.[
+                    newLocale
+                  ]
+                )}...`}
+              </h1>
+              <p>
+                {`${homeElements?.[locale.substring(0, 2)]?.[1]?.abstract?.[
+                  newLocale
+                ].substring(0, 200)}...`}
+              </p>
+              {homePage.whatWeWant
+                .filter((l) => l.locale === locale)
+                .map((e, i) => {
+                  return (
+                    <h2 key={i} className={styles.greenButton}>
+                      <Link
+                        href={`${giveLink(
+                          homeElements?.[locale.substring(0, 2)]?.[1]?._type
+                        )}${
+                          homeElements?.[locale.substring(0, 2)]?.[1]?.slug?.[
+                            newLocale
+                          ]?.current
+                        }`}
+                      >
+                        {e.button}
+                      </Link>
+                    </h2>
+                  );
+                })}
             </div>
           </div>
         </section>
