@@ -7,7 +7,7 @@
   grid-template-columns: auto auto;
   align-items: baseline;
   justify-content: center;
-  gap: 12vw;
+  column-gap: 12vw;
 }
 .containerol {
   display: grid;
@@ -18,13 +18,15 @@
   align-items: center;
   justify-content: center;
 }
-@media screen and (max-width: 730px) {
-  .container {
-    gap: 10px;
-  }
-}
-@media screen and (max-width: 650px) {
+
+@media screen and (max-width: 800px) {
   .container {
     grid-template-columns: auto;
+    gap: 0;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .container {
+    column-gap: 8vw;
   }
 }

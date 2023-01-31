@@ -78,60 +78,73 @@ export default function PolitikArt({ artPolitik }) {
           </div>
         </div>
         <div className={styles.filesLinks}>
-          <ul>
-            <h2>Files</h2>
-            {artPolitik.files?.map((file, i) => {
-              return (
-                <li key={i}>
-                  <a
-                    rel="noreferrer"
-                    target="_blank"
-                    href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                      file.asset._ref.split("-")[1]
-                    }.pdf`}
-                  >
-                    <FaFileDownload style={iconStyle} />
-                    {file.title?.[newLocale]
-                      ? file.title?.[newLocale]
-                      : file.caption}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-          <ul>
-            <h2>Links</h2>
-            {artPolitik.someLinks != null &&
-              artPolitik.someLinks?.map((link, i) => {
+          {artPolitik.files != null ? (
+            <ul>
+              <h2>Files</h2>
+              {artPolitik.files != null &&
+                artPolitik.files?.map((file, i) => {
+                  return (
+                    <li key={i}>
+                      <a
+                        rel="noreferrer"
+                        target="_blank"
+                        href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                          file.asset._ref.split("-")[1]
+                        }.pdf`}
+                      >
+                        <FaFileDownload style={iconStyle} />
+                        {file.title?.[newLocale]
+                          ? file.title?.[newLocale]
+                          : file.caption}
+                      </a>
+                    </li>
+                  );
+                })}
+            </ul>
+          ) : (
+            ""
+          )}
+          {artPolitik.someLinks != null ? (
+            <ul>
+              <h2>Links</h2>
+              {artPolitik.someLinks != null &&
+                artPolitik.someLinks?.map((link, i) => {
+                  return (
+                    <li key={i}>
+                      <a rel="noreferrer" target="_blank" href={link?.link}>
+                        <AiOutlineLink style={iconStyle} />
+                        {link?.name?.[newLocale]}
+                      </a>
+                    </li>
+                  );
+                })}
+            </ul>
+          ) : (
+            ""
+          )}
+        </div>
+        {artPolitik?.imagesUrl != null ? (
+          <div className={styles.images}>
+            <ul>
+              {artPolitik?.imagesUrl?.map((image, i) => {
                 return (
-                  <li key={i}>
-                    <a rel="noreferrer" target="_blank" href={link?.link}>
-                      <AiOutlineLink style={iconStyle} />
-                      {link?.name?.[newLocale]}
-                    </a>
-                  </li>
+                  <Link key={i} href={image}>
+                    <li key={i}>
+                      <Image
+                        alt={`Image ${i}`}
+                        layout="fill"
+                        objectFit="cover"
+                        src={image}
+                      />
+                    </li>
+                  </Link>
                 );
               })}
-          </ul>
-        </div>
-        <div className={styles.images}>
-          <ul>
-            {artPolitik?.imagesUrl?.map((image, i) => {
-              return (
-                <Link key={i} href={image}>
-                  <li key={i}>
-                    <Image
-                      alt={`Image ${i}`}
-                      layout="fill"
-                      objectFit="cover"
-                      src={image}
-                    />
-                  </li>
-                </Link>
-              );
-            })}
-          </ul>
-        </div>
+            </ul>
+          </div>
+        ) : (
+          ""
+        )}
       </main>
       <Footer />
     </>

@@ -16,8 +16,8 @@ const Card = (props) => {
           <Image
             alt={props.alt ? props.alt : ""}
             src={props.source ? props.source : bkgLogo}
-            width={300}
-            height={200}
+            objectFit="cover"
+            layout="fill"
           />
         </div>
         <div className={styles.text}>

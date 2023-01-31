@@ -1,15 +1,21 @@
 .card {
-  width: 300px;
+  width: 400px;
   min-height: 320px;
   background-color: #fffdfa;
+}
+.image {
+  position: relative;
+  width: 100%;
+  height: undefined;
+  aspect-ratio: 3/2;
 }
 .text {
   background-color: rgba(255, 253, 250, 0.8);
   height: fit-content;
-  width: 80%;
+  width: 90%;
   position: relative;
   top: -120px;
-  left: 10%;
+  left: 5%;
   text-align: center;
   border-radius: 2rem;
 }
@@ -19,4 +25,23 @@
 }
 .text h1 {
   padding-top: 1rem;
+}
+
+@media screen and (max-width: 910px) {
+  .card {
+    width: 350px;
+  }
+  .text h1 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .card {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .card {
+    width: 270px;
+  }
 }

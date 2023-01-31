@@ -77,6 +77,16 @@ export default defineType({
       title: 'PDF Statuten',
       type: 'file',
     }),
+    defineField({
+      name: 'underKatVer',
+      title: 'Unterkategorien Verein',
+      type: 'array',
+      of: [
+        {
+          type: 'vereinUnterKat',
+        },
+      ],
+    }),
   ],
   preview: {
     select: {

@@ -83,62 +83,74 @@ export default function Mitteilung({ mitteilung }) {
           </div>
         </div>
         <div className={styles.filesLinks}>
-          <ul>
-            <h2>Files</h2>
-            {mitteilung.files.map((file, i) => {
-              return (
-                <li key={i}>
-                  <a
-                    rel="noreferrer"
-                    target="_blank"
-                    href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                      file.asset._ref.split("-")[1]
-                    }.pdf`}
-                  >
-                    <FaFileDownload style={iconStyle} />
-                    {file.title?.[newLocale]
-                      ? file.title?.[newLocale]
-                      : file.caption}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-          <ul>
-            <h2>Links</h2>
-            {mitteilung.someLinks != null &&
-              mitteilung.someLinks.map((link, i) => {
+          {mitteilung.files != null ? (
+            <ul>
+              <h2>Files</h2>
+              {mitteilung.files.map((file, i) => {
                 return (
                   <li key={i}>
-                    <a rel="noreferrer" target="_blank" href={link?.link}>
-                      <AiOutlineLink style={iconStyle} />
-                      {link?.name?.[newLocale]}
+                    <a
+                      rel="noreferrer"
+                      target="_blank"
+                      href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                        file.asset._ref.split("-")[1]
+                      }.pdf`}
+                    >
+                      <FaFileDownload style={iconStyle} />
+                      {file.title?.[newLocale]
+                        ? file.title?.[newLocale]
+                        : file.caption}
                     </a>
                   </li>
                 );
               })}
-          </ul>
+            </ul>
+          ) : (
+            ""
+          )}
+          {mitteilung.someLinks != null ? (
+            <ul>
+              <h2>Links</h2>
+              {mitteilung.someLinks != null &&
+                mitteilung.someLinks.map((link, i) => {
+                  return (
+                    <li key={i}>
+                      <a rel="noreferrer" target="_blank" href={link?.link}>
+                        <AiOutlineLink style={iconStyle} />
+                        {link?.name?.[newLocale]}
+                      </a>
+                    </li>
+                  );
+                })}
+            </ul>
+          ) : (
+            ""
+          )}
         </div>
-        <div className={styles.images}>
-          <ul>
-            {mitteilung?.imagesUrl?.map((image, i) => {
-              return (
-                <Link key={i} href={image}>
-                  <li key={i}>
-                    <Image
-                      alt={`Image ${i}`}
-                      layout="fill"
-                      objectFit="cover"
-                      src={image}
-                      placeholder="blur"
-                      blurDataURL="/img/logoGreenBkgG.svg"
-                    />
-                  </li>
-                </Link>
-              );
-            })}
-          </ul>
-        </div>
+        {mitteilung?.imagesUrl != null ? (
+          <div className={styles.images}>
+            <ul>
+              {mitteilung?.imagesUrl?.map((image, i) => {
+                return (
+                  <Link key={i} href={image}>
+                    <li key={i}>
+                      <Image
+                        alt={`Image ${i}`}
+                        layout="fill"
+                        objectFit="cover"
+                        src={image}
+                        placeholder="blur"
+                        blurDataURL="/img/logoGreenBkgG.svg"
+                      />
+                    </li>
+                  </Link>
+                );
+              })}
+            </ul>
+          </div>
+        ) : (
+          ""
+        )}
       </main>
       <Footer />
     </>

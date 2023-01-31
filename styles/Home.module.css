@@ -7,8 +7,7 @@
 }
 .backGroundImgIntro {
   width: 100%;
-  height: undefined;
-  aspect-ratio: 1280/680;
+  padding-top: 53.1%;
   position: absolute;
   top: 100px;
   z-index: -10;
@@ -29,12 +28,13 @@
   align-items: center;
   gap: 2rem;
   background-color: #fffdfa;
+  margin-bottom: 2rem;
 }
 .cards {
   width: 80%;
   display: flex;
   flex-direction: row;
-  gap: 8vw;
+  column-gap: 8vw;
   justify-content: center;
   margin-bottom: 1rem;
 }
@@ -63,14 +63,18 @@
 .sectionTakePart {
   position: relative;
   width: 100%;
-  height: undefined;
-  aspect-ratio: 1280/500;
+  padding-top: 39%;
 }
 
 .takePartBkgImg {
   z-index: -1000;
 }
 .takePartContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -145,18 +149,20 @@
 .sectionSlogan {
   position: relative;
   width: 100%;
-  height: undefined;
-  aspect-ratio: 1230/500;
+  padding-top: 40%;
   background-color: #fffdfa;
 }
 .sectionInfo {
   position: relative;
   width: 100%;
-  height: undefined;
-  aspect-ratio: 1280/790;
+  padding-top: 55%;
 }
 .contentSlogan {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -175,7 +181,11 @@
   z-index: 10;
 }
 .contentInfo {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -190,13 +200,13 @@
 }
 @media screen and (max-width: 1600px) {
   .sectionTakePart {
-    aspect-ratio: 1280/760;
+    padding-top: 59.4%;
   }
   .sectionSlogan {
-    aspect-ratio: 1100/500;
+    padding-top: 47%;
   }
   .sectionInfo {
-    aspect-ratio: 1100/790;
+    padding-top: 52%;
   }
   .cards {
     width: 80%;
@@ -208,30 +218,33 @@
 
 @media screen and (max-width: 910px) {
   .backGroundImgIntro {
-    aspect-ratio: 1280/1000;
+    padding-top: 78.1%;
   }
   .sectionInfo {
-    aspect-ratio: 1000/790;
+    padding-top: 0;
+    height: 480px;
   }
   .sectionSlogan {
-    aspect-ratio: 1000/500;
+    padding-top: 60%;
   }
   .cards {
     width: 100%;
+    column-gap: 6vw;
   }
   .titlesSections {
     font-size: 34px;
   }
+  .contentSlogan p {
+    font-size: 30px;
+  }
 }
 @media screen and (max-width: 840px) {
   .sectionTakePart {
-    aspect-ratio: 1280/950;
+    padding-top: 74.2%;
   }
-  .sectionInfo {
-    aspect-ratio: 700/790;
-  }
+
   .sectionSlogan {
-    aspect-ratio: 700/500;
+    padding-top: 68%;
   }
   .takePartContent {
     gap: 4vw;
@@ -246,27 +259,32 @@
     width: 280px;
     height: 400px;
   }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
 }
 
 @media screen and (max-width: 615px) {
   .backGroundImgIntro {
-    aspect-ratio: 1280/1200;
+    padding-top: 93.7%;
   }
   .sectionInfo {
-    aspect-ratio: 400/900;
+    height: 880px;
   }
-  .sectionInfo {
-    aspect-ratio: 600/790;
+  .sectionSlogan {
+    padding-top: 0;
+    height: 420px;
+    margin-bottom: 1rem;
   }
   .cards {
     flex-direction: column;
     align-items: center;
   }
   .sectionTakePart {
-    aspect-ratio: 600/1200;
-  }
-  .sectionSlogan {
-    aspect-ratio: 500/500;
+    width: 100%;
+    height: 850px;
   }
 
   .takePartContent {
@@ -276,6 +294,15 @@
   }
   .titlesSections {
     font-size: 28px;
+  }
+  .greenButton {
+    font-size: 18px;
+  }
+  .buttonSubmit {
+    font-size: 18px;
+  }
+  .contentSlogan p {
+    font-size: 22px;
   }
   .sectionTakePart {
     padding: 0.5rem 0;
@@ -289,15 +316,6 @@
     height: 200px;
     width: 100%;
   }
-  .sectionInfo {
-    aspect-ratio: 400/790;
-  }
-  .sectionSlogan {
-    aspect-ratio: 300/500;
-  }
-  .sectionTakePart {
-    aspect-ratio: 500/1200;
-  }
   .cardsTitTexBut h1 {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
@@ -307,9 +325,16 @@
   }
   .greenButton {
     margin-bottom: 2rem;
+    font-size: 14px;
+  }
+  .buttonSubmit {
+    font-size: 14px;
   }
   .cardsTitTexBut {
     width: 250px;
     min-height: 350px;
+  }
+  .titlesSections {
+    font-size: 22px;
   }
 }

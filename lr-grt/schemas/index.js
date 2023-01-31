@@ -14,6 +14,7 @@ import news from './news'
 import situationWolfArt from './situationWolfArt'
 import politik from './politik'
 import kategoriePolitik from './kategoriePolitik'
+import vereinUnterKat from './vereinUnterKat'
 export const schemaTypes = [
   blockContent,
   kategoriePolitik,
@@ -24,6 +25,7 @@ export const schemaTypes = [
   Text,
   BlockContent,
   infoPage,
+  vereinUnterKat,
   vereinPage,
   author,
   news,

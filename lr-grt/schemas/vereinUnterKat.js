@@ -1,16 +1,10 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'medienMitteilungen',
-  title: 'Medienmitteilungen',
+  name: 'vereinUnterKat',
+  title: 'Verein Unterkategorien',
   type: 'document',
   fields: [
-    defineField({
-      name: 'dateTime',
-      title: 'Datum und Uhrzeit',
-      type: 'datetime',
-      validation: (rule) => rule.required(),
-    }),
     defineField({
       name: 'title',
       title: 'Titel',
@@ -20,28 +14,21 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'localeSlug',
-      options: {
-        maxLenght: 96,
-      },
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'abstract',
-      title: 'Abstract',
+      title: 'Introtext',
       type: 'localeText',
     }),
     defineField({
-      name: 'author',
-      title: 'Verfasser',
-      type: 'reference',
-      to: {type: 'author'},
-      validation: (rule) => rule.required(),
+      name: 'bkgImage',
+      title: 'Abbildung',
+      type: 'image',
     }),
     defineField({
-      name: 'BlockContent',
-      title: 'Artikelinhalt - 1 Bild pro Block, und am Ende des Block',
-      type: 'array',
-      of: [{type: 'localeBlockContent', title: 'Artikelinhalt - Block'}],
+      name: 'content',
+      title: 'Inhalt',
+      type: 'localeBlockContent',
     }),
     defineField({
       name: 'images',
@@ -83,32 +70,17 @@ export default defineType({
         },
       ],
     }),
-    defineField({
-      name: 'someLinks',
-      title: 'Nützliche Links',
-      type: 'array',
-      of: [
-        {
-          type: 'urlAndName',
-          title: 'Link',
-        },
-      ],
-    }),
   ],
   preview: {
     select: {
-      titleDe: 'title.de_CH',
-      titleIt: 'title.it_CH',
-      titleFr: 'title.fr_CH',
-      slugDe: 'slug.de_CH.current',
-      slugFr: 'slug.fr_CH.current',
-      slugIt: 'slug.it_CH.current',
-      subtitle: 'dateTime',
+      title: `title`,
+      subtitle: `abstract`,
+      media: 'bkgImage',
     },
-    prepare({subtitle, titleDe, titleFr, titleIt, slugIt, slugDe, slugFr}) {
+    prepare({title, subtitle, media}) {
       return {
-        title: titleDe != undefined ? titleDe : titleIt != undefined ? titleIt : titleFr,
-        subtitle: subtitle,
+        title: title.de_CH,
+        media: media,
       }
     },
   },

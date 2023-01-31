@@ -81,41 +81,49 @@ export default function SitWolfArt({ artSitWolf }) {
           </div>
         </div>
         <div className={styles.filesLinks}>
-          <ul>
-            <h2>Files</h2>
-            {artSitWolf.files?.map((file, i) => {
-              return (
-                <li key={i}>
-                  <a
-                    rel="noreferrer"
-                    target="_blank"
-                    href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                      file.asset._ref.split("-")[1]
-                    }.pdf`}
-                  >
-                    <FaFileDownload style={iconStyle} />
-                    {file.title?.[newLocale]
-                      ? file.title?.[newLocale]
-                      : file.caption}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-          <ul>
-            <h2>Links</h2>
-            {artSitWolf.someLinks != null &&
-              artSitWolf.someLinks?.map((link, i) => {
+          {artSitWolf.files != null ? (
+            <ul>
+              <h2>Files</h2>
+              {artSitWolf.files?.map((file, i) => {
                 return (
                   <li key={i}>
-                    <a rel="noreferrer" target="_blank" href={link?.link}>
-                      <AiOutlineLink style={iconStyle} />
-                      {link?.name?.[newLocale]}
+                    <a
+                      rel="noreferrer"
+                      target="_blank"
+                      href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                        file.asset._ref.split("-")[1]
+                      }.pdf`}
+                    >
+                      <FaFileDownload style={iconStyle} />
+                      {file.title?.[newLocale]
+                        ? file.title?.[newLocale]
+                        : file.caption}
                     </a>
                   </li>
                 );
               })}
-          </ul>
+            </ul>
+          ) : (
+            ""
+          )}
+          {artSitWolf.someLinks != null ? (
+            <ul>
+              <h2>Links</h2>
+              {artSitWolf.someLinks != null &&
+                artSitWolf.someLinks?.map((link, i) => {
+                  return (
+                    <li key={i}>
+                      <a rel="noreferrer" target="_blank" href={link?.link}>
+                        <AiOutlineLink style={iconStyle} />
+                        {link?.name?.[newLocale]}
+                      </a>
+                    </li>
+                  );
+                })}
+            </ul>
+          ) : (
+            ""
+          )}
         </div>
         <div className={styles.images}>
           <ul>

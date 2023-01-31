@@ -74,3 +74,22 @@
   height: undefined;
   aspect-ratio: 3/2;
 }
+
+@media screen and (max-width: 730px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+  .images {
+    padding: 2rem 1rem;
+    padding-bottom: 3rem;
+    grid-row: 3/4;
+    grid-column: 1/2;
+  }
+  .images ul {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .articleContent {
+    padding-bottom: 2rem;
+  }
+}
