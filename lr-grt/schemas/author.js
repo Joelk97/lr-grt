@@ -25,6 +25,11 @@ export default defineType({
       title: 'Bild',
       type: 'image',
     }),
+    defineField({
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+    }),
   ],
   preview: {
     select: {

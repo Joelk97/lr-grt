@@ -14,8 +14,10 @@ import NavigatorPages from "../../components/navigatorPages.jsx";
 import headComponents from "../../public/multilanguage/head.json";
 import Head from "next/head";
 
-const queryVereinPage =
-  "*[_type=='vereinPage']|order(_createdAt asc)[0]{statutesIntro, statutesSlug, statutesTitle, statutesDate, cardWhatWeDoText,cardWhatWeDoTitle, title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
+const queryVereinPage = `*[_type=='vereinPage']|order(_createdAt asc)[0]{title, title2, intro, intro2,
+    'imageBkg': bkgImageIntro.asset -> url,
+     underKatVer[] -> {title, slug, abstract, "image": bkgImage.asset -> url}}
+`;
 
 export default function UeberUns({ vereinPage }) {
   const { locale, loales, asPath } = useRouter();
@@ -62,36 +64,17 @@ export default function UeberUns({ vereinPage }) {
           .map((e, i) => {
             return (
               <section key={i} className={styles.containerCards}>
-                <Card
-                  title={vereinPage?.cardWhatWeDoTitle?.[newLocale]}
-                  source="/img/logoGreenBkgG.svg"
-                  text={vereinPage?.cardWhatWeDoText?.[newLocale]}
-                />
-                <Card
-                  title={e.assoManag}
-                  source="/img/logoGreenBkgG.svg"
-                  text={e.assoManagText}
-                />
-
-                <Card
-                  title={e.assoBusiness}
-                  source="/img/logoGreenBkgG.svg"
-                  text={e.assoBusinessText}
-                />
-                <Card
-                  title={e.assoSections}
-                  source="/img/logoGreenBkgG.svg"
-                  text={e.assoSectionsText}
-                />
-                <Card
-                  title={vereinPage.statutesTitle?.[newLocale]}
-                  text={`${vereinPage.statutesIntro?.[newLocale].substring(
-                    0,
-                    200
-                  )}...`}
-                  link={`/verein/statuten`}
-                  source="/img/logoGreenBkgG.svg"
-                />
+                {vereinPage.underKatVer.map((card, i) => {
+                  return (
+                    <Card
+                      key={i}
+                      title={card?.title?.[newLocale]}
+                      text={card?.abstract?.[newLocale]}
+                      link={`/verein/${card.slug?.[newLocale]?.current}`}
+                      source={card?.image ? card.image : ""}
+                    />
+                  );
+                })}
               </section>
             );
           })}

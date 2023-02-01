@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/legacy/image";
 import styles from "../styles/Card.module.css";
 import Link from "next/link";
-import bkgLogo from "../public/img/logoGreenBkgW.svg";
+import bkgLogo from "../public/img/logoGreenBkgG.svg";
 
 const Card = (props) => {
   const { locale, locales, asPath } = useRouter();

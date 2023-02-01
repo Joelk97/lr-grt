@@ -12,7 +12,6 @@ import {
 export default defineConfig({
   name: 'default',
   title: 'lr-grt',
-
   projectId: 'imbz32xt',
   dataset: 'production',
 
@@ -20,8 +19,128 @@ export default defineConfig({
     deskTool({
       structure: (S) =>
         S.list()
-          .title('Base')
-          .items([...S.documentTypeListItems().reverse()]),
+          .title('Hauptseiten')
+          .items([
+            S.listItem()
+              .title('Home page')
+              .child(
+                S.document()
+                  .title('Inhalt Home')
+                  .schemaType('homePage')
+                  .id('9174b477-de0b-4b8f-9601-8839cd7dccf7')
+              ),
+            S.listItem()
+              .title('Verein page')
+              .child(
+                S.list()
+                  .title('Verein page')
+                  .items([
+                    S.listItem()
+                      .title('Inhalt Verein')
+                      .child(
+                        S.document()
+                          .title('Inhalt Verein')
+                          .schemaType('vereinPage')
+                          .id('c7aa830d-73d3-4991-9c2a-18af7940c6b6')
+                      ),
+                    S.listItem()
+                      .title('Unterkategorien Verein')
+                      .child(S.documentTypeList('vereinUnterKat')),
+
+                    S.listItem()
+                      .title('Mitglieder')
+                      .child(
+                        S.documentList()
+                          .title('Mitglieder')
+                          .filter("_type == 'mitglieder'")
+                          .defaultOrdering([{field: 'name', direction: 'asc'}])
+                      ),
+                  ])
+              ),
+            S.listItem()
+              .title('Media page')
+              .child(
+                S.list()
+                  .title('Media page')
+                  .items([
+                    S.listItem()
+                      .title('Inhalt Media')
+                      .child(
+                        S.document()
+                          .title('Inhalt Media')
+                          .schemaType('mediaPage')
+                          .id('ac5c3860-8446-491e-90a3-07596716ac51')
+                      ),
+                    S.listItem()
+                      .title('News')
+                      .child(
+                        S.documentList()
+                          .title('News')
+                          .filter("_type == 'news'")
+                          .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
+                      ),
+                    S.listItem()
+                      .title('Medienmitteilungen')
+                      .child(
+                        S.documentList()
+                          .title('Medienmitteilungen')
+                          .filter("_type == 'medienMitteilungen'")
+                          .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
+                      ),
+                    S.listItem()
+                      .title('Verfasser')
+                      .child(S.documentList().title('Verfasser').filter("_type == 'author'")),
+                  ])
+              ),
+            S.listItem()
+              .title('Info page')
+              .child(
+                S.list()
+                  .title('Info page')
+                  .items([
+                    S.listItem()
+                      .title('Inhalt Info')
+                      .child(
+                        S.document()
+                          .title('Inhalt Info')
+                          .schemaType('infoPage')
+                          .id('51fabaa4-9dd3-4c4c-841c-b8170ba421f2')
+                      ),
+                    S.listItem()
+                      .title('Situation Wolf')
+                      .child(
+                        S.documentList()
+                          .title('Situation Wolf')
+                          .filter("_type == 'situationWolf'")
+                          .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
+                      ),
+                    S.listItem()
+                      .title('Politik')
+                      .child(
+                        S.list()
+                          .title('Politik')
+                          .items([
+                            S.listItem()
+                              .title('Kategorien Politik')
+                              .child(
+                                S.documentList()
+                                  .title('Kategorien Politik')
+                                  .filter("_type == 'catPolitics'")
+                              ),
+                            S.listItem()
+                              .title('Politik Artikel')
+                              .child(
+                                S.documentList()
+                                  .title('Politik Artikel')
+                                  .filter("_type == 'politik'")
+                                  .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
+                              ),
+                          ])
+                      ),
+                  ])
+              ),
+          ]),
+      /*.items([...S.documentTypeListItems().reverse()]),*/
     }),
     visionTool(),
     dashboardTool({
