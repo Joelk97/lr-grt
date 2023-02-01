@@ -83,7 +83,12 @@ export default defineType({
       type: 'array',
       of: [
         {
-          type: 'vereinUnterKat',
+          type: 'reference',
+          to: [
+            {
+              type: 'vereinUnterKat',
+            },
+          ],
         },
       ],
     }),
