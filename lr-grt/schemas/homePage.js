@@ -78,6 +78,11 @@ export default defineType({
       validation: (Rule) => Rule.max(2).required(),
     }),
     defineField({
+      name: 'becomeAssoTit',
+      title: 'Titel Mitglied werden',
+      type: 'localeString',
+    }),
+    defineField({
       name: 'becomeAsso',
       title: 'Text Mitglied werden',
       type: 'localeText',

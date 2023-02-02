@@ -52,5 +52,19 @@
     "assoBusinessText": "Text",
     "assoSections": "Sezioni cantonali",
     "assoSectionsText": "Text"}
+    ],
+    "vereinUnterKat": [
+        {
+            "locale": "de-CH",
+            "title": "Verein"
+        },
+        {
+            "locale": "fr-CH",
+            "title": "Association"
+        },
+        {
+            "locale": "it-CH",
+            "title": "Associazione"
+        }
     ]
 }

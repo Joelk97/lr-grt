@@ -14,7 +14,7 @@ import NavigatorPages from "../../components/navigatorPages.jsx";
 import headComponents from "../../public/multilanguage/head.json";
 import Head from "next/head";
 
-const queryKantSekt = `*[_type=='cantonalSections'][]{email,
+const queryKantSekt = `*[_type=='cantonalSections'][]|order(title, asc){email,
     "imageC": image.asset -> url,
     "mitgliederA": mitglieder[]-> {name},
       title,
@@ -22,6 +22,7 @@ const queryKantSekt = `*[_type=='cantonalSections'][]{email,
       zone
   }
   `;
+const queryCantSect = `*[_type == 'introCantSect'][0]`;
 function Mailto({ email, subject, body, ...props }) {
   return (
     <a href={`mailto:${email}?subject=${subject || ""}$body=${body || ""}`}>
@@ -29,7 +30,7 @@ function Mailto({ email, subject, body, ...props }) {
     </a>
   );
 }
-export default function KantonaleSektionen({ kantSektionen }) {
+export default function KantonaleSektionen({ kantSektionen, intro }) {
   const { locale, loales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
 
@@ -50,11 +51,9 @@ export default function KantonaleSektionen({ kantSektionen }) {
         <NavigatorPages />
         <div className={styles.intro2}>
           <h1 className={styleHome.titlesSections}>
-            {kantSektionen.title2?.[newLocale]}
+            {intro?.title?.[newLocale]}
           </h1>
-          <p className={styles.introText2}>
-            {kantSektionen.intro2?.[newLocale]}
-          </p>
+          <p className={styles.introText2}>{intro?.abstract?.[newLocale]}</p>
         </div>
 
         <section className={styles.containerCards}>
@@ -81,9 +80,11 @@ export default function KantonaleSektionen({ kantSektionen }) {
 
 export async function getStaticProps() {
   const kantSektionen = await client.fetch(queryKantSekt);
+  const intro = await client.fetch(queryCantSect);
   return {
     props: {
       kantSektionen,
+      intro,
     },
   };
 }

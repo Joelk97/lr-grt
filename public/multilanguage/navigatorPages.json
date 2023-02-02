@@ -11,7 +11,10 @@
       "situation-wolf": "Situation Wolf",
       "politik": "Politik",
       "statuten": "Statuten",
-      "kantonale-sektionen": "kantonale Sektionen"
+      "kantonale-sektionen": "kantonale Sektionen",
+      "leitbild": "Leitbild",
+      "vorstand": "Vorstand",
+      "geschaeftsstelle": "Geschäftsstelle"
     },
     {
       "locale": "fr-CH",
@@ -24,7 +27,10 @@
       "situation-wolf": "Situation Loup",
       "politik": "Politique",
       "statuten": "Statuts",
-      "kantonale-sektionen": "Sections cantonales"
+      "kantonale-sektionen": "Sections cantonales",
+      "leitbild": "Mission",
+      "vorstand": "Conseil d'administration",
+      "geschaeftsstelle": "Bureau"
     },
     {
       "locale": "it-CH",
@@ -37,7 +43,10 @@
       "situation-wolf": "Situazione lupo",
       "politik": "Politica",
       "statuten": "Statuti",
-      "kantonale-sektionen": "Sezioni cantonali"
+      "kantonale-sektionen": "Sezioni cantonali",
+      "leitbild": "Missione",
+      "vorstand": "Consiglio d'amministrazione",
+      "geschaeftsstelle": "Ufficio"
     }
   ],
   "links": [
@@ -52,7 +61,10 @@
       "situation-wolf": "/informationen/situation-wolf",
       "politik": "/informationen/politik",
       "statuten": "/verein/statuten",
-      "kantonale-sektionen": "/verein/kantonale-sektionen"
+      "kantonale-sektionen": "/verein/kantonale-sektionen",
+      "leitbild": "/verein/leitbild",
+      "vorstand": "/verein/vorstand",
+      "geschaeftsstelle": "/verein/geschaeftsstelle"
       
     },
     {
@@ -66,7 +78,10 @@
       "situation-wolf": "/informationen/situation-wolf",
       "politik": "/informationen/politik",
       "statuten": "/verein/statuten",
-      "kantonale-sektionen": "/verein/kantonale-sektionen"
+      "kantonale-sektionen": "/verein/kantonale-sektionen",
+      "leitbild": "/verein/leitbild",
+      "vorstand": "/verein/vorstand",
+      "geschaeftsstelle": "/verein/geschaeftsstelle"
     },
     {
       "locale": "it-CH",
@@ -79,7 +94,10 @@
       "situation-wolf": "/informationen/situation-wolf",
       "politik": "/informationen/politik",
       "statuten": "/verein/statuten",
-      "kantonale-sektionen": "/verein/kantonale-sektionen"
+      "kantonale-sektionen": "/verein/kantonale-sektionen",
+      "leitbild": "/verein/leitbild",
+      "vorstand": "/verein/vorstand",
+      "geschaeftsstelle": "/verein/geschaeftsstelle"
     }
   ]
 }

@@ -202,7 +202,7 @@ export default function Home({ homeElements, medienMitt }) {
                   <div
                     className={`${styles.cardsTitTexBut} ${styles.mitgliedWerden}`}
                   >
-                    <h1>{e.becomeAss}</h1>
+                    <h1>{homeElements?.becomeAssoTit?.[newLocale]}</h1>
                     <p>{homeElements?.becomeAsso?.[newLocale]}</p>
                     <h2
                       className={`${styles.greenButton} ${styles.cantSectButton}`}

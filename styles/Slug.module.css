@@ -22,6 +22,7 @@
 .title {
   margin: 4rem 0 2rem 0;
   width: 80%;
+  min-height: 30vh;
 }
 .abstract {
   width: 80%;

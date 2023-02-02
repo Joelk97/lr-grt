@@ -43,9 +43,6 @@ export default defineConfig({
                           .schemaType('vereinPage')
                           .id('c7aa830d-73d3-4991-9c2a-18af7940c6b6')
                       ),
-                    S.listItem()
-                      .title('Unterkategorien Verein')
-                      .child(S.documentTypeList('vereinUnterKat')),
 
                     S.listItem()
                       .title('Mitglieder')

@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import { FaFileDownload } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
 import Link from "next/link";
-import medienElements from "../../public/multilanguage/medien.json";
+import vereinElements from "../../public/multilanguage/verein.json";
 import NavigatorPages from "../../components/navigatorPages";
 import headComponents from "../../public/multilanguage/head.json";
 import Head from "next/head";
@@ -61,14 +61,24 @@ export default function PolitikArt({ underCatVer }) {
       <NavigatorPages slug={underCatVer?.slug?.[newLocale]?.current} />
 
       <main className={styles.main}>
-        <span className={styles.date}>Verein // ToChange</span>
+        {vereinElements.vereinUnterKat
+          .filter((p) => p.locale == locale)
+          .map((e, i) => {
+            return (
+              <span key={i} className={styles.date}>
+                {`${e.title} - ${underCatVer?.title?.[newLocale]}`}
+              </span>
+            );
+          })}
 
         <div className={styles.articleContent}>
           <h1 className={styles.title}>{underCatVer?.title?.[newLocale]}</h1>
           <p className={styles.abstract}>
             {underCatVer?.abstract?.[newLocale]}
           </p>
-          <div className={styles.text}></div>
+          <div className={styles.text}>
+            <PortableText value={underCatVer?.content?.[newLocale]} />
+          </div>
         </div>
         <div className={styles.filesLinks}>
           {underCatVer.files != null ? (

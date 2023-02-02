@@ -85,7 +85,13 @@ const Footer = (props) => {
                   <h2>{e.intern}</h2>
                 </li>
                 <li>
-                  <h3>{e.internSanity}</h3>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    href={`https://lr-grt.sanity.studio/`}
+                  >
+                    <h3>{e.internSanity}</h3>
+                  </a>
                 </li>
                 <li>
                   <h3>{e.internDownload}</h3>
