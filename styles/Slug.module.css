@@ -5,6 +5,7 @@
   grid-template-columns: 1.4fr 0.6fr;
   grid-template-rows: auto auto auto;
   gap: 0px 0px;
+  font-family: "actor", sans-serif;
 }
 .articleContent {
   padding: 0 0 4rem 0;
@@ -21,15 +22,20 @@
 }
 .title {
   margin: 4rem 0 2rem 0;
-  width: 80%;
+  width: 75%;
 }
 .abstract {
-  width: 80%;
+  width: 75%;
   font-style: italic;
+
+  line-height: 22px;
+  font-weight: 600;
 }
 .text {
-  width: 80%;
+  width: 75%;
   min-height: 30vh;
+  text-align: justify;
+  line-height: 22px;
 }
 .filesLinks {
   padding: 1rem 0 2rem 0;
