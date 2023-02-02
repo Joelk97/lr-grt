@@ -1,0 +1,17 @@
+{
+    "card": [
+        {
+            "locale": "de-CH",
+            "kontakt": "Kontaktperson"
+            
+        },
+        {
+            "locale": "fr-CH",
+            "kontakt": "Person de contact"
+        },
+        {
+            "locale": "it-CH",
+            "kontakt": "Persona di contatto"
+        }
+    ]
+}

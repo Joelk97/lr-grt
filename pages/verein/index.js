@@ -70,7 +70,7 @@ export default function UeberUns({ vereinPage }) {
                       key={i}
                       title={card?.title?.[newLocale]}
                       text={card?.abstract?.[newLocale]}
-                      link={`/verein/${card.slug?.[newLocale]?.current}`}
+                      link={`/verein/${card?.slug?.de_CH.current}`}
                       source={card?.image ? card.image : ""}
                     />
                   );

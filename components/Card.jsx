@@ -16,7 +16,7 @@ const Card = (props) => {
           <Image
             alt={props.alt ? props.alt : ""}
             src={props.source ? props.source : bkgLogo}
-            objectFit="cover"
+            objectFit={props.objectFit ? props.objectFit : "cover"}
             layout="fill"
           />
         </div>

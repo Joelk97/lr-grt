@@ -21,6 +21,7 @@
   align-items: center;
   background-color: #fffdfa;
 }
+
 @media screen and (max-width: 1000px) {
   .containerCards {
     column-gap: 8vw;
