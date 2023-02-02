@@ -26,6 +26,7 @@ const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
   button, 
   'imageBkg': bkgImageIntro.asset -> url,
   becomeAsso,
+  becomeAssoTit,
   "de_CH":acutalityDe[]->{_type, title, abstract, slug},
   "fr_CH":acutalityFr[]->{_type,title, abstract, slug},
   "it_CH":acutalityIt[]->{_type,title, abstract, slug},
