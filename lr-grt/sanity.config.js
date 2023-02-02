@@ -55,6 +55,29 @@ export default defineConfig({
                           .filter("_type == 'mitglieder'")
                           .defaultOrdering([{field: 'name', direction: 'asc'}])
                       ),
+                    S.listItem()
+                      .title('Kantonale Sektionen')
+                      .child(
+                        S.list()
+                          .title('Kantonale Sektionen')
+                          .items([
+                            S.listItem()
+                              .title('Einführung')
+                              .child(
+                                S.document()
+                                  .title('Einführung')
+                                  .schemaType('introCantSect')
+                                  .id('77cc6064-73fc-4643-abd5-e8c294c369e6')
+                              ),
+                            S.listItem()
+                              .title('Sektionen')
+                              .child(
+                                S.documentList()
+                                  .title('Sektionen')
+                                  .filter("_type == 'cantonalSections'")
+                              ),
+                          ])
+                      ),
                   ])
               ),
             S.listItem()

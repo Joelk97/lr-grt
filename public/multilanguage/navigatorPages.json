@@ -10,7 +10,8 @@
       "news": "News",
       "situation-wolf": "Situation Wolf",
       "politik": "Politik",
-      "statuten": "Statuten"
+      "statuten": "Statuten",
+      "kantonale-sektionen": "kantonale Sektionen"
     },
     {
       "locale": "fr-CH",
@@ -22,7 +23,8 @@
       "news": "News",
       "situation-wolf": "Situation Loup",
       "politik": "Politique",
-      "statuten": "Statuts"
+      "statuten": "Statuts",
+      "kantonale-sektionen": "Sections cantonales"
     },
     {
       "locale": "it-CH",
@@ -34,7 +36,8 @@
       "news": "News",
       "situation-wolf": "Situazione lupo",
       "politik": "Politica",
-      "statuten": "Statuti"
+      "statuten": "Statuti",
+      "kantonale-sektionen": "Sezioni cantonali"
     }
   ],
   "links": [
@@ -48,7 +51,9 @@
       "news": "/medien/news/",
       "situation-wolf": "/informationen/situation-wolf",
       "politik": "/informationen/politik",
-      "statuten": "/verein/statuten"
+      "statuten": "/verein/statuten",
+      "kantonale-sektionen": "/verein/kantonale-sektionen"
+      
     },
     {
       "locale": "fr-CH",
@@ -60,7 +65,8 @@
       "news": "/medien/news/",
       "situation-wolf": "/informationen/situation-wolf",
       "politik": "/informationen/politik",
-      "statuten": "/verein/statuten"
+      "statuten": "/verein/statuten",
+      "kantonale-sektionen": "/verein/kantonale-sektionen"
     },
     {
       "locale": "it-CH",
@@ -72,7 +78,8 @@
       "news": "/medien/news/",
       "situation-wolf": "/informationen/situation-wolf",
       "politik": "/informationen/politik",
-      "statuten": "/verein/statuten"
+      "statuten": "/verein/statuten",
+      "kantonale-sektionen": "/verein/kantonale-sektionen"
     }
   ]
 }

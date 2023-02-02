@@ -18,8 +18,8 @@ const queryVereinPage = `*[_type=='vereinPage']|order(_createdAt asc)[0]{title, 
     'imageBkg': bkgImageIntro.asset -> url,
      underKatVer[] -> {title, slug, abstract, "image": bkgImage.asset -> url}}
 `;
-
-export default function UeberUns({ vereinPage }) {
+const queryCantSect = `*[_type == 'introCantSect'][0]`;
+export default function UeberUns({ vereinPage, cantSect }) {
   const { locale, loales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
 
@@ -75,6 +75,11 @@ export default function UeberUns({ vereinPage }) {
                     />
                   );
                 })}
+                <Card
+                  title={cantSect.title?.[newLocale]}
+                  text={cantSect?.abstract?.[newLocale]}
+                  link={`/verein/kantonale-sektionen`}
+                />
               </section>
             );
           })}
@@ -86,9 +91,11 @@ export default function UeberUns({ vereinPage }) {
 
 export async function getStaticProps() {
   const vereinPage = await client.fetch(queryVereinPage);
+  const cantSect = await client.fetch(queryCantSect);
   return {
     props: {
       vereinPage,
+      cantSect,
     },
   };
 }

@@ -17,6 +17,7 @@ import kategoriePolitik from './kategoriePolitik'
 import vereinUnterKat from './vereinUnterKat'
 import cantonalSection from './cantonalSection'
 import mitglieder from './mitglieder'
+import introCantSect from './introCantSect'
 export const schemaTypes = [
   blockContent,
   kategoriePolitik,
@@ -37,4 +38,5 @@ export const schemaTypes = [
   urlAndName,
   cantonalSection,
   mitglieder,
+  introCantSect,
 ]
