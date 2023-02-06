@@ -73,7 +73,6 @@ const Header = (props) => {
                     {component.contact}
                   </Link>
                 </li>
-                <li>{component.events}</li>
               </ul>
               <ul className={`${styles.languages} ${styles.navElements}`}>
                 {locales.map((l, i) => {

@@ -32,6 +32,18 @@ export default defineType({
       title: 'Einführungstext 2',
       type: 'localeString',
     }),
+    defineField({
+      name: 'imageSitWolf',
+      title: 'Hintergrund Bild Situation Wolf',
+      type: 'image',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'imagePolitik',
+      title: 'Hintergrund Bild Politik',
+      type: 'image',
+      validation: (rule) => rule.required(),
+    }),
   ],
   preview: {
     select: {

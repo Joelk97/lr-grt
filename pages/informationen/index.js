@@ -13,9 +13,10 @@ import ListMedia from "../../components/ListMedia.jsx";
 import client from "../../components/sanityCli.js";
 import headComponents from "../../public/multilanguage/head.json";
 import Head from "next/head";
-
+import { HiInformationCircle } from "react-icons/hi";
 const queryInfoPage =
-  "*[_type=='infoPage']|order(_createdAt asc)[0]{title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url,}";
+  "*[_type=='infoPage']|order(_createdAt asc)[0]{title, title2, intro, intro2, 'imageBkg': bkgImageIntro.asset -> url, 'imageWolf': imageSitWolf.asset -> url,  'imagePol': imagePolitik.asset -> url }";
+const iconStyle = { color: "#000", height: "100%", marginRight: "2rem" };
 
 export default function Informationen({ infoPage }) {
   const { locale, loales, asPath } = useRouter();
@@ -56,6 +57,7 @@ export default function Informationen({ infoPage }) {
             return (
               <section className={styles.sectionInformations} key={i}>
                 <h1 className={styleHome.titlesSections}>
+                  <HiInformationCircle style={iconStyle} />
                   {infoPage.title2?.[newLocale]}
                 </h1>
                 <p className={styles.introText2}>
@@ -63,14 +65,14 @@ export default function Informationen({ infoPage }) {
                 </p>
                 <div className={styleHome.cards}>
                   <Card
-                    source="/img/wolf1.jpg"
+                    source={infoPage?.imageWolf}
                     alt="Abbildung Wolf"
                     title={e.sitWolfTitle}
                     text={e.sitWolfText}
                     link="/informationen/situation-wolf"
                   />
                   <Card
-                    source="/img/politics1.jpg"
+                    source={infoPage?.imagePol}
                     alt="Abbildung Politik"
                     title={e.politicsTitle}
                     text={e.politicsText}

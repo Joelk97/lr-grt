@@ -16,12 +16,13 @@ import NavigatorPages from "../../components/navigatorPages";
 import Link from "next/link";
 import headComponents from "../../public/multilanguage/head.json";
 import Head from "next/head";
+import { BsMegaphone, BsMegaphoneFill } from "react-icons/bs";
 
 const queryMediaPage =
   "*[_type=='mediaPage']|order(_createdAt asc)[0]{slug,title, intro, 'imageBkg': bkgImageIntro.asset -> url}";
 const queryMedienMitteilungen =
   "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
-
+const iconStyle = { color: "#000", height: "100%", marginRight: "2rem" };
 export default function Medien({ mediaPage, medienMitt }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
@@ -67,6 +68,7 @@ export default function Medien({ mediaPage, medienMitt }) {
                   <h1
                     className={`${styleHome.titleMedia} ${styleHome.titlesSections}`}
                   >
+                    <BsMegaphoneFill style={iconStyle} />
                     {e.media}
                   </h1>
                 </Link>

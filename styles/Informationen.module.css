@@ -15,6 +15,9 @@
   background-color: #fffdfa;
   z-index: -1000;
 }
+.sectionActivities {
+  display: none;
+}
 .introText2 {
   width: 70%;
   text-align: center;

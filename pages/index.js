@@ -13,6 +13,8 @@ import transformDate from "../components/transformDate";
 import Link from "next/link";
 import Head from "next/head";
 import headComponents from "../public/multilanguage/head.json";
+import { TiNews } from "react-icons/ti";
+import { BsMegaphoneFill } from "react-icons/bs";
 
 const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
 [0]
@@ -36,6 +38,7 @@ const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
 }`;
 const queryMedienMitteilungen =
   "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
+const iconStyle = { color: "#000", height: "100%", marginRight: "2rem" };
 export default function Home({ homeElements, medienMitt }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
@@ -97,6 +100,7 @@ export default function Home({ homeElements, medienMitt }) {
                   className={`${styles.titleAcutality} ${styles.titlesSections}`}
                   key={i}
                 >
+                  <TiNews style={iconStyle} />
                   {e.actuality}
                 </h1>
               );
@@ -134,6 +138,7 @@ export default function Home({ homeElements, medienMitt }) {
                   <h1
                     className={`${styles.titleMedia} ${styles.titlesSections}`}
                   >
+                    <BsMegaphoneFill style={iconStyle} />
                     {e.media}
                   </h1>
                 </Link>

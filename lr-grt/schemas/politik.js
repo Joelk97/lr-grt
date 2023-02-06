@@ -44,7 +44,7 @@ export default defineType({
     }),
     defineField({
       name: 'BlockContent',
-      title: 'Artikelinhalt - 1 Bild pro Block, und am Ende des Block',
+      title: 'Artikelinhalt - nur 1 Bild pro Block, und am Ende des Block',
       type: 'array',
       of: [{type: 'localeBlockContent', title: 'Artikelinhalt - Block'}],
     }),
