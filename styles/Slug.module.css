@@ -27,7 +27,7 @@
 .abstract {
   width: 75%;
   font-style: italic;
-
+  font-size: large;
   line-height: 22px;
   font-weight: 600;
 }
@@ -36,6 +36,7 @@
   min-height: 30vh;
   text-align: justify;
   line-height: 22px;
+  font-size: large;
 }
 .filesLinks {
   padding: 1rem 0 2rem 0;
@@ -81,6 +82,14 @@
   height: undefined;
   aspect-ratio: 3/2;
 }
+.files {
+  margin: 4rem 0 2rem 0;
+  width: 75%;
+}
+.files ul {
+  margin: 0;
+  padding: 0;
+}
 
 @media screen and (max-width: 730px) {
   .main {
@@ -98,5 +107,16 @@
   }
   .articleContent {
     padding-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 730px) {
+  .abstract {
+    font-size: medium;
+  }
+  .text {
+    font-size: medium;
+  }
+  .title {
+    font-size: 28px;
   }
 }

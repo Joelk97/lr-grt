@@ -13,12 +13,12 @@ export default defineType({
     defineField({
       name: 'slogan1',
       title: 'Slogan 1',
-      type: 'localeString',
+      type: 'localeText',
     }),
     defineField({
       name: 'slogan2',
       title: 'Slogan 2',
-      type: 'localeString',
+      type: 'localeText',
     }),
     defineField({
       name: 'button',

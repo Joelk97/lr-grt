@@ -14,9 +14,11 @@ import NavigatorPages from "../../components/navigatorPages.jsx";
 import headComponents from "../../public/multilanguage/head.json";
 import Head from "next/head";
 
-const queryVereinPage = `*[_type=='vereinPage']|order(_createdAt asc)[0]{title, title2, intro, intro2,
+const queryVereinPage = `*[_type=='vereinPage']|order(_createdAt asc)[0]{title, intro,
     'imageBkg': bkgImageIntro.asset -> url,
-     underKatVer[] -> {title, slug, abstract, "image": bkgImage.asset -> url}}
+     underKatVer[] -> {title, slug, abstract, "image": bkgImage.asset -> url},
+    unterEinf
+    }
 `;
 const queryCantSect = `*[_type == 'introCantSect'][0]`;
 export default function UeberUns({ vereinPage, cantSect }) {
@@ -53,17 +55,26 @@ export default function UeberUns({ vereinPage, cantSect }) {
           slogan1={vereinPage.intro?.[newLocale]}
         />
         <NavigatorPages />
-        <div className={styles.intro2}>
-          <h1 className={styleHome.titlesSections}>
-            {vereinPage.title2?.[newLocale]}
-          </h1>
-          <p className={styles.introText2}>{vereinPage.intro2?.[newLocale]}</p>
-        </div>
+        {vereinPage.unterEinf.map((einf, i) => {
+          return (
+            <div key={i} className={styles.intro2}>
+              <h1 className={styles.titlesSections}>
+                {einf.title?.[newLocale]}
+              </h1>
+              <p className={styles.introText2}>{einf.text?.[newLocale]}</p>
+            </div>
+          );
+        })}
         {vereinElements.assoCat
           .filter((l) => l.locale === locale)
           .map((e, i) => {
             return (
               <section key={i} className={styles.containerCards}>
+                <Card
+                  title={cantSect.title?.[newLocale]}
+                  text={cantSect?.abstract?.[newLocale]}
+                  link={`/verein/kantonale-sektionen`}
+                />
                 {vereinPage.underKatVer.map((card, i) => {
                   return (
                     <Card
@@ -75,11 +86,6 @@ export default function UeberUns({ vereinPage, cantSect }) {
                     />
                   );
                 })}
-                <Card
-                  title={cantSect.title?.[newLocale]}
-                  text={cantSect?.abstract?.[newLocale]}
-                  link={`/verein/kantonale-sektionen`}
-                />
               </section>
             );
           })}

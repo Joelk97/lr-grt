@@ -13,7 +13,7 @@ export default defineType({
     defineField({
       name: 'intro',
       title: 'Einführungstext',
-      type: 'localeString',
+      type: 'localeText',
     }),
     defineField({
       name: 'bkgImageIntro',
@@ -22,15 +22,17 @@ export default defineType({
       description: 'maximal 1MB, am besten 1280x600 als format',
       validation: (rule) => rule.required(),
     }),
+
     defineField({
-      name: 'title2',
-      title: 'Titel 2',
-      type: 'localeString',
-    }),
-    defineField({
-      name: 'intro2',
-      title: 'Einführungstext 2',
-      type: 'localeString',
+      name: 'unterEinf',
+      title: 'Untereinführungen',
+      type: 'array',
+      of: [
+        {
+          type: 'subEinfuerung',
+          title: 'Untereinführungen',
+        },
+      ],
     }),
     defineField({
       name: 'underKatVer',

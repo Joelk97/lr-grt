@@ -1,9 +1,6 @@
 import { PortableText } from "@portabletext/react";
-import { useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import MyHead from "../../components/MyHead";
-import styleHome from "../../styles/Home.module.css";
 import styles from "../../styles/Slug.module.css";
 import Image from "next/legacy/image";
 import client from "../../components/sanityCli";
@@ -76,39 +73,43 @@ export default function PolitikArt({ underCatVer }) {
           <p className={styles.abstract}>
             {underCatVer?.abstract?.[newLocale]}
           </p>
-          <div className={styles.text}>
-            <PortableText value={underCatVer?.content?.[newLocale]} />
-          </div>
-        </div>
-        <div className={styles.filesLinks}>
-          {underCatVer.files != null ? (
-            <ul>
-              <h2>Files</h2>
-              {underCatVer.files != null &&
-                underCatVer.files?.map((file, i) => {
-                  return (
-                    <li key={i}>
-                      <a
-                        rel="noreferrer"
-                        target="_blank"
-                        href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                          file.asset._ref.split("-")[1]
-                        }.pdf`}
-                      >
-                        <FaFileDownload style={iconStyle} />
-                        {file.title?.[newLocale]
-                          ? file.title?.[newLocale]
-                          : file.caption}
-                      </a>
-                    </li>
-                  );
-                })}
-            </ul>
+          {underCatVer?.content?.[newLocale] ? (
+            <div className={styles.text}>
+              <PortableText value={underCatVer?.content?.[newLocale]} />
+            </div>
           ) : (
             ""
           )}
+          <div className={styles.files}>
+            {underCatVer.files != null ? (
+              <ul>
+                <h2>Downloads</h2>
+                {underCatVer.files != null &&
+                  underCatVer.files?.map((file, i) => {
+                    return (
+                      <li key={i}>
+                        <a
+                          rel="noreferrer"
+                          target="_blank"
+                          href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                            file.asset._ref.split("-")[1]
+                          }.pdf`}
+                        >
+                          <FaFileDownload style={iconStyle} />
+                          {file.title?.[newLocale]
+                            ? file.title?.[newLocale]
+                            : file.caption}
+                        </a>
+                      </li>
+                    );
+                  })}
+              </ul>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
-        {underCatVer?.imagesUrl != null ? (
+        {underCatVer?.imagesUrl ? (
           <div className={styles.images}>
             <ul>
               {underCatVer?.imagesUrl?.map((image, i) => {

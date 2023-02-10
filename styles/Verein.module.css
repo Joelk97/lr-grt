@@ -21,6 +21,13 @@
   align-items: center;
   background-color: #fffdfa;
 }
+.titlesSections {
+  margin: 4rem 0;
+  font-size: 36px;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+}
 
 @media screen and (max-width: 1000px) {
   .containerCards {
@@ -30,5 +37,27 @@
 @media screen and (max-width: 840px) {
   .containerCards {
     grid-template-columns: auto;
+  }
+  .introText2 {
+    font-size: 22px;
+    width: 85%;
+  }
+  .titlesSections {
+    margin: 4rem 0;
+    font-size: 34px;
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .introText2 {
+    font-size: 18px;
+    width: 80%;
+    text-align: left;
+  }
+  .titlesSections {
+    margin: 2rem 0;
+    font-size: 28px;
   }
 }

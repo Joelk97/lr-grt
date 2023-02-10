@@ -13,7 +13,7 @@ export default defineType({
     defineField({
       name: 'intro',
       title: 'Einführungstext',
-      type: 'localeString',
+      type: 'localeText',
     }),
     defineField({
       name: 'bkgImageIntro',
