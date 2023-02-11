@@ -31,15 +31,18 @@
   "buttons": [
     {
       "locale": "de-CH",
-      "moreMedia": "Weitere Medienmitteilungen"
+      "moreMedia": "Weitere Medienmitteilungen",
+      "moreNews": "Weitere News"
     },
     {
       "locale": "fr-CH",
-      "moreMedia": "Autres communiqueés de presse"
+      "moreMedia": "Autres communiqueés de presse",
+      "moreNews": "Autres News"
     },
     {
       "locale": "it-CH",
-      "moreMedia": "Altri comunicati stampa"
+      "moreMedia": "Altri comunicati stampa",
+      "moreNews": "altre News"
     }
   ],
   "whatWeWant": [

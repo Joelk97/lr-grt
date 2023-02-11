@@ -19,10 +19,10 @@ import Head from "next/head";
 import medienElements from "../../../public/multilanguage/medien.json";
 import NavigatorPages from "../../../components/navigatorPages";
 
-const pathQuery = `{'de':*[_type == "medienMitteilungen" && defined(slug.de_CH.current)].slug.de_CH.current, 
-'it':*[_type == "medienMitteilungen" && defined(slug.it_CH.current)].slug.it_CH.current,
-'fr':*[_type == "medienMitteilungen" && defined(slug.fr_CH.current)].slug.fr_CH.current}`;
-const queryMitteilung = `*[_type == "medienMitteilungen" && (slug.it_CH.current == $slug || slug.de_CH.current == $slug || slug.fr_CH.current == $slug)][0]{
+const pathQuery = `{'de':*[_type == "artikelMedia" && defined(slug.de_CH.current)].slug.de_CH.current, 
+'it':*[_type == "artikelMedia" && defined(slug.it_CH.current)].slug.it_CH.current,
+'fr':*[_type == "artikelMedia" && defined(slug.fr_CH.current)].slug.fr_CH.current}`;
+const queryMitteilung = `*[_type == "artikelMedia" && (slug.it_CH.current == $slug || slug.de_CH.current == $slug || slug.fr_CH.current == $slug)][0]{
   dateTime,
   title,
   abstract,

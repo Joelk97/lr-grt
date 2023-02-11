@@ -39,7 +39,7 @@ export default defineType({
       of: [
         {
           type: 'reference',
-          to: [{type: 'medienMitteilungen'}, {type: 'news'}],
+          to: [{type: 'artikelMedia'}],
           options: {
             filter: 'defined(slug.de_CH.current)',
           },
@@ -54,7 +54,7 @@ export default defineType({
       of: [
         {
           type: 'reference',
-          to: [{type: 'medienMitteilungen'}, {type: 'news'}],
+          to: [{type: 'artikelMedia'}],
           options: {
             filter: 'defined(slug.fr_CH.current)',
           },
@@ -62,6 +62,7 @@ export default defineType({
       ],
       validation: (Rule) => Rule.max(2).required(),
     }),
+
     defineField({
       name: 'acutalityIt',
       title: 'Aktualität IT',
@@ -69,7 +70,7 @@ export default defineType({
       of: [
         {
           type: 'reference',
-          to: [{type: 'medienMitteilungen'}, {type: 'news'}],
+          to: [{type: 'artikelMedia'}],
           options: {
             filter: 'defined(slug.it_CH.current)',
           },

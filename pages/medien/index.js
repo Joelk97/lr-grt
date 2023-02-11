@@ -17,13 +17,22 @@ import Link from "next/link";
 import headComponents from "../../public/multilanguage/head.json";
 import Head from "next/head";
 import { BsMegaphone, BsMegaphoneFill } from "react-icons/bs";
+import { TiNews } from "react-icons/ti";
 
 const queryMediaPage =
   "*[_type=='mediaPage']|order(_createdAt asc)[0]{slug,title, intro, 'imageBkg': bkgImageIntro.asset -> url}";
-const queryMedienMitteilungen =
-  "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
+const queryMedienMitteilungen = `*[_type=="katMedia" && slug.current == 'medienmitteilungen'][0]{
+  "de_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.de_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
+    "fr_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.fr_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
+    "it_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.it_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug}}
+`;
+const queryNews = `*[_type=="katMedia" && slug.current == 'news'][0]{
+  "de_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.de_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
+    "fr_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.fr_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
+    "it_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.it_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug}}
+`;
 const iconStyle = { color: "#000", height: "100%", marginRight: "2rem" };
-export default function Medien({ mediaPage, medienMitt }) {
+export default function Medien({ mediaPage, medienMitt, news }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
 
@@ -74,36 +83,17 @@ export default function Medien({ mediaPage, medienMitt }) {
                 </Link>
               );
             })}
-          <ListMedia
-            articleData={transformDate(
-              medienMitt?.[newLocale]?.[0]?.dateTime.substring(0, 10)
-            )}
-            articleText={medienMitt?.[newLocale]?.[0]?.abstract?.[
-              newLocale
-            ].substring(0, 250)}
-            articleTitle={medienMitt?.[newLocale]?.[0]?.title?.[newLocale]}
-            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[0]?.slug?.[newLocale]?.current}`}
-          />
-          <ListMedia
-            articleData={transformDate(
-              medienMitt?.[newLocale]?.[1]?.dateTime.substring(0, 10)
-            )}
-            articleText={medienMitt?.[newLocale]?.[1]?.abstract?.[
-              newLocale
-            ].substring(0, 250)}
-            articleTitle={medienMitt?.[newLocale]?.[1]?.title?.[newLocale]}
-            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[1]?.slug?.[newLocale]?.current}`}
-          />
-          <ListMedia
-            articleData={transformDate(
-              medienMitt?.[newLocale]?.[2]?.dateTime.substring(0, 10)
-            )}
-            articleText={medienMitt?.[newLocale]?.[2]?.abstract?.[
-              newLocale
-            ].substring(0, 250)}
-            articleTitle={medienMitt?.[newLocale]?.[2]?.title?.[newLocale]}
-            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[2]?.slug?.[newLocale]?.current}`}
-          />
+          {medienMitt?.[newLocale]?.slice(0, 3).map((article, i) => {
+            return (
+              <ListMedia
+                key={i}
+                articleData={transformDate(article.dateTime.substring(0, 10))}
+                articleText={article?.abstract?.[newLocale].substring(0, 250)}
+                articleTitle={article?.title?.[newLocale]}
+                href={`/${locale}/medien/medienmitteilungen/${article.slug?.[newLocale]?.current}`}
+              />
+            );
+          })}
           {homePage.buttons
             .filter((l) => l.locale === locale)
             .map((e, i) => {
@@ -118,28 +108,47 @@ export default function Medien({ mediaPage, medienMitt }) {
               );
             })}
         </section>
-        <section className={styles.otherMedia}>
-          {medien.medienCards
+        <section
+          className={`${styleHome.sectionMedienMitteilungen} ${styles.sectionMedienMitteilungen}`}
+        >
+          {homePage.titles
             .filter((l) => l.locale === locale)
             .map((e, i) => {
               return (
-                <div key={i} className={styleHome.cards}>
-                  <Card
-                    source="https://picsum.photos/300/200"
-                    alt="Placeholding picture"
-                    title={e.newsTitle}
-                    text={e.newsText}
-                    link="/medien/news"
-                  />
+                <Link key={i} href="/medien/news">
+                  <h1
+                    className={`${styleHome.titleMedia} ${styleHome.titlesSections}`}
+                  >
+                    <TiNews style={iconStyle} />
+                    News
+                  </h1>
+                </Link>
+              );
+            })}
 
-                  <Card
-                    source="/img/nolan.jpg"
-                    alt="Placeholding picture"
-                    title={e.studiesTitle}
-                    text={e.studiesText}
-                    link="/medien/studien"
-                  />
-                </div>
+          {news?.[newLocale]?.slice(0, 3).map((article, i) => {
+            return (
+              <ListMedia
+                key={i}
+                articleData={transformDate(article.dateTime.substring(0, 10))}
+                articleText={article?.abstract?.[newLocale].substring(0, 250)}
+                articleTitle={article?.title?.[newLocale]}
+                href={`/${locale}/medien/news/${article.slug?.[newLocale]?.current}`}
+              />
+            );
+          })}
+
+          {homePage.buttons
+            .filter((l) => l.locale === locale)
+            .map((e, i) => {
+              return (
+                <Link key={i} href="/medien/news">
+                  <h2
+                    className={`${styleHome.greenButton} ${styleHome.buttonMoreMedia}`}
+                  >
+                    {e.moreNews}
+                  </h2>
+                </Link>
               );
             })}
         </section>
@@ -184,10 +193,12 @@ export default function Medien({ mediaPage, medienMitt }) {
 export async function getStaticProps() {
   const mediaPage = await client.fetch(queryMediaPage);
   const medienMitt = await client.fetch(queryMedienMitteilungen);
+  const news = await client.fetch(queryNews);
   return {
     props: {
       mediaPage,
       medienMitt,
+      news,
     },
   };
 }

@@ -9,9 +9,13 @@ import transformDate from "../../../components/transformDate";
 import styles from "../../../styles/News.module.css";
 import headComponents from "../../../public/multilanguage/head.json";
 import Head from "next/head";
+import ListMedia from "../../../components/ListMedia";
 
-const queryNews =
-  "*[_type == 'news'] | order(dateTime desc) []{dateTime,abstract,slug,title, 'imagesUrl': images[].asset -> url}";
+const queryNews = `*[_type=="katMedia" && slug.current == 'news'][0]{
+  "de_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.de_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
+    "fr_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.fr_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
+    "it_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.it_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug}}
+`;
 export default function News({ news }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
@@ -29,27 +33,22 @@ export default function News({ news }) {
         })}
       <Header media="true" />
       <NavigatorPages />
-      <section className={styles.container}>
-        {news
-          .filter((n) => n.slug?.[newLocale]?.current != null)
-          .map((n, i) => {
+      <div className={styles.container}>
+        <h1 className={styles.title}>News</h1>
+        <section className={styles.sectionNews}>
+          {news?.[newLocale].map((article, i) => {
             return (
-              <Card
-                alt="Article image"
+              <ListMedia
                 key={i}
-                source={
-                  n.imagesUrl?.[0] ? n.imagesUrl?.[0] : "/img/logoGreenBkgW.svg"
-                }
-                keyY={i}
-                title={n.title?.[newLocale]}
-                text={`${transformDate(n.dateTime)} - ${n.abstract?.[
-                  newLocale
-                ]?.substring(0, 150)}...`}
-                link={`/medien/news/${n.slug?.[newLocale]?.current}`}
+                articleData={transformDate(article.dateTime)}
+                articleText={article?.abstract?.[newLocale].substring(0, 250)}
+                articleTitle={article?.title?.[newLocale]}
+                href={`/${locale}/medien/medienmitteilungen/${article.slug?.[newLocale]?.current}`}
               />
             );
           })}
-      </section>
+        </section>
+      </div>
       <Footer />
     </>
   );

@@ -92,11 +92,16 @@ export default defineConfig({
                           .id('ac5c3860-8446-491e-90a3-07596716ac51')
                       ),
                     S.listItem()
+                      .title('Alle Artikel')
+                      .child(S.documentList().title('Artikel').filter("_type == 'artikelMedia'")),
+                    S.listItem()
                       .title('News')
                       .child(
                         S.documentList()
                           .title('News')
-                          .filter("_type == 'news'")
+                          .filter(
+                            "_type == 'artikelMedia' && category._ref == 'c8aab493-3eb0-4a05-a176-a2be877b9289'"
+                          )
                           .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
                       ),
                     S.listItem()
@@ -104,7 +109,9 @@ export default defineConfig({
                       .child(
                         S.documentList()
                           .title('Medienmitteilungen')
-                          .filter("_type == 'medienMitteilungen'")
+                          .filter(
+                            "_type == 'artikelMedia' && category._ref=='43723136-be01-4b20-8ba5-4fcdf73cf2cd'"
+                          )
                           .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
                       ),
                     S.listItem()

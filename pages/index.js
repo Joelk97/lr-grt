@@ -29,15 +29,22 @@ const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
   'imageBkg': bkgImageIntro.asset -> url,
   becomeAsso,
   becomeAssoTit,
-  "de_CH":acutalityDe[]->{_type, title, abstract, slug},
-  "fr_CH":acutalityFr[]->{_type,title, abstract, slug},
-  "it_CH":acutalityIt[]->{_type,title, abstract, slug},
+  "de_CH":acutalityDe[]->{"slugCat":category -> {title, slug}, _type, title, abstract, slug},
+  "fr_CH":acutalityFr[]->{"slugCat":category -> {title, slug}, _type,title, abstract, slug},
+  "it_CH":acutalityIt[]->{"slugCat":category -> {title, slug}, _type,title, abstract, slug},
   "de":infoDe[]->{_type, title, abstract, slug},
   "fr":infoFr[]->{_type,title, abstract, slug},
   "it":infoIt[]->{_type,title, abstract, slug},
-}`;
-const queryMedienMitteilungen =
-  "{'de_CH':*[_type=='medienMitteilungen'&&defined(slug.de_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug},'fr_CH':*[_type=='medienMitteilungen'&&defined(slug.fr_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}, 'it_CH':*[_type=='medienMitteilungen'&&defined(slug.it_CH.current)] | order(dateTime desc)[]{title, abstract, dateTime, slug}}";
+}
+
+
+
+`;
+const queryMedienMitteilungen = `*[_type=="katMedia" && slug.current == 'medienmitteilungen'][0]{
+  "de_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.de_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
+    "fr_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.fr_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
+    "it_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.it_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug}}
+`;
 const iconStyle = { color: "#000", height: "100%", marginRight: "2rem" };
 export default function Home({ homeElements, medienMitt }) {
   const { locale, locales, asPath } = useRouter();
@@ -113,9 +120,7 @@ export default function Home({ homeElements, medienMitt }) {
               text={`${homeElements?.[newLocale]?.[0]?.abstract?.[
                 newLocale
               ].substring(0, 160)}...`}
-              link={`${giveLink(homeElements?.[newLocale]?.[0]?._type)}${
-                homeElements?.[newLocale]?.[0]?.slug?.[newLocale]?.current
-              }`}
+              link={`/medien/${homeElements?.[newLocale]?.[0]?.slugCat?.slug.current}/${homeElements?.[newLocale]?.[0]?.slug?.[newLocale]?.current}`}
             />
             <Card
               alt="Placeholding picture"
@@ -123,9 +128,7 @@ export default function Home({ homeElements, medienMitt }) {
               text={`${homeElements?.[newLocale]?.[1]?.abstract?.[
                 newLocale
               ].substring(0, 160)}...`}
-              link={`${giveLink(homeElements?.[newLocale]?.[1]?._type)}${
-                homeElements?.[newLocale]?.[1]?.slug?.[newLocale]?.current
-              }`}
+              link={`/medien/${homeElements?.[newLocale]?.[1]?.slugCat?.slug.current}/${homeElements?.[newLocale]?.[1]?.slug?.[newLocale]?.current}`}
             />
           </div>
         </section>
