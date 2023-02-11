@@ -25,7 +25,6 @@ const Medienmitteilungen = ({ medienMitt }) => {
 
   return (
     <>
-      {console.log(medienMitt)}
       {headComponents.medienmitt
         .filter((l) => l.locale === locale)
         .map((element, i) => {
