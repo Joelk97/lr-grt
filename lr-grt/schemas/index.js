@@ -21,6 +21,7 @@ import introCantSect from './introCantSect'
 import subEinfuerung from './subEinfuerung'
 import katMedia from './katMedia'
 import artikelMedia from './artikelMedia'
+import downloadSect from './downloadSect'
 export const schemaTypes = [
   blockContent,
   kategoriePolitik,
@@ -45,4 +46,5 @@ export const schemaTypes = [
   subEinfuerung,
   katMedia,
   artikelMedia,
+  downloadSect,
 ]

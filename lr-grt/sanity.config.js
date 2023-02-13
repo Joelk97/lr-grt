@@ -166,6 +166,14 @@ export default defineConfig({
                       ),
                   ])
               ),
+            S.listItem()
+              .title('Downloads')
+              .child(
+                S.document()
+                  .title('Downloads')
+                  .schemaType('downloadSect')
+                  .id('99460a3c-a748-4f86-a312-429027aa3e8f')
+              ),
           ]),
       /*.items([...S.documentTypeListItems().reverse()]),*/
     }),
