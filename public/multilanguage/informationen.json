@@ -22,8 +22,8 @@
       "infos": "Informationen",
       "sitWolfTitle": "Situation Wolf",
       "politicsTitle": "Politik",
-      "sitWolfText": "Hier steht ein Introtext über die Situation Wolf. In der Schweiz oder auch International.",
-      "politicsText": "Hier steht ein Text Über ein aktuelles Thema. Maximal sollte dieser 70 Charakter enthalten.",
+      "sitWolfText": "Hier finden Sie einige Informationen zur Wolfssituation.",
+      "politicsText": "Hier finden Sie Artikel zu politischen Vorstössen.",
       "activitiesTitle": "Aktivitäten"
     },
     {
@@ -31,8 +31,8 @@
       "infos": "Informations",
       "sitWolfTitle": "Situation loup",
       "politicsTitle": "Politique",
-      "sitWolfText": "Hier steht ein Introtext über die Situation Wolf. In der Schweiz oder auch International.",
-      "politicsText": "Hier steht ein Text Über ein aktuelles Thema. Maximal sollte dieser 70 Charakter enthalten.",
+      "sitWolfText": "Vous trouverez ici quelques informations sur la situation du loup.",
+      "politicsText": "Vous trouverez ici des articles sur des interventions politiques.",
       "activitiesTitle": "Activités"
     },
     {
@@ -40,8 +40,8 @@
       "infos": "Inforamzioni",
       "sitWolfTitle": "Situazione lupo",
       "politicsTitle": "Politica",
-      "sitWolfText": "Hier steht ein Introtext über die Situation Wolf. In der Schweiz oder auch International.",
-      "politicsText": "Hier steht ein Text Über ein aktuelles Thema. Maximal sollte dieser 70 Charakter enthalten.",
+      "sitWolfText": "Qui potete trovare alcune informazioni sulla situazione del lupo.",
+      "politicsText": "Qui troverete articoli sulle iniziative politiche.",
       "activitiesTitle": "Attività"
     }
   ]

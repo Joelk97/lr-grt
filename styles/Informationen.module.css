@@ -24,6 +24,9 @@
   font-size: 24px;
   padding-bottom: 4rem;
 }
+.cardsInfo {
+  margin-top: 4rem;
+}
 @media screen and (max-width: 840px) {
   .introText2 {
     font-size: 22px;

@@ -56,14 +56,19 @@ export default function Informationen({ infoPage }) {
           .map((e, i) => {
             return (
               <section className={styles.sectionInformations} key={i}>
-                <h1 className={styleHome.titlesSections}>
-                  <HiInformationCircle style={iconStyle} />
-                  {infoPage.title2?.[newLocale]}
-                </h1>
-                <p className={styles.introText2}>
-                  {infoPage.intro2?.[newLocale]}
-                </p>
-                <div className={styleHome.cards}>
+                {infoPage.title2?.[newLocale] != null && (
+                  <h1 className={styleHome.titlesSections}>
+                    <HiInformationCircle style={iconStyle} />
+                    {infoPage.title2?.[newLocale]}
+                  </h1>
+                )}
+                {infoPage.title2?.[newLocale] != null && (
+                  <p className={styles.introText2}>
+                    {infoPage.intro2?.[newLocale]}
+                  </p>
+                )}
+
+                <div className={`${styleHome.cards} ${styles.cardsInfo}`}>
                   <Card
                     source={infoPage?.imageWolf}
                     alt="Abbildung Wolf"

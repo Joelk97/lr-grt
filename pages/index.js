@@ -216,7 +216,9 @@ export default function Home({ homeElements, medienMitt }) {
                     <h2
                       className={`${styles.greenButton} ${styles.cantSectButton}`}
                     >
-                      {e.cantSections}
+                      <Link href="/verein/kantonale-sektionen">
+                        {e.cantSections}
+                      </Link>
                     </h2>
                   </div>
                   <div
@@ -268,7 +270,9 @@ export default function Home({ homeElements, medienMitt }) {
                   </h1>
                   <p>{homeElements.sloganText?.[newLocale]}</p>
                   <h2 className={styles.greenButton}>
-                    {homeElements.sloganButton?.[newLocale]}
+                    <Link href="/verein/leitbild">
+                      {homeElements.sloganButton?.[newLocale]}
+                    </Link>
                   </h2>
                 </div>
               );

@@ -23,42 +23,15 @@ const Footer = (props) => {
             <div key={i} className={`${styles.navigation}`}>
               <ul className={`${styles.navList} ${styles.navListAsso}`}>
                 <li>
-                  <Link href="/verein">
-                    <h2>{e.association}</h2>
-                  </Link>
-                </li>
-                <li>
-                  <h3>{e.assoWhatWeDo}</h3>
-                </li>
-                <li>
-                  <h3>{e.assoManag}</h3>
-                </li>
-                <li>
-                  <h3>{e.assoBusiness}</h3>
-                </li>
-                <li>
-                  <h3>{e.assoSections}</h3>
-                </li>
-              </ul>
-              <ul className={`${styles.navList} ${styles.navListAsso}`}>
-                <li>
                   <Link href="/medien">
                     <h2>{e.media}</h2>
                   </Link>
                 </li>
+              </ul>
+              <ul className={`${styles.navList} ${styles.navListAsso}`}>
                 <li>
-                  <Link href="/medien/medienmitteilungen">
-                    <h3>{e.mediaPress}</h3>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/medien/news">
-                    <h3>{e.mediaNews}</h3>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/medien/studien">
-                    <h3>{e.mediaStudies}</h3>
+                  <Link href="/verein">
+                    <h2>{e.association}</h2>
                   </Link>
                 </li>
               </ul>
@@ -67,17 +40,6 @@ const Footer = (props) => {
                   <Link href="/informationen">
                     <h2>{e.info}</h2>
                   </Link>
-                </li>
-                <li>
-                  <h3>{e.infoPolitics}</h3>
-                </li>
-                <li>
-                  <Link href={`/informationen/situation-wolf`}>
-                    <h3>{e.infoSitWolf}</h3>
-                  </Link>
-                </li>
-                <li>
-                  <h3>{e.infoActivities}</h3>
                 </li>
               </ul>
               <ul className={`${styles.navList} ${styles.navListAsso}`}>
