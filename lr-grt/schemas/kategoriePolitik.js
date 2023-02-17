@@ -10,6 +10,14 @@ export default defineType({
       title: 'Kategorie',
       type: 'localeString',
     }),
+    defineField({
+      name: 'slug',
+      title: 'slug',
+      type: 'localeSlug',
+      options: {
+        source: `category.de_CH`,
+      },
+    }),
   ],
   preview: {
     select: {

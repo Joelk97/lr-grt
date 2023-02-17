@@ -80,11 +80,13 @@ export default function News({ news }) {
         <div className={styles.articleContent}>
           <h1 className={styles.title}>{news?.title?.[newLocale]}</h1>
           <p className={styles.abstract}>{news?.abstract?.[newLocale]}</p>
-          <div className={styles.text}>
-            {news?.BlockContent.map((block, i) => {
-              return <PortableText key={i} value={block?.[newLocale]} />;
-            })}
-          </div>
+          {news?.BlockContent != null && (
+            <div className={styles.text}>
+              {news?.BlockContent.map((block, i) => {
+                return <PortableText key={i} value={block?.[newLocale]} />;
+              })}
+            </div>
+          )}
         </div>
         <div className={styles.filesLinks}>
           {news?.files != null ? (

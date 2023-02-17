@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   background: #fffdfa;
+  min-height: 70vh;
 }
 .sectionNews {
   width: 100%;

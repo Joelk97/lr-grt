@@ -41,14 +41,31 @@ const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
 
 `;
 const queryMedienMitteilungen = `*[_type=="katMedia" && slug.current == 'medienmitteilungen'][0]{
-  "de_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.de_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
-    "fr_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.fr_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug},
-    "it_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.it_CH.current)]| order(dateTime desc)[]{title, abstract, dateTime, slug}}
+  "de_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.de_CH.current)]| order(dateTime desc)[]{_type, title, abstract, dateTime, slug},
+    "fr_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.fr_CH.current)]| order(dateTime desc)[]{_type, title, abstract, dateTime, slug},
+    "it_CH": *[_type=='artikelMedia' && references(^._id) && defined(slug.it_CH.current)]| order(dateTime desc)[]{_type, title, abstract, dateTime, slug}}
 `;
+const queryPolitik = `{"de_CH": *[_type == 'politik' && defined(slug.de_CH.current)], "fr_CH": *[_type == 'politik' && defined(slug.fr_CH.current)], "it_CH": *[_type == 'politik' && defined(slug.it_CH.current)]}`;
 const iconStyle = { color: "#000", height: "100%", marginRight: "2rem" };
-export default function Home({ homeElements, medienMitt }) {
+export default function Home({ homeElements, medienMitt, politik }) {
   const { locale, locales, asPath } = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
+  const alleMedien = {
+    de_CH: [...medienMitt.de_CH, ...politik.de_CH],
+    fr_CH: [...medienMitt.fr_CH, ...politik.fr_CH],
+    it_CH: [...medienMitt.it_CH, ...politik.it_CH],
+  };
+  let sortedMedien = {
+    de_CH: alleMedien.de_CH.sort((m1, m2) =>
+      m1.dateTime < m2.dateTime ? 1 : m1.dateTime > m2.dateTime ? -1 : 0
+    ),
+    fr_CH: alleMedien.fr_CH.sort((m1, m2) =>
+      m1.dateTime < m2.dateTime ? 1 : m1.dateTime > m2.dateTime ? -1 : 0
+    ),
+    it_CH: alleMedien.it_CH.sort((m1, m2) =>
+      m1.dateTime < m2.dateTime ? 1 : m1.dateTime > m2.dateTime ? -1 : 0
+    ),
+  };
   const giveLink = (type) => {
     if (type == "news" || type == "medienMitteilungen") {
       return `/medien/${type?.toLowerCase()}/`;
@@ -149,35 +166,47 @@ export default function Home({ homeElements, medienMitt }) {
             })}
           <ListMedia
             articleData={transformDate(
-              medienMitt?.[newLocale]?.[0]?.dateTime.substring(0, 10)
+              sortedMedien?.[newLocale]?.[0].dateTime.substring(0, 10)
             )}
-            articleText={medienMitt?.[newLocale]?.[0]?.abstract?.[
+            articleText={sortedMedien?.[newLocale]?.[0].abstract?.[
               newLocale
             ].substring(0, 250)}
-            articleTitle={medienMitt?.[newLocale]?.[0]?.title?.[newLocale]}
-            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[0]?.slug?.[newLocale]?.current}`}
+            articleTitle={sortedMedien?.[newLocale]?.[0]?.title?.[newLocale]}
+            href={
+              sortedMedien?.[newLocale]?.[0]._type == "politik"
+                ? `/${locale}/informationen/politik/${sortedMedien?.[newLocale]?.[0]?.slug?.[newLocale]?.current}`
+                : `/${locale}/medien/medienmitteilungen/${sortedMedien?.[newLocale]?.[0]?.slug?.[newLocale]?.current}`
+            }
+          />
+          <ListMedia
+            articleData={transformDate(
+              sortedMedien?.[newLocale]?.[1].dateTime.substring(0, 10)
+            )}
+            articleText={sortedMedien?.[newLocale]?.[1].abstract?.[
+              newLocale
+            ].substring(0, 250)}
+            articleTitle={sortedMedien?.[newLocale]?.[1]?.title?.[newLocale]}
+            href={
+              sortedMedien?.[newLocale]?.[1]._type == "politik"
+                ? `/${locale}/informationen/politik/${sortedMedien?.[newLocale]?.[1]?.slug?.[newLocale]?.current}`
+                : `/${locale}/medien/medienmitteilungen/${sortedMedien?.[newLocale]?.[1]?.slug?.[newLocale]?.current}`
+            }
+          />
+          <ListMedia
+            articleData={transformDate(
+              sortedMedien?.[newLocale]?.[2].dateTime.substring(0, 10)
+            )}
+            articleText={sortedMedien?.[newLocale]?.[2].abstract?.[
+              newLocale
+            ].substring(0, 250)}
+            articleTitle={sortedMedien?.[newLocale]?.[2]?.title?.[newLocale]}
+            href={
+              sortedMedien?.[newLocale]?.[2]._type == "politik"
+                ? `/${locale}/informationen/politik/${sortedMedien?.[newLocale]?.[2]?.slug?.[newLocale]?.current}`
+                : `/${locale}/medien/medienmitteilungen/${sortedMedien?.[newLocale]?.[2]?.slug?.[newLocale]?.current}`
+            }
           />
 
-          <ListMedia
-            articleData={transformDate(
-              medienMitt?.[newLocale]?.[1]?.dateTime.substring(0, 10)
-            )}
-            articleText={medienMitt?.[newLocale]?.[1]?.abstract?.[
-              newLocale
-            ].substring(0, 250)}
-            articleTitle={medienMitt?.[newLocale]?.[1]?.title?.[newLocale]}
-            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[1]?.slug?.[newLocale]?.current}`}
-          />
-          <ListMedia
-            articleData={transformDate(
-              medienMitt?.[newLocale]?.[2]?.dateTime.substring(0, 10)
-            )}
-            articleText={medienMitt?.[newLocale]?.[2]?.abstract?.[
-              newLocale
-            ].substring(0, 250)}
-            articleTitle={medienMitt?.[newLocale]?.[2]?.title?.[newLocale]}
-            href={`/${locale}/medien/medienmitteilungen/${medienMitt?.[newLocale]?.[2]?.slug?.[newLocale]?.current}`}
-          />
           {homePage.buttons
             .filter((l) => l.locale === locale)
             .map((e, i) => {
@@ -366,10 +395,12 @@ export default function Home({ homeElements, medienMitt }) {
 export async function getStaticProps() {
   const homeElements = await client.fetch(queryHomePage);
   const medienMitt = await client.fetch(queryMedienMitteilungen);
+  const politik = await client.fetch(queryPolitik);
   return {
     props: {
       homeElements,
       medienMitt,
+      politik,
     },
   };
 }

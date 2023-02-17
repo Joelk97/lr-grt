@@ -18,6 +18,7 @@ import Head from "next/head";
 
 import medienElements from "../../../public/multilanguage/medien.json";
 import NavigatorPages from "../../../components/navigatorPages";
+import Medienmitteilungen from ".";
 
 const pathQuery = `{'de':*[_type == "artikelMedia" && defined(slug.de_CH.current)].slug.de_CH.current, 
 'it':*[_type == "artikelMedia" && defined(slug.it_CH.current)].slug.it_CH.current,
@@ -76,11 +77,13 @@ export default function Mitteilung({ mitteilung }) {
         <div className={styles.articleContent}>
           <h1 className={styles.title}>{mitteilung?.title?.[newLocale]}</h1>
           <p className={styles.abstract}>{mitteilung?.abstract?.[newLocale]}</p>
-          <div className={styles.text}>
-            {mitteilung?.BlockContent.map((block, i) => {
-              return <PortableText key={i} value={block?.[newLocale]} />;
-            })}
-          </div>
+          {mitteilung?.BlockContent != null && (
+            <div className={styles.text}>
+              {mitteilung?.BlockContent.map((block, i) => {
+                return <PortableText key={i} value={block?.[newLocale]} />;
+              })}
+            </div>
+          )}
         </div>
         <div className={styles.filesLinks}>
           {mitteilung.files != null ? (
