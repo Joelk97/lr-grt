@@ -155,11 +155,33 @@ export default defineConfig({
                                   .filter("_type == 'catPolitics'")
                               ),
                             S.listItem()
-                              .title('Politik Artikel')
+                              .title('Politik National')
                               .child(
                                 S.documentList()
-                                  .title('Politik Artikel')
-                                  .filter("_type == 'politik'")
+                                  .title('Politik National')
+                                  .filter(
+                                    "_type == 'politik' && category._ref == '550afd1f-00a1-4757-b2fd-4c1f0f93621b'"
+                                  )
+                                  .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
+                              ),
+                            S.listItem()
+                              .title('Politik Kantonal')
+                              .child(
+                                S.documentList()
+                                  .title('Politik Kantonal')
+                                  .filter(
+                                    "_type == 'politik' && category._ref == '9caef042-964e-4727-8cdd-1dd4a4dfe6ab'"
+                                  )
+                                  .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
+                              ),
+                            S.listItem()
+                              .title('Politik International')
+                              .child(
+                                S.documentList()
+                                  .title('Politik International')
+                                  .filter(
+                                    "_type == 'politik' && category._ref == 'e6ae508c-65a3-441d-9938-e8c751cd739a'"
+                                  )
                                   .defaultOrdering([{field: 'dateTime', direction: 'desc'}])
                               ),
                           ])
