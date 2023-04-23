@@ -1,5 +1,8 @@
 import Head from "next/head";
 import "../styles/globals.css";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-5TNYP0CH3V");
 
 export default function App({ Component, pageProps }) {
   return (
