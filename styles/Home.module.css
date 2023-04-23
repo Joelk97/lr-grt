@@ -121,6 +121,10 @@
   margin-bottom: 4rem;
   gap: 5px;
 }
+.inputs::placeholder {
+  color: #fffdfa;
+  opacity: 1;
+}
 .inputs {
   width: 80%;
   height: 30px;

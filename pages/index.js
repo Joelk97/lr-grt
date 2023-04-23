@@ -2,6 +2,7 @@ import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import homePage from "../public/multilanguage/homePage.json";
+import emailjs from "@emailjs/browser";
 import MyHead from "../components/MyHead.jsx";
 import Header from "../components/Header.jsx";
 import Intro from "../components/Intro.jsx";
@@ -15,6 +16,7 @@ import Head from "next/head";
 import headComponents from "../public/multilanguage/head.json";
 import { TiNews } from "react-icons/ti";
 import { BsMegaphoneFill } from "react-icons/bs";
+import { useState, useRef } from "react";
 
 const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
 [0]
@@ -49,6 +51,11 @@ const queryPolitik = `{"de_CH": *[_type == 'politik' && defined(slug.de_CH.curre
 const iconStyle = { color: "#000", height: "100%", marginRight: "2rem" };
 export default function Home({ homeElements, medienMitt, politik }) {
   const { locale, locales, asPath } = useRouter();
+  const form = useRef();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [text, setText] = useState("");
+  const [sent, setSent] = useState(false);
   const newLocale = locale.substring(0, 2) + "_CH";
   const alleMedien = {
     de_CH: [...medienMitt.de_CH, ...politik.de_CH],
@@ -82,6 +89,28 @@ export default function Home({ homeElements, medienMitt, politik }) {
       newPhrase.push(phrase[i]);
     }
     return newPhrase.join(" ");
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_vsl-grt-home",
+        "template_home",
+        form.current,
+        "wKMoaFqAzARgrPDUh"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    setEmail("");
+    setName("");
+    setText("");
+    setSent(true);
   };
   return (
     <>
@@ -254,27 +283,64 @@ export default function Home({ homeElements, medienMitt, politik }) {
                     className={`${styles.cardsTitTexBut} ${styles.Kontaktformular}`}
                   >
                     <h1>{e.contactForm}</h1>
-                    <p>{homeElements.contactForm?.[newLocale]}</p>
-                    <div className={styles.contactForm}>
-                      <input
-                        className={`${styles.inputs} ${styles.inputName}`}
-                        placeholder="Name"
-                      ></input>
-                      <input
-                        className={`${styles.inputs} ${styles.inputEmail}`}
-                        placeholder="Email"
-                      ></input>
-                      <input
-                        className={`${styles.inputs} ${styles.inputText}`}
-                        placeholder="Text"
-                      ></input>
-                      <button
-                        className={`${styles.inputs} ${styles.buttonSubmit}`}
-                        type="submit"
-                      >
-                        Senden
-                      </button>
-                    </div>
+                    {!sent && <p>{homeElements.contactForm?.[newLocale]}</p>}
+                    {homePage.contact
+                      .filter((e) => e.locale === locale)
+                      .map((e, i) => {
+                        return (
+                          <div key={i} className={styles.contactForm}>
+                            {!sent ? (
+                              <form
+                                onSubmit={handleSubmit}
+                                ref={form}
+                                style={{
+                                  width: "100%",
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <input
+                                  className={`${styles.inputs} ${styles.inputName}`}
+                                  onChange={(e) => setName(e.target.value)}
+                                  placeholder={e.name}
+                                  required
+                                  value={name}
+                                ></input>
+                                <input
+                                  className={`${styles.inputs} ${styles.inputEmail}`}
+                                  placeholder="Email"
+                                  required
+                                  onChange={(e) => setEmail(e.target.value)}
+                                  value={email}
+                                ></input>
+                                <input
+                                  required
+                                  className={`${styles.inputs} ${styles.inputText}`}
+                                  placeholder={e.text}
+                                  onChange={(e) => setText(e.target.value)}
+                                  style={{
+                                    textAlign: "center",
+                                    display: "flex",
+                                    flexWrap: "wrap",
+                                  }}
+                                  value={text}
+                                ></input>
+                                <button
+                                  className={`${styles.inputs} ${styles.buttonSubmit}`}
+                                  type="submit"
+                                >
+                                  {e.button}
+                                </button>
+                              </form>
+                            ) : (
+                              <p style={{ width: "80%", textAlign: "center" }}>
+                                {e.gesendet}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      })}
                   </div>
                 </div>
               );

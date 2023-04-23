@@ -64,5 +64,28 @@
       "slogan": "Ci impegniamo a proteggere gli habitat rurali dai grandi predatori",
       "button": "Leggi di più"
     }
+  ],
+  "contact": [
+    {
+      "locale": "de-CH",
+      "name": "Name",
+      "text": "Text",
+      "button": "Senden",
+      "gesendet": "Ihre Nachricht wurde versendet"
+    },
+    {
+      "locale": "fr-CH",
+      "name": "Nom",
+      "text": "Message",
+      "button": "Envoier",
+      "gesendet": "Votre message a été envoyé"
+    },
+    {
+      "locale": "it-CH",
+      "name": "Nome",
+      "text": "Messaggio",
+      "button": "Inviare",
+      "gesendet": "Il vostro messaggio è stato inviato"
+    }
   ]
 }
