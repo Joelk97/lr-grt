@@ -7,12 +7,37 @@ import Link from "next/link";
 import burgerMenuClosed from "../public/icons/burgerMenuClosed.svg";
 import { useState } from "react";
 import BurgerIcon from "../components/BurgerIcon";
+import homePage from "../public/multilanguage/homePage.json";
+import CookieConsent from "react-cookie-consent";
 
 const Header = (props) => {
   const { locale, locales, asPath } = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className={styles.header}>
+      {homePage.cookie
+        .filter((e) => e.locale == locale)
+        .map((e, i) => {
+          return (
+            <CookieConsent
+              key={i}
+              location="bottom"
+              style={{ background: "#87bb3f" }}
+              buttonStyle={{ background: "#fffdfa", color: "#000" }}
+              buttonText={e.button}
+            >
+              <p style={{ color: "#000" }}>{e.text}</p>
+              <a
+                rel="noreferrer"
+                target="_blank"
+                style={{ color: "#000" }}
+                href={e.link}
+              >
+                {e.link}
+              </a>
+            </CookieConsent>
+          );
+        })}
       <div className={styles.logoImage}>
         <Link href={`/`}>
           <Image alt="Logo" src={logoWhite} />

@@ -17,6 +17,7 @@ import headComponents from "../public/multilanguage/head.json";
 import { TiNews } from "react-icons/ti";
 import { BsMegaphoneFill } from "react-icons/bs";
 import { useState, useRef } from "react";
+import CookieConsent from "react-cookie-consent";
 
 const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
 [0]

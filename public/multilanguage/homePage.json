@@ -87,5 +87,25 @@
       "button": "Inviare",
       "gesendet": "Il vostro messaggio è stato inviato"
     }
+  ],
+  "cookie": [
+    {
+      "locale": "it-CH",
+      "text": "Questo sito utilizza cookies. Per ulteriori informazioni clicca qua: ",
+      "button": "Ok",
+      "link": "https://support.google.com/analytics/answer/12017362?hl=it&ref_topic=2919631"
+    },
+    {
+      "locale": "fr-CH",
+      "text": "Ce site utilise des cookies. Pour plus d'informations, cliquez ici :",
+      "button": "Ok",
+      "link": "https://support.google.com/analytics/answer/12017362?hl=it&ref_topic=2919631"
+    },
+    {
+      "locale": "de-CH",
+      "text": "Diese Website verwendet Cookies. Für weitere Informationen klicken Sie hier: ",
+      "button": "Ok",
+      "link": "https://support.google.com/analytics/answer/12017362?hl=it&ref_topic=2919631"
+    }
   ]
 }
