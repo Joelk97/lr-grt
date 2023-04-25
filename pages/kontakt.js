@@ -76,6 +76,7 @@ export default function Kontakt() {
               <div
                 style={{ width: "100%" }}
                 className={`${styles.cardsTitTexBut} ${styles.Kontaktformular}`}
+                key={i}
               >
                 <h1>{e.contactForm}</h1>
 
