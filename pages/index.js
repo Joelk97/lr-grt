@@ -94,10 +94,10 @@ export default function Home({ homeElements, medienMitt, politik }) {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_vsl-grt-home",
-        "template_home",
+        "service_webdev",
+        "template_web_lr_grt",
         form.current,
-        "wKMoaFqAzARgrPDUh"
+        "wI1T6sSQk8GEygu_n"
       )
       .then(
         (result) => {
@@ -107,9 +107,6 @@ export default function Home({ homeElements, medienMitt, politik }) {
           console.log(error.text);
         }
       );
-    setEmail("");
-    setName("");
-    setText("");
     setSent(true);
   };
   return (
@@ -305,6 +302,8 @@ export default function Home({ homeElements, medienMitt, politik }) {
                                   onChange={(e) => setName(e.target.value)}
                                   placeholder={e.name}
                                   required
+                                  id="name"
+                                  name="name"
                                   value={name}
                                 ></input>
                                 <input
@@ -313,6 +312,8 @@ export default function Home({ homeElements, medienMitt, politik }) {
                                   required
                                   onChange={(e) => setEmail(e.target.value)}
                                   value={email}
+                                  id="email"
+                                  name="email"
                                 ></input>
                                 <input
                                   required
@@ -325,6 +326,8 @@ export default function Home({ homeElements, medienMitt, politik }) {
                                     flexWrap: "wrap",
                                   }}
                                   value={text}
+                                  id="text"
+                                  name="text"
                                 ></input>
                                 <button
                                   className={`${styles.inputs} ${styles.buttonSubmit}`}
