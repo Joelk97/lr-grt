@@ -22,6 +22,7 @@ import subEinfuerung from './subEinfuerung'
 import katMedia from './katMedia'
 import artikelMedia from './artikelMedia'
 import downloadSect from './downloadSect'
+import File from './locale/File'
 export const schemaTypes = [
   blockContent,
   kategoriePolitik,
@@ -29,6 +30,7 @@ export const schemaTypes = [
   situationWolfArt,
   Slug,
   String,
+  File,
   Text,
   BlockContent,
   infoPage,

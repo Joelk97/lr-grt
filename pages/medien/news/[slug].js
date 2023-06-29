@@ -27,6 +27,7 @@ const queryNews = `*[_type == "artikelMedia" && (slug.it_CH.current == $slug || 
   title,
   abstract,
   BlockContent,
+  fileLanguages,
   files,
   "filesUrl": files[].asset -> url,
   someLinks,
@@ -93,6 +94,24 @@ export default function News({ news }) {
             <ul>
               <h2>Files</h2>
               {news?.files?.map((file, i) => {
+                return (
+                  <li key={i}>
+                    <a
+                      rel="noreferrer"
+                      target="_blank"
+                      href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                        file.asset._ref.split("-")[1]
+                      }.pdf`}
+                    >
+                      <FaFileDownload style={iconStyle} />
+                      {file.title?.[newLocale]
+                        ? file.title?.[newLocale]
+                        : file.caption}
+                    </a>
+                  </li>
+                );
+              })}
+              {news?.fileLanguages?.[newLocale].map((file, i) => {
                 return (
                   <li key={i}>
                     <a

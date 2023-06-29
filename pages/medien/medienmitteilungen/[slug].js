@@ -32,6 +32,7 @@ const queryMitteilung = `*[_type == "artikelMedia" && (slug.it_CH.current == $sl
   "filesUrl": files[].asset -> url,
   someLinks,
   slug,
+  fileLanguages,
   "imagesUrl": images[].asset -> url
 }`;
 const iconStyle = { color: "#87BB3F", marginRight: "10" };
@@ -90,6 +91,24 @@ export default function Mitteilung({ mitteilung }) {
             <ul>
               <h2>Files</h2>
               {mitteilung.files.map((file, i) => {
+                return (
+                  <li key={i}>
+                    <a
+                      rel="noreferrer"
+                      target="_blank"
+                      href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                        file.asset._ref.split("-")[1]
+                      }.pdf`}
+                    >
+                      <FaFileDownload style={iconStyle} />
+                      {file.title?.[newLocale]
+                        ? file.title?.[newLocale]
+                        : file.caption}
+                    </a>
+                  </li>
+                );
+              })}
+              {mitteilung.fileLanguages?.[newLocale].map((file, i) => {
                 return (
                   <li key={i}>
                     <a

@@ -84,6 +84,11 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'fileLanguages',
+      title: 'Dateien einzelne Sprachen',
+      type: 'localeFile',
+    }),
+    defineField({
       name: 'someLinks',
       title: 'Nützliche Links',
       type: 'array',
