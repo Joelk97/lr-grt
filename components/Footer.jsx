@@ -13,7 +13,13 @@ const Footer = (props) => {
     <footer className={styles.container}>
       <div className={styles.copyright}>
         <Image alt="logo" src="/img/logoWhite.svg" width={180} height={70} />
-        <p>{`© Copyright - ${year} VSLvGRT`}</p>
+        <p>
+          {`© Copyright - ${year} VSLvGRT`}
+          <br></br>
+          <Link href={"https://www.joelkuehl.ch/"}>
+            by Kuehl Web developmemt
+          </Link>
+        </p>
       </div>
 
       {navElements.nav
