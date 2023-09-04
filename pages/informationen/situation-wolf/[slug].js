@@ -53,8 +53,19 @@ export default function SitWolfArt({ artSitWolf }) {
         .map((element, i) => {
           return (
             <Head key={i}>
-              <title>{`${element.title}`}</title>
-              <meta name="description" content={element.description} />
+              <title>
+                {artSitWolf?.title?.[newLocale]
+                  ? artSitWolf?.title?.[newLocale]
+                  : element.title}
+              </title>
+              <meta
+                name="description"
+                content={
+                  artSitWolf?.abstract?.[newLocale]
+                    ? artSitWolf?.abstract?.[newLocale]
+                    : element.description
+                }
+              />
             </Head>
           );
         })}

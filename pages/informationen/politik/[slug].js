@@ -54,8 +54,19 @@ export default function PolitikArt({ artPolitik }) {
         .map((element, i) => {
           return (
             <Head key={i}>
-              <title>{`${element.title}`}</title>
-              <meta name="description" content={element.description} />
+              <title>
+                {artPolitik?.title?.[newLocale]
+                  ? artPolitik?.title?.[newLocale]
+                  : element.title}
+              </title>
+              <meta
+                name="description"
+                content={
+                  artPolitik?.abstract?.[newLocale]
+                    ? artPolitik?.abstract?.[newLocale]
+                    : element.description
+                }
+              />
             </Head>
           );
         })}

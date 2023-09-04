@@ -56,8 +56,19 @@ export default function Mitteilung({ mitteilung }) {
         .map((element, i) => {
           return (
             <Head key={i}>
-              <title>{`${element.title}`}</title>
-              <meta name="description" content={element.description} />
+              <title>
+                {mitteilung?.title?.[newLocale]
+                  ? mitteilung?.title?.[newLocale]
+                  : element.title}
+              </title>
+              <meta
+                name="description"
+                content={
+                  mitteilung?.abstract?.[newLocale]
+                    ? mitteilung?.abstract?.[newLocale]
+                    : element.description
+                }
+              />
             </Head>
           );
         })}

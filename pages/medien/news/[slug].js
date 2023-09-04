@@ -60,8 +60,19 @@ export default function News({ news }) {
         .map((element, i) => {
           return (
             <Head key={i}>
-              <title>{`${element.title}`}</title>
-              <meta name="description" content={element.description} />
+              <title>
+                {news?.title?.[newLocale]
+                  ? news?.title?.[newLocale]
+                  : element.title}
+              </title>
+              <meta
+                name="description"
+                content={
+                  news?.abstract?.[newLocale]
+                    ? news?.abstract?.[newLocale]
+                    : element.description
+                }
+              />
             </Head>
           );
         })}
