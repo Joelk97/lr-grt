@@ -26,14 +26,12 @@ const Header = (props) => {
               buttonStyle={{ background: "#fffdfa", color: "#000" }}
               buttonText={e.button}
             >
-              <p style={{ color: "#000" }}>{e.text}</p>
               <a
                 rel="noreferrer"
                 target="_blank"
                 style={{ color: "#000" }}
                 href={e.link}
-              >
-                {e.link}
+              ><p style={{ color: "#000" }}>{e.text}</p>
               </a>
             </CookieConsent>
           );
