@@ -161,18 +161,27 @@ export default function Home({ homeElements, medienMitt, politik }) {
             <Card
               alt="Placeholding picture"
               title={`${homeElements?.[newLocale]?.[0]?.title?.[newLocale]}`}
-              text={`${homeElements?.[newLocale]?.[0]?.abstract?.[
-                newLocale
-              ].substring(0, 160)}...`}
+              text={`${
+                homeElements?.[newLocale]?.[0]?.abstract?.[newLocale] !=
+                undefined
+                  ? homeElements?.[newLocale]?.[0]?.abstract?.[
+                      newLocale
+                    ].substring(0, 160)
+                  : ""
+              }...`}
               link={`/medien/${homeElements?.[newLocale]?.[0]?.slugCat?.slug.current}/${homeElements?.[newLocale]?.[0]?.slug?.[newLocale]?.current}`}
             />
             <Card
               alt="Placeholding picture"
               title={`${homeElements?.[newLocale]?.[1]?.title?.[newLocale]}`}
-              text={`${homeElements?.[newLocale]?.[1]?.abstract?.[
-                newLocale
-              ].substring(0, 160)}...`}
-              link={`/medien/${homeElements?.[newLocale]?.[1]?.slugCat?.slug.current}/${homeElements?.[newLocale]?.[1]?.slug?.[newLocale]?.current}`}
+              text={`${
+                homeElements?.[newLocale]?.[1]?.abstract?.[newLocale] !=
+                undefined
+                  ? homeElements?.[newLocale]?.[1]?.abstract?.[
+                      newLocale
+                    ].substring(0, 160)
+                  : ""
+              }...`}
             />
           </div>
         </section>
