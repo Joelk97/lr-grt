@@ -172,7 +172,7 @@ export default function Medien({ mediaPage, medienMitt, news, politik }) {
               );
             })}
         </section>
-        <section className={styleHome.sectionSlogan}>
+        {/* <section className={styleHome.sectionSlogan}>
           <Image
             layout="fill"
             objectFit="contain"
@@ -203,7 +203,7 @@ export default function Medien({ mediaPage, medienMitt, news, politik }) {
                 </div>
               );
             })}
-        </section>
+        </section> */}
       </main>
       <Footer />
     </>
