@@ -3,17 +3,23 @@
     {
       "locale": "de-CH",
       "title": "Medien",
-      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein.",
+      "link": "Link",
+      "files": "Files"
     },
     {
       "locale": "fr-CH",
       "title": "Media",
-      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein.",
+      "link": "Liens",
+      "files": "Fichiers"
     },
     {
       "locale": "it-CH",
       "title": "Media",
-      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein."
+      "text": "Hier steht ein Einführungstext über die MEDIEN. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein. Hier steht ein Einführungstext über den Verein.",
+      "link": "Link",
+      "files": "Files"
     }
   ],
   "medienCards": [

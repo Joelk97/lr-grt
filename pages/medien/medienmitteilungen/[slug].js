@@ -98,67 +98,79 @@ export default function Mitteilung({ mitteilung }) {
           )}
         </div>
         <div className={styles.filesLinks}>
-          {mitteilung.files != null ? (
-            <ul>
-              <h2>Files</h2>
-              {mitteilung.files.map((file, i) => {
+          {mitteilung.files &&
+            medienElements.medienIntro
+              .filter((l) => l.locale == locale)
+              .map((element, i) => {
                 return (
-                  <li key={i}>
-                    <a
-                      rel="noreferrer"
-                      target="_blank"
-                      href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                        file.asset._ref.split("-")[1]
-                      }.pdf`}
-                    >
-                      <FaFileDownload style={iconStyle} />
-                      {file.title?.[newLocale]
-                        ? file.title?.[newLocale]
-                        : file.caption}
-                    </a>
-                  </li>
+                  <ul>
+                    <h2>{element.files}</h2>
+                    {mitteilung.files.map((file, i) => {
+                      return (
+                        <li key={i}>
+                          <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                              file.asset._ref.split("-")[1]
+                            }.pdf`}
+                          >
+                            <FaFileDownload style={iconStyle} />
+                            {file.title?.[newLocale]
+                              ? file.title?.[newLocale]
+                              : file.caption}
+                          </a>
+                        </li>
+                      );
+                    })}
+                    {mitteilung.fileLanguages?.[newLocale].map((file, i) => {
+                      return (
+                        <li key={i}>
+                          <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                              file.asset._ref.split("-")[1]
+                            }.pdf`}
+                          >
+                            <FaFileDownload style={iconStyle} />
+                            {file.title?.[newLocale]
+                              ? file.title?.[newLocale]
+                              : file.caption}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 );
               })}
-              {mitteilung.fileLanguages?.[newLocale].map((file, i) => {
+          {mitteilung.someLinks &&
+            medienElements.medienIntro
+              .filter((l) => l.locale == locale)
+              .map((element, i) => {
                 return (
-                  <li key={i}>
-                    <a
-                      rel="noreferrer"
-                      target="_blank"
-                      href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                        file.asset._ref.split("-")[1]
-                      }.pdf`}
-                    >
-                      <FaFileDownload style={iconStyle} />
-                      {file.title?.[newLocale]
-                        ? file.title?.[newLocale]
-                        : file.caption}
-                    </a>
-                  </li>
+                  <ul>
+                    <h2>{element.link}</h2>
+                    {mitteilung.someLinks != null &&
+                      mitteilung.someLinks.map((link, i) => {
+                        return (
+                          <li key={i}>
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href={link?.link}
+                            >
+                              <AiOutlineLink style={iconStyle} />
+                              {link?.name?.[newLocale]
+                                ? link?.name?.[newLocale]
+                                : link?.link}
+                            </a>
+                          </li>
+                        );
+                      })}
+                  </ul>
                 );
               })}
-            </ul>
-          ) : (
-            ""
-          )}
-          {mitteilung.someLinks != null ? (
-            <ul>
-              <h2>Links</h2>
-              {mitteilung.someLinks != null &&
-                mitteilung.someLinks.map((link, i) => {
-                  return (
-                    <li key={i}>
-                      <a rel="noreferrer" target="_blank" href={link?.link}>
-                        <AiOutlineLink style={iconStyle} />
-                        {link?.name?.[newLocale]}
-                      </a>
-                    </li>
-                  );
-                })}
-            </ul>
-          ) : (
-            ""
-          )}
         </div>
         {mitteilung?.imagesUrl != null ? (
           <div className={styles.images}>
