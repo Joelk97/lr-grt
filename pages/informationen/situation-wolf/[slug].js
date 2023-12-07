@@ -118,24 +118,26 @@ export default function SitWolfArt({ artSitWolf }) {
                         </li>
                       );
                     })}
-                    {artSitWolf?.fileLanguages?.[newLocale].map((file, i) => {
-                      return (
-                        <li key={i}>
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                              file.asset._ref.split("-")[1]
-                            }.pdf`}
-                          >
-                            <FaFileDownload style={iconStyle} />
-                            {file.title?.[newLocale]
-                              ? file.title?.[newLocale]
-                              : file.caption}
-                          </a>
-                        </li>
-                      );
-                    })}
+                    {artSitWolf?.fileLanguages?.[newLocale]?.map(
+                      (file, ind) => {
+                        return (
+                          <li key={ind}>
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                                file.asset._ref.split("-")[1]
+                              }.pdf`}
+                            >
+                              <FaFileDownload style={iconStyle} />
+                              {file.title?.[newLocale]
+                                ? file.title?.[newLocale]
+                                : file.caption}
+                            </a>
+                          </li>
+                        );
+                      }
+                    )}
                   </ul>
                 );
               })}
