@@ -92,9 +92,9 @@ export default function PolitikArt({ artPolitik }) {
           {artPolitik.files &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
-              .map((element, i) => {
+              .map((element, index) => {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <h2>{element.files}</h2>
                     {artPolitik.files != null &&
                       artPolitik.files?.map((file, i) => {
@@ -121,9 +121,9 @@ export default function PolitikArt({ artPolitik }) {
           {artPolitik.someLinks &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
-              .map((element, i) => {
+              .map((element, index) => {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <h2>{element.link}</h2>
                     {artPolitik.someLinks != null &&
                       artPolitik.someLinks?.map((link, i) => {

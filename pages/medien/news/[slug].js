@@ -104,9 +104,9 @@ export default function News({ news }) {
           {news?.files &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
-              .map((element, i) => {
+              .map((element, index) => {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <h2>{element.files}</h2>
                     {news?.files?.map((file, i) => {
                       return (
@@ -150,9 +150,9 @@ export default function News({ news }) {
           {news?.someLinks &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
-              .map((element, i) => {
+              .map((element, index) => {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <h2>{element.link}</h2>
                     {news?.someLinks != null &&
                       news?.someLinks?.map((link, i) => {

@@ -96,9 +96,9 @@ export default function SitWolfArt({ artSitWolf }) {
           {artSitWolf.files &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
-              .map((element, i) => {
+              .map((element, index) => {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <h2>{element.files}</h2>
                     {artSitWolf.files?.map((file, i) => {
                       return (
@@ -142,9 +142,9 @@ export default function SitWolfArt({ artSitWolf }) {
           {artSitWolf.someLinks &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
-              .map((element, i) => {
+              .map((element, index) => {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <h2>{element.link}</h2>
                     {artSitWolf.someLinks != null &&
                       artSitWolf.someLinks?.map((link, i) => {
@@ -168,7 +168,7 @@ export default function SitWolfArt({ artSitWolf }) {
               })}
         </div>
         <div className={styles.images}>
-          <ul>
+          <ul key={i}>
             {artSitWolf?.imagesUrl?.map((image, i) => {
               return (
                 <Link key={i} href={image}>

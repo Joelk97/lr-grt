@@ -101,9 +101,9 @@ export default function Mitteilung({ mitteilung }) {
           {mitteilung.files &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
-              .map((element, i) => {
+              .map((element, index) => {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <h2>{element.files}</h2>
                     {mitteilung.files.map((file, i) => {
                       return (
@@ -147,9 +147,9 @@ export default function Mitteilung({ mitteilung }) {
           {mitteilung.someLinks &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
-              .map((element, i) => {
+              .map((element, index) => {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <h2>{element.link}</h2>
                     {mitteilung.someLinks != null &&
                       mitteilung.someLinks.map((link, i) => {
