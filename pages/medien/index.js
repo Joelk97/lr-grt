@@ -151,7 +151,11 @@ export default function Medien({ mediaPage, medienMitt, news, politik }) {
               <ListMedia
                 key={i}
                 articleData={transformDate(article.dateTime.substring(0, 10))}
-                articleText={article?.abstract?.[newLocale].substring(0, 250)}
+                articleText={
+                  article?.abstract?.[newLocale]
+                    ? article?.abstract?.[newLocale]?.substring(0, 250)
+                    : ""
+                }
                 articleTitle={article?.title?.[newLocale]}
                 href={`/${locale}/medien/news/${article.slug?.[newLocale]?.current}`}
               />
