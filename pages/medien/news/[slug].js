@@ -101,55 +101,65 @@ export default function News({ news }) {
           )}
         </div>
         <div className={styles.filesLinks}>
-          {news?.files ||
-            (news?.fileLanguages &&
-              medienElements.medienIntro
-                .filter((l) => l.locale == locale)
-                .map((element, index) => {
-                  return (
-                    <ul key={index}>
-                      <h2>{element.files}</h2>
-                      {news?.files &&
-                        news?.files?.map((file, i) => {
-                          return (
-                            <li key={i}>
-                              <a
-                                rel="noreferrer"
-                                target="_blank"
-                                href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                                  file.asset._ref.split("-")[1]
-                                }.pdf`}
-                              >
-                                <FaFileDownload style={iconStyle} />
-                                {file.title?.[newLocale]
-                                  ? file.title?.[newLocale]
-                                  : file.caption}
-                              </a>
-                            </li>
-                          );
-                        })}
-                      {news?.fileLanguages &&
-                        news?.fileLanguages?.[newLocale].map((file, i) => {
-                          return (
-                            <li key={i}>
-                              <a
-                                rel="noreferrer"
-                                target="_blank"
-                                href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                                  file.asset._ref.split("-")[1]
-                                }.pdf`}
-                              >
-                                <FaFileDownload style={iconStyle} />
-                                {file.title?.[newLocale]
-                                  ? file.title?.[newLocale]
-                                  : file.caption}
-                              </a>
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  );
-                }))}
+          {news?.files &&
+            medienElements.medienIntro
+              .filter((l) => l.locale == locale)
+              .map((element, index) => {
+                return (
+                  <ul key={index}>
+                    <h2>{element.files}</h2>
+                    {news?.files &&
+                      news?.files?.map((file, i) => {
+                        return (
+                          <li key={i}>
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                                file.asset._ref.split("-")[1]
+                              }.pdf`}
+                            >
+                              <FaFileDownload style={iconStyle} />
+                              {file.title?.[newLocale]
+                                ? file.title?.[newLocale]
+                                : file.caption}
+                            </a>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                );
+              })}
+          {news?.fileLanguages &&
+            medienElements.medienIntro
+              .filter((l) => l.locale == locale)
+              .map((element, index) => {
+                return (
+                  <ul key={index}>
+                    <h2>{element.files}</h2>
+                    {news?.fileLanguages &&
+                      news?.fileLanguages?.[newLocale].map((file, i) => {
+                        return (
+                          <li key={i}>
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                                file.asset._ref.split("-")[1]
+                              }.pdf`}
+                            >
+                              <FaFileDownload style={iconStyle} />
+                              {file.title?.[newLocale]
+                                ? file.title?.[newLocale]
+                                : file.caption}
+                            </a>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                );
+              })}
+
           {news?.someLinks &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
