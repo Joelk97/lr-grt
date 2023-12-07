@@ -72,7 +72,7 @@ export default function SitWolfArt({ artSitWolf }) {
       <Header informationen="true" />
       <NavigatorPages slug={artSitWolf?.slug?.[newLocale]?.current} />
 
-      <main className={styles.main}>
+      {/* <main className={styles.main}>
         {medienElements.mitteilung
           .filter((l) => l.locale === locale)
           .map((e, i) => {
@@ -189,7 +189,8 @@ export default function SitWolfArt({ artSitWolf }) {
             })}
           </ul>
         </div>
-      </main>
+      </main> */}
+      <div style={{ minHeight: "80vh" }}></div>
       <Footer />
     </>
   );
