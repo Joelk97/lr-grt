@@ -28,6 +28,7 @@ export default defineType({
       name: 'title',
       title: 'Titel',
       type: 'localeString',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
