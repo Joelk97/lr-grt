@@ -98,52 +98,55 @@ export default function Mitteilung({ mitteilung }) {
           )}
         </div>
         <div className={styles.filesLinks}>
-          {mitteilung.files &&
-            medienElements.medienIntro
-              .filter((l) => l.locale == locale)
-              .map((element, index) => {
-                return (
-                  <ul key={index}>
-                    <h2>{element.files}</h2>
-                    {mitteilung.files.map((file, i) => {
-                      return (
-                        <li key={i}>
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                              file.asset._ref.split("-")[1]
-                            }.pdf`}
-                          >
-                            <FaFileDownload style={iconStyle} />
-                            {file.title?.[newLocale]
-                              ? file.title?.[newLocale]
-                              : file.caption}
-                          </a>
-                        </li>
-                      );
-                    })}
-                    {mitteilung.fileLanguages?.[newLocale].map((file, i) => {
-                      return (
-                        <li key={i}>
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                              file.asset._ref.split("-")[1]
-                            }.pdf`}
-                          >
-                            <FaFileDownload style={iconStyle} />
-                            {file.title?.[newLocale]
-                              ? file.title?.[newLocale]
-                              : file.caption}
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                );
-              })}
+          {mitteilung.files ||
+            (mitteilung.fileLanguages &&
+              medienElements.medienIntro
+                .filter((l) => l.locale == locale)
+                .map((element, index) => {
+                  return (
+                    <ul key={index}>
+                      <h2>{element.files}</h2>
+                      {mitteilung.files &&
+                        mitteilung.files.map((file, i) => {
+                          return (
+                            <li key={i}>
+                              <a
+                                rel="noreferrer"
+                                target="_blank"
+                                href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                                  file.asset._ref.split("-")[1]
+                                }.pdf`}
+                              >
+                                <FaFileDownload style={iconStyle} />
+                                {file.title?.[newLocale]
+                                  ? file.title?.[newLocale]
+                                  : file.caption}
+                              </a>
+                            </li>
+                          );
+                        })}
+                      {mitteilung.fileLanguages &&
+                        mitteilung.fileLanguages?.[newLocale].map((file, i) => {
+                          return (
+                            <li key={i}>
+                              <a
+                                rel="noreferrer"
+                                target="_blank"
+                                href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                                  file.asset._ref.split("-")[1]
+                                }.pdf`}
+                              >
+                                <FaFileDownload style={iconStyle} />
+                                {file.title?.[newLocale]
+                                  ? file.title?.[newLocale]
+                                  : file.caption}
+                              </a>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  );
+                }))}
           {mitteilung.someLinks &&
             medienElements.medienIntro
               .filter((l) => l.locale == locale)
