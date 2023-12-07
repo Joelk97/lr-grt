@@ -70,7 +70,7 @@ const Medienmitteilungen = ({ medienMitt, politik }) => {
             <ListMedia
               key={i}
               articleData={transformDate(article.dateTime)}
-              articleText={article?.abstract?.[newLocale].substring(0, 250)}
+              articleText={article?.abstract?.[newLocale]?.substring(0, 250)}
               articleTitle={article?.title?.[newLocale]}
               href={
                 article._type == "politik"

@@ -41,7 +41,7 @@ export default function News({ news }) {
               <ListMedia
                 key={i}
                 articleData={transformDate(article.dateTime)}
-                articleText={article?.abstract?.[newLocale].substring(0, 250)}
+                articleText={article?.abstract?.[newLocale]?.substring(0, 250)}
                 articleTitle={article?.title?.[newLocale]}
                 href={`/${locale}/medien/medienmitteilungen/${article.slug?.[newLocale]?.current}`}
               />
