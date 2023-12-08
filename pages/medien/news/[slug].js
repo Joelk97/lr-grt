@@ -41,7 +41,6 @@ const iconStyle = { color: "#87BB3F", marginRight: "10" };
 export default function News({ news }) {
   const { locale, locales, asPath } = useRouter();
   const router = useRouter();
-  console.log(news.playbackId);
   const newLocale = locale.substring(0, 2) + "_CH";
   /*news?.BlockContent?.[0]?.fr_CH?
     .filter((e) => e._type == "image")
@@ -103,7 +102,7 @@ export default function News({ news }) {
             </div>
           )}
         </div>
-        {news?.playbackId && (
+        {news?.playbackId ? (
           <div
             style={{
               width: "500px",
@@ -114,17 +113,19 @@ export default function News({ news }) {
               padding: "2rem 0",
             }}
           >
-            {news?.playbackId}
-            <MuxPlayer
-              startTime="on-demand"
-              playbackId={news?.playbackId}
-              /* metadata={{
+            {news?.playbackId && (
+              <MuxPlayer
+                playbackId={news?.playbackId}
+                /* metadata={{
                 video_title: news?.title?.[newLocale]
                   ? news?.title?.[newLocale]
                   : "",
               }} */
-            />
+              />
+            )}
           </div>
+        ) : (
+          <></>
         )}
         <div className={styles.filesLinks}>
           {news?.files &&
@@ -133,7 +134,6 @@ export default function News({ news }) {
               .map((element, index) => {
                 return (
                   <ul key={index}>
-                    {console.log("playback:", news.playbackId)}
                     <h2>{element.files}</h2>
                     {news?.files &&
                       news?.files?.map((file, i) => {
