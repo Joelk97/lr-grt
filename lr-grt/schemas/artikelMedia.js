@@ -58,6 +58,11 @@ export default defineType({
       of: [{type: 'localeBlockContent', title: 'Artikelinhalt - Block'}],
     }),
     defineField({
+      title: 'Video file',
+      name: 'video',
+      type: 'mux.video',
+    }),
+    defineField({
       name: 'images',
       title: 'Abbildungen oder Graphiken (als Bilddatei)',
       type: 'array',

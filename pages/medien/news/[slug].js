@@ -18,6 +18,7 @@ import Head from "next/head";
 import medienElements from "../../../public/multilanguage/medien.json";
 import NavigatorPages from "../../../components/navigatorPages";
 import refToLink from "../../../components/refToLink";
+import MuxPlayer from "@mux/mux-player-react";
 
 const pathQuery = `{'de':*[_type == "artikelMedia" && defined(slug.de_CH.current)].slug.de_CH.current, 
 'it':*[_type == "artikelMedia" && defined(slug.it_CH.current)].slug.it_CH.current,
@@ -28,6 +29,7 @@ const queryNews = `*[_type == "artikelMedia" && (slug.it_CH.current == $slug || 
   abstract,
   BlockContent,
   fileLanguages,
+  "playbackId": video.asset->playbackId,
   files,
   "filesUrl": files[].asset -> url,
   someLinks,
@@ -100,6 +102,31 @@ export default function News({ news }) {
             </div>
           )}
         </div>
+        {news?.playbackId ? (
+          <div
+            style={{
+              width: "500px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifySelf: "center",
+              padding: "2rem 0",
+            }}
+          >
+            {news?.playbackId && (
+              <MuxPlayer
+                playbackId={news?.playbackId}
+                /* metadata={{
+                video_title: news?.title?.[newLocale]
+                  ? news?.title?.[newLocale]
+                  : "",
+              }} */
+              />
+            )}
+          </div>
+        ) : (
+          <></>
+        )}
         <div className={styles.filesLinks}>
           {news?.files &&
             medienElements.medienIntro

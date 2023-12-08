@@ -15,6 +15,7 @@ export default defineType({
       name: 'title',
       title: 'Titel',
       type: 'localeString',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -42,6 +43,11 @@ export default defineType({
       title: 'Artikelinhalt - 1 Bild pro Block, und am Ende des Block',
       type: 'array',
       of: [{type: 'localeBlockContent', title: 'Artikelinhalt - Block'}],
+    }),
+    defineField({
+      title: "Video file", 
+      name: "video",
+      type: "mux.video"
     }),
     defineField({
       name: 'images',
