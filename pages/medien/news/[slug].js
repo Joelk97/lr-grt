@@ -18,6 +18,7 @@ import Head from "next/head";
 import medienElements from "../../../public/multilanguage/medien.json";
 import NavigatorPages from "../../../components/navigatorPages";
 import refToLink from "../../../components/refToLink";
+import MuxPlayer from "@mux/mux-player-react";
 
 const pathQuery = `{'de':*[_type == "artikelMedia" && defined(slug.de_CH.current)].slug.de_CH.current, 
 'it':*[_type == "artikelMedia" && defined(slug.it_CH.current)].slug.it_CH.current,
@@ -28,6 +29,7 @@ const queryNews = `*[_type == "artikelMedia" && (slug.it_CH.current == $slug || 
   abstract,
   BlockContent,
   fileLanguages,
+  "playbackId": video.asset->playbackId,
   files,
   "filesUrl": files[].asset -> url,
   someLinks,
@@ -39,6 +41,7 @@ const iconStyle = { color: "#87BB3F", marginRight: "10" };
 export default function News({ news }) {
   const { locale, locales, asPath } = useRouter();
   const router = useRouter();
+  console.log(news.playbackId);
   const newLocale = locale.substring(0, 2) + "_CH";
   /*news?.BlockContent?.[0]?.fr_CH?
     .filter((e) => e._type == "image")
@@ -100,6 +103,29 @@ export default function News({ news }) {
             </div>
           )}
         </div>
+        {news?.playbackId && (
+          <div
+            style={{
+              width: "500px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifySelf: "center",
+              padding: "2rem 0",
+            }}
+          >
+            {news?.playbackId}
+            <MuxPlayer
+              startTime="on-demand"
+              playbackId={news?.playbackId}
+              /* metadata={{
+                video_title: news?.title?.[newLocale]
+                  ? news?.title?.[newLocale]
+                  : "",
+              }} */
+            />
+          </div>
+        )}
         <div className={styles.filesLinks}>
           {news?.files &&
             medienElements.medienIntro
@@ -107,6 +133,7 @@ export default function News({ news }) {
               .map((element, index) => {
                 return (
                   <ul key={index}>
+                    {console.log("playback:", news.playbackId)}
                     <h2>{element.files}</h2>
                     {news?.files &&
                       news?.files?.map((file, i) => {

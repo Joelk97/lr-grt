@@ -8,7 +8,7 @@ import {
   projectUsersWidget,
   projectInfoWidget,
 } from '@sanity/dashboard'
-import { muxInput } from 'sanity-plugin-mux-input'
+import {muxInput} from 'sanity-plugin-mux-input'
 
 export default defineConfig({
   name: 'default',
