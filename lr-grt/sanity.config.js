@@ -8,6 +8,7 @@ import {
   projectUsersWidget,
   projectInfoWidget,
 } from '@sanity/dashboard'
+import { muxInput } from 'sanity-plugin-mux-input'
 
 export default defineConfig({
   name: 'default',
@@ -16,6 +17,7 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
+    muxInput(),
     deskTool({
       structure: (S) =>
         S.list()
