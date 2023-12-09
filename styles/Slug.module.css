@@ -3,7 +3,6 @@
   background-color: #fffdfa;
   display: grid;
   grid-template-columns: 1.4fr 0.6fr;
-  grid-template-rows: auto auto auto;
   gap: 0px 0px;
   font-family: "actor", sans-serif;
 }
@@ -90,6 +89,10 @@
   margin: 0;
   padding: 0;
 }
+.videoContainer{
+  width: 500px;
+  grid-column: 1/2;
+}
 
 @media screen and (max-width: 730px) {
   .main {
@@ -98,7 +101,6 @@
   .images {
     padding: 2rem 1rem;
     padding-bottom: 3rem;
-    grid-row: 3/4;
     grid-column: 1/2;
   }
   .images ul {
@@ -118,5 +120,10 @@
   }
   .title {
     font-size: 28px;
+  }
+}
+@media screen and (max-width:530px){
+  .videoContainer{
+    width: 300px;
   }
 }

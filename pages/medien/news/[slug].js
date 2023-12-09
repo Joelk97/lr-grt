@@ -105,13 +105,13 @@ export default function News({ news }) {
         {news?.playbackId ? (
           <div
             style={{
-              width: "500px",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifySelf: "center",
               padding: "2rem 0",
             }}
+            className={styles.videoContainer}
           >
             {news?.playbackId && (
               <MuxPlayer
