@@ -133,7 +133,7 @@ export default function Mitteilung({ mitteilung }) {
                 return (
                   <ul key={index}>
                     <h2>{element.files}</h2>
-                    {mitteilung.fileLanguages?.[newLocale].map((file, i) => {
+                    {mitteilung.fileLanguages?.[newLocale]?.map((file, i) => {
                       return (
                         <li key={i}>
                           <a
