@@ -140,7 +140,7 @@ export default function Mitteilung({ mitteilung }) {
                             rel="noreferrer"
                             target="_blank"
                             href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                              file.asset._ref.split("-")[1]
+                              file?.asset?._ref?.split("-")[1]
                             }.pdf`}
                           >
                             <FaFileDownload style={iconStyle} />
