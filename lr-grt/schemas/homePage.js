@@ -153,7 +153,23 @@ export default defineType({
       ],
       validation: (Rule) => Rule.max(2).required(),
     }),
+    defineField({
+      name: 'ibanSlogan1',
+      title: 'Iban Text 1',
+      type: 'localeString',
+    }),
+    defineField({
+      name: 'ibanSlogan2',
+      title: 'Iban Text 2',
+      type: 'localeString',
+    }),
+    defineField({
+      name: 'iban',
+      title: 'Iban',
+      type: 'localeString',
+    }),
   ],
+
   preview: {
     select: {
       title: `title`,

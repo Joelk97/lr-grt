@@ -3,12 +3,12 @@ import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import homePage from "../public/multilanguage/homePage.json";
 import emailjs from "@emailjs/browser";
-import MyHead from "../components/MyHead.jsx";
 import Header from "../components/Header.jsx";
 import Intro from "../components/Intro.jsx";
 import Card from "../components/Card.jsx";
 import ListMedia from "../components/ListMedia.jsx";
 import Footer from "../components/Footer";
+import logoWhite from "../public/img/logoWhite.svg";
 import client from "../components/sanityCli";
 import transformDate from "../components/transformDate";
 import Link from "next/link";
@@ -16,8 +16,8 @@ import Head from "next/head";
 import headComponents from "../public/multilanguage/head.json";
 import { TiNews } from "react-icons/ti";
 import { BsMegaphoneFill } from "react-icons/bs";
+import { MdClose } from "react-icons/md";
 import { useState, useRef } from "react";
-import CookieConsent from "react-cookie-consent";
 
 const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
 [0]
@@ -26,6 +26,9 @@ const queryHomePage = `*[_type=='homePage']|order(_createdAt asc)
   sloganButton, 
   contactForm, 
   title, 
+  ibanSlogan1,
+  ibanSlogan2,
+  iban,
   slogan1, 
   slogan2, 
   button, 
@@ -56,6 +59,7 @@ export default function Home({ homeElements, medienMitt, politik }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [openIban, setOpenIban] = useState(true);
   const [sent, setSent] = useState(false);
   const newLocale = locale.substring(0, 2) + "_CH";
   const alleMedien = {
@@ -110,6 +114,7 @@ export default function Home({ homeElements, medienMitt, politik }) {
       );
     setSent(true);
   };
+  console.log("home elements", homeElements);
   return (
     <>
       {headComponents.head
@@ -386,6 +391,18 @@ export default function Home({ homeElements, medienMitt, politik }) {
               );
             })}
         </section>
+        <section className={styles.sectionIban}>
+          <Image src={logoWhite} alt="logo" />
+          <h1 className={`${styles.titlesSections}`}>
+            {homeElements.ibanSlogan1?.[newLocale]}
+          </h1>
+          {homeElements.ibanSlogan2?.[newLocale] && (
+            <h1>{homeElements.ibanSlogan2?.[newLocale]}</h1>
+          )}
+          {homeElements.iban?.[newLocale] && (
+            <h2>IBAN: {homeElements.iban?.[newLocale]}</h2>
+          )}
+        </section>
         <section className={styles.sectionInfo}>
           <Image
             alt="Cows"
@@ -466,6 +483,31 @@ export default function Home({ homeElements, medienMitt, politik }) {
           </div>
         </section>
       </main>
+      {openIban && (
+        <div className={styles.slideIn}>
+          <div
+            className={styles.hoverPointer}
+            onClick={() => setOpenIban(false)}
+            style={{
+              position: "absolute",
+              top: 5,
+              left: 5,
+            }}
+          >
+            <MdClose style={{ width: "24px", height: "24px" }} />
+          </div>
+          <Image src={logoWhite} alt="logo" />
+          {homeElements.ibanSlogan1?.[newLocale] && (
+            <h2>{homeElements.ibanSlogan1?.[newLocale]}</h2>
+          )}
+          {homeElements.ibanSlogan2?.[newLocale] && (
+            <h2>{homeElements.ibanSlogan2?.[newLocale]}</h2>
+          )}
+          {homeElements.iban?.[newLocale] && (
+            <p>IBAN: {homeElements.iban?.[newLocale]}</p>
+          )}
+        </div>
+      )}
       <Footer />
     </>
   );

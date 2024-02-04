@@ -20,6 +20,14 @@
   align-items: center;
   background-color: #fffdfa;
 }
+.sectionIban{ width: 100%;
+  min-height: 200px;
+background: #87bb3f;
+display: flex;
+flex-direction: column;
+align-items: center;
+color: #fffdfa;
+padding: 2rem 2rem;}
 .sectionMedienMitteilungen {
   width: 100%;
   min-height: 200px;
@@ -202,6 +210,34 @@
 }
 .imageInfo {
   z-index: -100;
+}
+@keyframes slideInFromBottomRight {
+  from {
+    transform: translateX(100%) translateY(100%);
+  }
+  to {
+    transform: translateX(0) translateY(0);
+  }
+}
+.slideIn {
+  z-index: 1000;
+  padding: 40px 20px;
+  max-width: 450px;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display:  flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  border-radius:  12px 0 0 0;
+  align-items: center;
+  transform: translateX(100%) translateY(100%);
+  animation: slideInFromBottomRight 0.5s ease-out 2s forwards;
+}
+.hoverPointer:hover{
+  cursor: pointer;
 }
 @media screen and (max-width: 1600px) {
   .sectionTakePart {
