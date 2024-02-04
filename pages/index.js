@@ -9,6 +9,7 @@ import Card from "../components/Card.jsx";
 import ListMedia from "../components/ListMedia.jsx";
 import Footer from "../components/Footer";
 import logoWhite from "../public/img/logoWhite.svg";
+import logoGreen from "../public/img/logoGreen.svg";
 import client from "../components/sanityCli";
 import transformDate from "../components/transformDate";
 import Link from "next/link";
@@ -496,7 +497,7 @@ export default function Home({ homeElements, medienMitt, politik }) {
           >
             <MdClose style={{ width: "24px", height: "24px" }} />
           </div>
-          <Image src={logoWhite} alt="logo" />
+          <Image src={logoGreen} alt="logo" />
           {homeElements.ibanSlogan1?.[newLocale] && (
             <h2>{homeElements.ibanSlogan1?.[newLocale]}</h2>
           )}
