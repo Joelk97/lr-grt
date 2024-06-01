@@ -37,7 +37,7 @@ export default function SitWolfArt({ artSitWolf }) {
   const { locale, locales, asPath } = useRouter();
   const router = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
-
+  console.log("artSitWolf", artSitWolf);
   if (router.isFallback) {
     return (
       <section>
@@ -72,125 +72,132 @@ export default function SitWolfArt({ artSitWolf }) {
       <Header informationen="true" />
       <NavigatorPages slug={artSitWolf?.slug?.[newLocale]?.current} />
 
-      {/* <main className={styles.main}>
-        {medienElements.mitteilung
-          .filter((l) => l.locale === locale)
-          .map((e, i) => {
-            return (
-              <span key={i} className={styles.date}>
-                {e.article} - {transformDate(artSitWolf.dateTime)}
-              </span>
-            );
-          })}
-
-        <div className={styles.articleContent}>
-          <h1 className={styles.title}>{artSitWolf?.title?.[newLocale]}</h1>
-          <p className={styles.abstract}>{artSitWolf?.abstract?.[newLocale]}</p>
-          <div className={styles.text}>
-            {artSitWolf?.BlockContent?.map((block, i) => {
-              return <PortableText key={i} value={block?.[newLocale]} />;
-            })}
-          </div>
-        </div>
-        <div className={styles.filesLinks}>
-          {artSitWolf.files &&
-            medienElements.medienIntro
-              .filter((l) => l.locale == locale)
-              .map((element, index) => {
-                return (
-                  <ul key={index}>
-                    <h2>{element.files}</h2>
-                    {artSitWolf.files?.map((file, i) => {
-                      return (
-                        <li key={i}>
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                              file.asset._ref.split("-")[1]
-                            }.pdf`}
-                          >
-                            <FaFileDownload style={iconStyle} />
-                            {file.title?.[newLocale]
-                              ? file.title?.[newLocale]
-                              : file.caption}
-                          </a>
-                        </li>
-                      );
-                    })}
-                    {artSitWolf?.fileLanguages?.[newLocale]?.map(
-                      (file, ind) => {
-                        return (
-                          <li key={ind}>
-                            <a
-                              rel="noreferrer"
-                              target="_blank"
-                              href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                                file.asset._ref.split("-")[1]
-                              }.pdf`}
-                            >
-                              <FaFileDownload style={iconStyle} />
-                              {file.title?.[newLocale]
-                                ? file.title?.[newLocale]
-                                : file.caption}
-                            </a>
-                          </li>
-                        );
-                      }
-                    )}
-                  </ul>
-                );
-              })}
-          {artSitWolf.someLinks &&
-            medienElements.medienIntro
-              .filter((l) => l.locale == locale)
-              .map((element, index) => {
-                return (
-                  <ul key={index}>
-                    <h2>{element.link}</h2>
-                    {artSitWolf.someLinks != null &&
-                      artSitWolf.someLinks?.map((link, i) => {
-                        return (
-                          <li key={i}>
-                            <a
-                              rel="noreferrer"
-                              target="_blank"
-                              href={link?.link}
-                            >
-                              <AiOutlineLink style={iconStyle} />
-                              {link?.name?.[newLocale]
-                                ? link?.name?.[newLocale]
-                                : link?.link}
-                            </a>
-                          </li>
-                        );
-                      })}
-                  </ul>
-                );
-              })}
-        </div>
-        <div className={styles.images}>
-          <ul key={i}>
-            {artSitWolf?.imagesUrl?.map((image, i) => {
+      {artSitWolf && (
+        <main className={styles.main}>
+          {medienElements.mitteilung
+            .filter((l) => l.locale === locale)
+            .map((e, i) => {
               return (
-                <Link key={i} href={image}>
-                  <li key={i}>
-                    <Image
-                      alt={`Image ${i}`}
-                      layout="fill"
-                      objectFit="cover"
-                      src={image}
-                      placeholder="blur"
-                      blurDataURL="/img/logoGreenBkgG.svg"
-                    />
-                  </li>
-                </Link>
+                <span key={i} className={styles.date}>
+                  {e.article} - {transformDate(artSitWolf.dateTime)}
+                </span>
               );
             })}
-          </ul>
-        </div>
-      </main> */}
-      <div style={{ minHeight: "80vh" }}></div>
+
+          <div className={styles.articleContent}>
+            <h1 className={styles.title}>{artSitWolf?.title?.[newLocale]}</h1>
+            <p className={styles.abstract}>
+              {artSitWolf?.abstract?.[newLocale]}
+            </p>
+            {artSitWolf?.BlockContent && (
+              <div className={styles.text}>
+                {artSitWolf?.BlockContent?.map((block, i) => {
+                  return <PortableText key={i} value={block?.[newLocale]} />;
+                })}
+              </div>
+            )}
+          </div>
+          <div className={styles.filesLinks}>
+            {artSitWolf?.files &&
+              medienElements.medienIntro
+                .filter((l) => l.locale == locale)
+                .map((element, index) => {
+                  return (
+                    <ul key={index}>
+                      <h2>{element.files}</h2>
+                      {artSitWolf?.files.length > 0 &&
+                        artSitWolf?.files?.map((file, i) => {
+                          return (
+                            <li key={i}>
+                              <a
+                                rel="noreferrer"
+                                target="_blank"
+                                href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                                  file?.asset?._ref?.split("-")[1]
+                                }.pdf`}
+                              >
+                                <FaFileDownload style={iconStyle} />
+                                {file.title?.[newLocale]
+                                  ? file.title?.[newLocale]
+                                  : file.caption}
+                              </a>
+                            </li>
+                          );
+                        })}
+                      {artSitWolf?.fileLanguages?.[newLocale]?.map(
+                        (file, ind) => {
+                          return (
+                            <li key={ind}>
+                              <a
+                                rel="noreferrer"
+                                target="_blank"
+                                href={`https://cdn.sanity.io/files/imbz32xt/production/${
+                                  file?.asset?._ref?.split("-")[1]
+                                }.pdf`}
+                              >
+                                <FaFileDownload style={iconStyle} />
+                                {file.title?.[newLocale]
+                                  ? file.title?.[newLocale]
+                                  : file.caption}
+                              </a>
+                            </li>
+                          );
+                        }
+                      )}
+                    </ul>
+                  );
+                })}
+            {artSitWolf.someLinks &&
+              medienElements.medienIntro
+                .filter((l) => l.locale == locale)
+                .map((element, index) => {
+                  return (
+                    <ul key={index}>
+                      <h2>{element.link}</h2>
+                      {artSitWolf.someLinks != null &&
+                        artSitWolf.someLinks?.map((link, i) => {
+                          return (
+                            <li key={i}>
+                              <a
+                                rel="noreferrer"
+                                target="_blank"
+                                href={link?.link}
+                              >
+                                <AiOutlineLink style={iconStyle} />
+                                {link?.name?.[newLocale]
+                                  ? link?.name?.[newLocale]
+                                  : link?.link}
+                              </a>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  );
+                })}
+          </div>
+          <div className={styles.images}>
+            <ul>
+              {artSitWolf?.imagesUrl?.map((image, i) => {
+                return (
+                  <Link key={i} href={image}>
+                    <li key={i}>
+                      <Image
+                        alt={`Image ${i}`}
+                        layout="fill"
+                        objectFit="cover"
+                        src={image}
+                        placeholder="blur"
+                        blurDataURL="/img/logoGreenBkgG.svg"
+                      />
+                    </li>
+                  </Link>
+                );
+              })}
+            </ul>
+          </div>
+        </main>
+      )}
+      {/*  <div style={{ minHeight: "80vh" }}></div> */}
       <Footer />
     </>
   );
