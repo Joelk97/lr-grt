@@ -88,5 +88,19 @@
       "locale": "it-CH",
       "article": "News"
     }
+  ],
+  "info": [
+    {
+      "locale": "de-CH",
+      "info": "Information"
+    },
+    {
+      "locale": "fr-CH",
+      "info": "Information"
+    },
+    {
+      "locale": "it-CH",
+      "info": "Informazione"
+    }
   ]
 }

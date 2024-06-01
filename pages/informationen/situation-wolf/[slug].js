@@ -74,12 +74,12 @@ export default function SitWolfArt({ artSitWolf }) {
 
       {artSitWolf && (
         <main className={styles.main}>
-          {medienElements.mitteilung
+          {medienElements.info
             .filter((l) => l.locale === locale)
             .map((e, i) => {
               return (
                 <span key={i} className={styles.date}>
-                  {e.article} - {transformDate(artSitWolf.dateTime)}
+                  {e.info} - {transformDate(artSitWolf.dateTime)}
                 </span>
               );
             })}
