@@ -21,24 +21,17 @@ export default function Kontakt() {
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
   const [sent, setSent] = useState(false);
+  console.log(name, email, text);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_webdev",
-        "template_web_lr_grt",
-        form.current,
-        "wI1T6sSQk8GEygu_n"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    setSent(true);
+
+    const response = await fetch("/api/email", {
+      method: "POST",
+      body: JSON.stringify({ name: name, email: email, message: text }),
+    });
+    if (response.ok) {
+      setSent(true);
+    }
   };
   return (
     <>
