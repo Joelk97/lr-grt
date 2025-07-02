@@ -21,17 +21,20 @@ export default function Kontakt() {
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
   console.log(name, email, text);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setSending(() => true);
     const response = await fetch("/api/email", {
       method: "POST",
       body: JSON.stringify({ name: name, email: email, message: text }),
     });
     if (response.ok) {
       setSent(true);
+      setSending(() => false);
     }
+    setSending(() => false);
   };
   return (
     <>
@@ -124,8 +127,9 @@ export default function Kontakt() {
                             <button
                               className={`${styles.inputs} ${styles.buttonSubmit}`}
                               type="submit"
+                              disabled={sending}
                             >
-                              {e.button}
+                              {sending ? "✈️..." : e.button}
                             </button>
                           </form>
                         ) : (
