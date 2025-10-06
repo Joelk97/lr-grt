@@ -40,7 +40,7 @@ export default function Mitteilung({ mitteilung }) {
   const { locale, locales, asPath } = useRouter();
   const router = useRouter();
   const newLocale = locale.substring(0, 2) + "_CH";
-
+  console.log("mitteilung", mitteilung);
   if (router.isFallback) {
     return (
       <section>
