@@ -92,8 +92,8 @@ export default function PolitikArt({ underCatVer }) {
                           rel="noreferrer"
                           target="_blank"
                           href={`https://cdn.sanity.io/files/imbz32xt/production/${
-                            file.asset._ref.split("-")[1]
-                          }.${file.asset._ref.split("_").pop()}`}
+                            file.asset?._ref?.split("-")[1]
+                          }.${file.asset?._ref?.split("-").pop()}`}
                         >
                           <FaFileDownload style={iconStyle} />
                           {file.title?.[newLocale]
