@@ -105,7 +105,7 @@ export default function PolitikArt({ artPolitik }) {
                               target="_blank"
                               href={`https://cdn.sanity.io/files/imbz32xt/production/${
                                 file.asset._ref.split("-")[1]
-                              }.pdf`}
+                              }.${file.asset._ref.split("_").pop()}`}
                             >
                               <FaFileDownload style={iconStyle} />
                               {file.title?.[newLocale]
