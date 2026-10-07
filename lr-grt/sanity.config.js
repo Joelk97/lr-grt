@@ -46,14 +46,7 @@ export default defineConfig({
                           .id('c7aa830d-73d3-4991-9c2a-18af7940c6b6')
                       ),
 
-                    S.listItem()
-                      .title('Mitglieder')
-                      .child(
-                        S.documentList()
-                          .title('Mitglieder')
-                          .filter("_type == 'mitglieder'")
-                          .defaultOrdering([{field: 'name', direction: 'asc'}])
-                      ),
+                   
                     S.listItem()
                       .title('Kantonale Sektionen')
                       .child(
