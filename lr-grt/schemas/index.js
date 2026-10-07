@@ -42,7 +42,7 @@ export const schemaTypes = [
   homePage,
   urlAndName,
   cantonalSection,
-  
+
   introCantSect,
   subEinfuerung,
   katMedia,

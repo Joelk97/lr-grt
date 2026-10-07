@@ -46,16 +46,6 @@ export default defineType({
           scheme: ['http', 'https'],
         }),
     }),
-    defineField({
-      name: 'mitglieder',
-      title: 'Mitglieder/ Verantwortlicher',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'mitglieder'}],
-        },
-      ],
-    }),
+   
   ],
 })
